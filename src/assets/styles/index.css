@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: kalameh;
+  src: url(../fonts/KalamehWeb-Black.woff2);
+  font-weight: bolder;
+}
+@font-face {
+  font-family: kalameh;
+  src: url(../fonts/KalamehWeb-Bold.woff2);
+  font-weight: bold;
+}
+@font-face {
+  font-family: kalameh;
+  src: url(../fonts/KalamehWeb-Regular.woff2);
+  font-weight: normal;
+}
+body {
+  margin: 0;
+  font-family: kalameh, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+}
+
+h4 {
+  @apply text-gold;
+}
+h2::after {
+  @apply block h-1 mt-2 w-20 bg-gold;
+  content: '';
+}
+h2 {
+  @apply font-bold;
+}
+i {
+  @apply block w-6 h-6 bg-no-repeat bg-cover;
+}
+main > * {
+  @apply mb-14; 
+}
+.overlay {
+  @apply h-full w-full absolute top-0 right-0 bg-black bg-opacity-0;
+}
+.w-5\/6 {
+  width: 83%;
+  max-width: 1000px;
+} 
+.btn {
+  @apply py-2 px-5 w-max flex justify-center items-center border-2 border-transparent transition-colors;
+}
+
+.general-btn:hover > i {
+  @apply invert;
+}
+.primary-btn:hover > i {
+  @apply invert-0;
+}
+.primary-btn, .general-btn:hover {
+  @apply bg-black text-white border-black;
+}
+.general-btn, .primary-btn:hover {
+  @apply text-black bg-white border-black;
+}
+.circle {
+  @apply rounded-full px-3 py-3 inline-block;
+}
