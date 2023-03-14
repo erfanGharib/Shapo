@@ -35,7 +35,10 @@ h2::after {
   content: '';
 }
 h2 {
-  @apply font-bold;
+  @apply font-bold text-black;
+}
+p {
+  @apply text-black;
 }
 i {
   @apply block w-6 h-6 bg-no-repeat bg-cover;
@@ -68,4 +71,11 @@ main > * {
 }
 .circle {
   @apply rounded-full px-3 py-3 inline-block;
+}
+
+.containerTextPart {
+  @apply w-1/2 flex flex-col justify-center;
+}
+.containerTextPart > *{
+  @apply transition-all transform translate-y-full opacity-0 delay-500;
 }

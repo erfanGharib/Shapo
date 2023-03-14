@@ -15,7 +15,7 @@ module.exports = {
       },
       colors: {
         gold: 'rgb(220, 177, 74)',
-        black: 'rgb(11, 11, 11)',
+        black: 'rgb(22, 22, 22)',
         gray: {
           50: 'rgb(244, 245, 247)',
           100: 'rgb(227, 232, 236)',

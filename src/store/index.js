@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { $_mainSlider } from './reducers/_mainSlider';
+import { $_sliderStatus } from './reducers/_sliderStatus';
 
 const store = configureStore({
     reducer: {
-        $_mainSlider: $_mainSlider.reducer,
+        $_sliderStatus: $_sliderStatus.reducer,
     },
 });
 export default store;
