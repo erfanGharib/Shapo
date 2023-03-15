@@ -31,12 +31,12 @@ const Slider = ({ containerRef, sliderRef }) => {
                 <div className='flex justify-start h-full transition-transform duration-700' ref={sliderRef}>
                     {slides.map(({ imgSrc, supTitle, title, desc }, index) =>
                         <div
+                            key={index}
                             style={{ backgroundImage: `url(${imgSrc})` }}
                             className='h-full min-w-full items-center flex -z-10 bg-cover transition-all duration-500 bg-center'
                         >
                             <Container
                                 containerRef={containerRef[index]}
-                                key={index}
                                 title={title}
                                 supTitle={supTitle}
                                 desc={desc}

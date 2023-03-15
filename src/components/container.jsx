@@ -21,7 +21,7 @@ const Container = ({
                     null
                 }
             </div>
-            <div className='containerTextPart'>
+            <div className={`w-1/2  flex flex-col justify-center ${primary ? 'animateChilds' : ''}`}>
                 <h4 className={`!duration-300 w-20 mb-1 ${primary ? 'text-gold' : 'text-gray-400'}`}>{supTitle}</h4>
                 <h2 className={`!duration-500 leading-tight ${primary ? 'text-[55px]' : 'text-3xl'}`}>{title}</h2>
                 <p  className='!duration-700 mb-7 mt-5'>{desc}</p>

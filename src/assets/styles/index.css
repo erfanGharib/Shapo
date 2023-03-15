@@ -47,14 +47,18 @@ main > * {
   @apply mb-14; 
 }
 .overlay {
-  @apply h-full w-full absolute top-0 right-0 bg-black bg-opacity-0;
+  @apply h-full w-full absoluteTopRight bg-black bg-opacity-0;
 }
 .w-5\/6 {
   width: 83%;
   max-width: 1000px;
 } 
 .btn {
-  @apply py-2 px-5 w-max flex justify-center items-center border-2 border-transparent transition-colors;
+  @apply py-2.5 px-5 w-max flex justify-center items-center border border-transparent transition-colors;
+}
+
+.absoluteTopRight {
+  @apply absolute top-0 right-0;
 }
 
 .general-btn:hover > i {
@@ -69,13 +73,13 @@ main > * {
 .general-btn, .primary-btn:hover {
   @apply text-black bg-white border-black;
 }
+.secondray-btn:hover {
+  @apply border-black;
+}
 .circle {
   @apply rounded-full px-3 py-3 inline-block;
 }
 
-.containerTextPart {
-  @apply w-1/2 flex flex-col justify-center;
-}
-.containerTextPart > *{
+.animateChilds > *{
   @apply transition-all transform translate-y-full opacity-0 delay-500;
 }

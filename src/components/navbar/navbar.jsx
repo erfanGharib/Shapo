@@ -31,7 +31,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div class="flex justify-end sm:justify-center items-center w-1/3">
+                <div className="flex justify-end sm:justify-center items-center w-1/3">
                     <Link to="/">
                         <img src={logo} alt="logo" width='70' className='mt-2' />
                     </Link>
