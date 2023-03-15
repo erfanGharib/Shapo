@@ -71,7 +71,7 @@ main > * {
   @apply bg-black text-white border-black;
 }
 .general-btn, .primary-btn:hover {
-  @apply text-black bg-white border-black;
+  @apply text-black bg-transparent border-black;
 }
 .secondray-btn:hover {
   @apply border-black;

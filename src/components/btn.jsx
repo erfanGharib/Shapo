@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import Ico from './ico';
 
-const Btn = ({ count, icoSrc, className, icoSize, disabled, style }) => {
+const Btn = ({ count, icoSrc, className, icoSize, disabled, style, onClick }) => {
     return (
         <button 
             style={{...style}}
             disabled={disabled} 
             className={`${className} px-3 py-1 rounded text-black relative`}
+            onClick={onClick}
         >
             <Ico src={icoSrc} style={{width:icoSize, height:icoSize}}/>
             {count === undefined ? 

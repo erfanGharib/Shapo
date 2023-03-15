@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Ico from "../ico";
 import icoBar from '../../assets/icons/bar.svg';
 import SocialMedia from "../socialMedia";
-import angleRight from '../../assets/icons/angle-left.svg'
+import arrowRight from '../../assets/icons/arrow-left.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { setStatus } from '../../store/reducers/_sidebarStatus'
 
@@ -57,7 +57,7 @@ const Sidebar = () => {
                         links.map(({ link, text }, index) =>
                             <Link to={link} key={index} className='!w-full !px-3 btn secondray-btn'>
                                 {text}
-                                <Ico src={angleRight} className='w-5 h-5 mr-auto' />
+                                <Ico src={arrowRight} className='w-5 h-5 mr-auto' />
                             </Link>
                         )
                     }

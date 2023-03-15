@@ -1,4 +1,4 @@
-import angleRight from '../assets/icons/angle-left.svg'
+import angleRight from '../assets/icons/arrow-left.svg'
 import Ico from './ico';
 import TomanSign from './tomanSign';
 
@@ -26,7 +26,7 @@ const Container = ({
                 <h2 className={`!duration-500 leading-tight ${primary ? 'text-[55px]' : 'text-3xl'}`}>{title}</h2>
                 <p  className='!duration-700 mb-7 mt-5'>{desc}</p>
 
-                <button className={`!duration-1000 btn ${primary ? 'primary-btn' : 'general-btn'}`}>
+                <button className={`!duration-500 btn ${primary ? 'primary-btn' : 'general-btn'}`}>
                     {buttonText}
                     {tomanSign ? <TomanSign /> : null}
                     <Ico src={angleRight} className={`mr-1 filter  ${primary ? 'invert' : ''}`} />
