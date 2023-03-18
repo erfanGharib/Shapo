@@ -51,7 +51,7 @@ const Sidebar = () => {
                 className={`${status ? '!opacity-70' : 'opacity-0 invisible'} transition-opacity duration-300 w-full h-screen bg-black z-10 absoluteTopRight`}
             ></div>
 
-            <div className={`${status ? 'translate-x-0' : 'translate-x-full'} absoluteTopRight h-screen flex flex-col pt-20 gap-y-12 p-12 sm:w-96 w-full z-20 bg-white transform transition-transform duration-300 `}>
+            <div className={`${status ? 'translate-x-0' : 'translate-x-full'} absoluteTopRight h-screen flex flex-col pt-20 gap-y-10 p-12 sm:w-96 w-full z-20 bg-white transform transition-transform duration-300 `}>
                 <div className='flex flex-col gap-y-2'>
                     {
                         links.map(({ link, text }, index) =>
@@ -69,11 +69,11 @@ const Sidebar = () => {
                         ایران، استان سمنان، شهرستان شاهرود<br />
                         خیابان آزادگان، کوچه آزادگان دوم<br />
                         erfangharib5@gmail.com<br />
-                        (+98) 939 *** 3406
+                        ۰۹۳۹ ۰۰۰ ۳۴۰۶
                     </p>
                 </div>
 
-                <SocialMedia />
+                <SocialMedia className='px-3' />
             </div>
         </div>
     );

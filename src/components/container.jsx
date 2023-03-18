@@ -26,11 +26,13 @@ const Container = ({
                 <h2 className={`!duration-500 leading-tight ${primary ? 'text-[55px]' : 'text-3xl'}`}>{title}</h2>
                 <p  className='!duration-700 mb-7 mt-5'>{desc}</p>
 
-                <button className={`!duration-500 btn ${primary ? 'primary-btn' : 'general-btn'}`}>
-                    {buttonText}
-                    {tomanSign ? <TomanSign /> : null}
-                    <Ico src={angleRight} className={`mr-1 filter  ${primary ? 'invert' : ''}`} />
-                </button>
+                <div className='!duration-1000'>
+                    <button className={`btn ${primary ? 'primary-btn' : 'general-btn'}`}>
+                        {buttonText}
+                        {tomanSign ? <TomanSign /> : null}
+                        <Ico src={angleRight} className={`mr-1 filter  ${primary ? 'invert' : ''}`} />
+                    </button>
+                </div>
             </div>
         </div>
     );

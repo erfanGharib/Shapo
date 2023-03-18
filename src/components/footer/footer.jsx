@@ -1,138 +1,113 @@
+import { Link } from "react-router-dom";
+import Input from "../input";
+import Logo from "../logo";
 import SocialMedia from "../socialMedia";
+import icoArrowLeft from '../../assets/icons/arrow-left.svg';
 
 const Footer = () => {
+    const lists = [
+        {
+            title: 'راهنمای خرید از شاپو',
+            items: [
+                {
+                    link: '#',
+                    text: 'نحوه ثبت سفارش',
+                },
+                {
+                    link: '#',
+                    text: 'رویه ارسال سفارش',
+                },
+                {
+                    link: '#',
+                    text: 'شیوه های پرداخت',
+                },
+            ]
+        },
+        {
+            title: 'خدمات مشتریان',
+            items: [
+                {
+                    link: '#',
+                    text: 'پاسخ به پرسش های متداول',
+                },
+                {
+                    link: '#',
+                    text: 'رویه مرجوع کردن کالا',
+                },
+                {
+                    link: '#',
+                    text: 'شرایط استفاده',
+                },
+                {
+                    link: '#',
+                    text: 'حریم خصوصی',
+                },
+            ]
+        },
+        {
+            title: 'درباره ما',
+            items: [
+                {
+                    link: '#',
+                    text: 'درباره ما',
+                },
+                {
+                    link: '#',
+                    text: 'ما چه کاری انجام میدهیم',
+                },
+                {
+                    link: '#',
+                    text: 'ارتباط با ما',
+                },
+            ]
+        },
+    ]
     return (
-        <footer aria-label="Site Footer" className="bg-white">
-            <div className="max-w-screen-xl px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8">
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <SocialMedia />
-                </div>
-
-                <div className="grid grid-cols-1 gap-8 pt-8 border-t border-gray-100 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16">
-                    <div>
-                        <p className="font-medium text-gray-900">Services</p>
-
-                        <nav aria-label="Footer Navigation - Services" className="mt-6">
-                            <ul className="space-y-4 text-sm">
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        1on1 Coaching
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Company Review
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Accounts Review
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        HR Consulting
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        SEO Optimisation
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+        <footer aria-label="Site Footer" className="w-full border-gray-100 border-t">
+            <div className="max-w-1366 w-5/6 pt-16 pb-10 mx-auto">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    {
+                        lists.map(({ title, items }) => {
+                            return (
+                                <div>
+                                    <p className="font-medium text-black">{title}</p>
+                                    <ul className="space-y-4 text-sm mt-6">
+                                        {
+                                            items.map(({ link, text }) => 
+                                                <li>
+                                                    <Link 
+                                                        href={link} 
+                                                        className="text-gray-400 transition hover:opacity-75"
+                                                    >
+                                                        {text}
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
+                                    </ul>
+                                </div>
+                            )
+                        })
+                    }
 
                     <div>
-                        <p className="font-medium text-gray-900">Company</p>
-
-                        <nav aria-label="Footer Navigation - Company" className="mt-6">
-                            <ul className="space-y-4 text-sm">
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        About
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Meet the Team
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Accounts Review
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <div>
-                        <p className="font-medium text-gray-900">Helpful Links</p>
-
-                        <nav aria-label="Footer Navigation - Company" className="mt-6">
-                            <ul className="space-y-4 text-sm">
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Contact
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        FAQs
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Live Chat
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <div>
-                        <p className="font-medium text-gray-900">Legal</p>
-                        <nav aria-label="Footer Navigation - Legal" className="mt-6">
-                            <ul className="space-y-4 text-sm">
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Accessibility
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Returns Policy
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Refund Policy
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" className="text-gray-700 transition hover:opacity-75">
-                                        Hiring Statistics
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <p className="font-medium text-gray-900 mb-2">از تخفیف ها با خبر باشید</p>
+                        <Input placeholder='ایمیل شما' icoSrc={icoArrowLeft} />
                     </div>
                 </div>
 
-                <p className="text-xs text-gray-500">
-                    &copy; 2022. Company Name. All rights reserved.
+                <div className="mt-14 sm:flex text-sm flex-col md:flex-row sm:items-center sm:justify-between">
+                    <SocialMedia className='w-1/3' />
+                    <Logo />
+                    <div className='flex justify-end gap-x-11 w-1/3'>
+                        <Link to='#'>شرایط و مقررات</Link>
+                        <Link to='#'>سیاست ها</Link>
+                        <Link to='#'>نقشه</Link>
+                    </div>
+                </div>
+
+                <p className="text-xs text-gray-500 mx-auto w-max mt-7">
+                    &copy; 1401 - 1402 کلیه حقوق این سایت متعلق به شاپو است.
                 </p>
             </div>
         </footer>

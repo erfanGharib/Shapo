@@ -4,7 +4,7 @@ import Ico from "./ico";
 import icoInstagram from '../assets/icons/social-media/instagram.svg';
 import icoGithub from '../assets/icons/social-media/github.svg';
 
-const SocialMedia = () => {
+const SocialMedia = ({ className }) => {
     const items = [
         {
             link: 'https://github.com/erfanGharib',
@@ -16,7 +16,7 @@ const SocialMedia = () => {
         },
     ]
     return (
-        <div className="flex gap-5 px-3 flex-wrap">
+        <div className={`flex gap-5 items-center ${className}`}>
             <span>با ما در شبکه های اجتماعی</span>
             {items.map(({ link, ico }, index) =>
                 <a

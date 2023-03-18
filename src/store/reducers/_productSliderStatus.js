@@ -5,20 +5,16 @@ export const $_productSliderStatus = createSlice({
     initialState: {
         status: 0,
         limit: 0,
-        translation: 25,
+        translation: 25.5,
     },
     reducers: {
-        setStatus: (state, { payload }) => {
-            console.log((state.limit - 4) * state.translation, payload);
-            if(
-                payload === 'plus' && 
-                state.status !== -((state.limit - 4) * state.translation)
-            ) state.status -= state.translation;
-            
-            else if(
-                payload === 'minus' && 
-                state.status !== 0
-            ) state.status += state.translation;
+        goRight: state => {
+            if(state.status !== -((state.limit - 4) * state.translation)) 
+                state.status -= state.translation;
+        },
+        goLeft: state => {            
+            if(state.status !== 0) 
+                state.status += state.translation;
         },
         setLimit: (state, { payload }) => {
             state.limit = payload;
@@ -26,4 +22,4 @@ export const $_productSliderStatus = createSlice({
     }
 });
 
-export const { setStatus, setLimit } = $_productSliderStatus.actions;
+export const { goRight, goLeft, setLimit } = $_productSliderStatus.actions;

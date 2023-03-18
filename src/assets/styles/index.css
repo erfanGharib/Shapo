@@ -54,7 +54,7 @@ main > * {
   max-width: 1000px;
 } 
 .btn {
-  @apply py-2.5 px-5 w-max flex justify-center items-center border border-transparent transition-colors;
+  @apply py-2.5 px-5 duration-300 w-max flex justify-center items-center border border-transparent transition-colors;
 }
 
 .absoluteTopRight {

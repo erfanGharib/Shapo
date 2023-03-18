@@ -3,7 +3,7 @@ import Btn from "../btn";
 import Product from "./product";
 import angleRight from '../../assets/icons/angle-right.svg'
 import angleLeft from '../../assets/icons/angle-left.svg'
-import { setLimit, setStatus } from "../../store/reducers/_productSliderStatus";
+import { goLeft, goRight, setLimit, setStatus } from "../../store/reducers/_productSliderStatus";
 import { useEffect } from "react";
 
 const ProductSlider = ({ products, title = 'product slider' }) => {
@@ -20,7 +20,7 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
             <h2 className='text-3xl flex items-center flex-col'>{title}</h2>
 
             <div className='w-full flex justify-center'>
-                <Btn icoSrc={angleRight} onClick={() => dispatch(setStatus('plus'))} />
+                <Btn icoSrc={angleRight} onClick={() => dispatch(goRight())} />
                 <div className='min-w-full relative overflow-x-hidden'>
                     <div
                         className='mt-7 flex gap-x-5 -z-10 justify-end transition-transform duration-300'
@@ -35,7 +35,7 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
                         <Product />
                     </div>
                 </div>
-                <Btn icoSrc={angleLeft} onClick={() => dispatch(setStatus('minus'))} />
+                <Btn icoSrc={angleLeft} onClick={() => dispatch(goLeft())} />
             </div>
         </div>
     );

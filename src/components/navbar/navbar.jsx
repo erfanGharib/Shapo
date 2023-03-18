@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo192.png'
 import Btn from "../btn";
-import SearchBox from "./searchBox";
 import Sidebar from "./sidebar";
 import icoHeart from '../../assets/icons/heart.svg';
 import icoUser from '../../assets/icons/user.svg';
 import icoShoppingBag from '../../assets/icons/shopping-bag.svg';
 import { useState } from "react";
+import Logo from "../logo";
+import Input from "../input";
+import icoSearch from '../../assets/icons/search.svg';
 
 const Navbar = () => {
     const [navCssClass, setNavCssClass] = useState(false);
@@ -32,12 +33,12 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex justify-end sm:justify-center items-center w-1/3">
-                    <Link to="/">
-                        <img src={logo} alt="logo" width='70' className='mt-2' />
-                    </Link>
+                    <Logo />
                 </div>
 
-                <SearchBox />
+                <div className='w-1/3 sm:flex justify-end hidden'>
+                    <Input placeholder='جست و جو ...' icoSrc={icoSearch} />
+                </div>
             </div>
         </nav>
     );
