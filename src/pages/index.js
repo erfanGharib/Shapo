@@ -10,7 +10,7 @@ import PostGrid from "../components/blog/postGrid";
 
 const Home = () => {
     return (
-        <main className="w-full">
+        <main className="w-full flex items-start flex-col">
             <Header />
             <Container
                 supTitle='محصولات ویژه'
@@ -26,7 +26,7 @@ const Home = () => {
                 desc='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است'
                 buttonText='فقط 1,500,000'
                 imgSrc={imgTableWoodPine}
-                />
+            />
             <Container 
                 supTitle='محصولات ویژه'
                 title='گلدان چوبی'

@@ -44,7 +44,7 @@ i {
   @apply block w-6 h-6 bg-no-repeat bg-cover;
 }
 main > * {
-  @apply mb-14; 
+  @apply md:mb-14 mb-[85px]; 
 }
 .overlay {
   @apply h-full w-full absoluteTopRight bg-black bg-opacity-0;
@@ -82,4 +82,12 @@ main > * {
 
 .animateChilds > *{
   @apply transition-all transform translate-y-full opacity-0 delay-500;
+}
+
+.productSlider::-webkit-scrollbar {
+  height: 3px;
+    
+}
+.productSlider::-webkit-scrollbar-thumb {
+  background: rgb(235, 235, 235); 
 }

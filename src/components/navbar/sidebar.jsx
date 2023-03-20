@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Ico from "../ico";
-import icoBar from '../../assets/icons/bar.svg';
+import icoClose from '../../assets/icons/close.svg';
 import SocialMedia from "../socialMedia";
 import arrowRight from '../../assets/icons/arrow-left.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { setStatus } from '../../store/reducers/_sidebarStatus'
+import Btn from "../btn";
 
 const Sidebar = () => {
     const dispatch = useDispatch();
@@ -38,20 +39,16 @@ const Sidebar = () => {
     ]
 
     return (
-        <div className="flex flex-col md:flex-row mt-3 md:mt-0">
-            <button 
-                onClick={() => dispatch(setStatus())} 
-                className={`${status ? 'translate-x-12' : ''} duration-300 transition-transform transform ml-2 py-1 rounded text-black z-30`}
-            >
-                <Ico src={icoBar} />
-            </button>
-
+        // <div className={`${status ? '' : 'invisible'} z-20 flex flex-col md:flex-row mt-3 md:mt-0 absoluteTopRight h-screen w-full`}>
+        <>
             <div
                 onClick={() => dispatch(setStatus())}
-                className={`${status ? '!opacity-70' : 'opacity-0 invisible'} transition-opacity duration-300 w-full h-screen bg-black z-10 absoluteTopRight`}
+                className={`${status ? '!opacity-70' : 'opacity-0 invisible'} z-30 w-full h-screen transition-opacity duration-300 bg-black absoluteTopRight`}
             ></div>
 
-            <div className={`${status ? 'translate-x-0' : 'translate-x-full'} absoluteTopRight h-screen flex flex-col pt-20 gap-y-10 p-12 sm:w-96 w-full z-20 bg-white transform transition-transform duration-300 `}>
+            <div className={`${status ? 'translate-x-0' : 'translate-x-full'} z-40 px-10 py-6 md:w-96 w-full absoluteTopRight bg-white transform transition-transform duration-300 h-screen flex flex-col gap-y-10`}>
+                <Btn icoSrc={icoClose} onClick={() => dispatch(setStatus())} />
+
                 <div className='flex flex-col gap-y-2'>
                     {
                         links.map(({ link, text }, index) =>
@@ -65,7 +62,7 @@ const Sidebar = () => {
 
                 <div className='flex flex-col px-3'>
                     <span>اطلاعات</span>
-                    <p className='mt-4 opacity-50'>
+                    <p className='mt-4 text-gray-400'>
                         ایران، استان سمنان، شهرستان شاهرود<br />
                         خیابان آزادگان، کوچه آزادگان دوم<br />
                         erfangharib5@gmail.com<br />
@@ -75,7 +72,8 @@ const Sidebar = () => {
 
                 <SocialMedia className='px-3' />
             </div>
-        </div>
+        </>
+        // </div>
     );
 }
 export default Sidebar;

@@ -33,8 +33,12 @@ const Slider = ({ containerRef, sliderRef }) => {
                         <div
                             key={index}
                             style={{ backgroundImage: `url(${imgSrc})` }}
-                            className='h-full min-w-full items-center flex -z-10 bg-cover transition-all duration-500 bg-center'
+                            className='h-full min-w-full items-center relative flex -z-10 bg-cover transition-all duration-500 bg-[35%] md:bg-center'
                         >
+                            <div 
+                                style={{backgroundImage: 'linear-gradient(-90deg, white 30%, #ffffff11)'}}
+                                className='w-full h-full absoluteTopRight block md:hidden opacity-80 z-10 '
+                            ></div>
                             <Container
                                 containerRef={containerRef[index]}
                                 title={title}

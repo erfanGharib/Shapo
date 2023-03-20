@@ -35,7 +35,7 @@ const Header = () => {
     });
 
     return (
-        <div className='bg-gray-50 w-full h-[85vh] mb-32 overflow-hidden relative z-0'>
+        <div className='bg-gray-50 w-full h-[85vh] md:mb-32 mb-24 overflow-hidden relative z-0'>
             <MainSlider
                 containerRef={containerRef}
                 sliderRef={sliderRef}

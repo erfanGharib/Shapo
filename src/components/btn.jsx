@@ -6,7 +6,7 @@ const Btn = ({ count, icoSrc, className, icoSize, disabled, style, onClick }) =>
         <button 
             style={{...style}}
             disabled={disabled} 
-            className={`${className} px-3 py-1 rounded text-black relative`}
+            className={`${className} p-2.5 rounded text-black relative md:cursor-pointer cursor-default`}
             onClick={onClick}
         >
             <Ico src={icoSrc} style={{width:icoSize, height:icoSize}}/>

@@ -27,7 +27,10 @@ const Product = ({
     }
 
     return (
-        <div className="min-w-[23.5%] max-w-[23.5%] w-1/4 flex flex-col items-center">
+        <div 
+            className="md:min-w-[23.5%] md:max-w-[23.5%] min-w-[48%] max-w-[48%] flex flex-col items-center"
+            style={{scrollSnapAlign: 'center'}}
+        >
             <div className='w-full relative group'>
                 <img src={imgSrc} alt={title} className='h-full' />
                 <div className='overlay py-3.5 px-3 flex '>

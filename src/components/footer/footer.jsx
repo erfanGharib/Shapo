@@ -96,17 +96,17 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-14 sm:flex text-sm flex-col md:flex-row sm:items-center sm:justify-between">
-                    <SocialMedia className='w-1/3' />
+                <div className="mt-14 flex text-sm flex-col md:flex-row sm:items-center gap-y-4 justify-center sm:justify-between">
+                    <SocialMedia className='md:w-1/3 md:justify-start justify-center' />
                     <Logo />
-                    <div className='flex justify-end gap-x-11 w-1/3'>
+                    <div className='flex md:justify-end gap-x-11 md:w-1/3 justify-center'>
                         <Link to='#'>شرایط و مقررات</Link>
                         <Link to='#'>سیاست ها</Link>
                         <Link to='#'>نقشه</Link>
                     </div>
                 </div>
 
-                <p className="text-xs text-gray-500 mx-auto w-max mt-7">
+                <p className="text-xs text-gray-400 mx-auto w-max mt-7">
                     &copy; 1401 - 1402 کلیه حقوق این سایت متعلق به شاپو است.
                 </p>
             </div>
