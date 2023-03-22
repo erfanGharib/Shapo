@@ -7,7 +7,7 @@ const NoPage = () => {
             <div className='mt-12'>
                 <img src={notFound} alt='notFound' width={250} />
                 <p className='text-gray-500 my-4'>صفحه ای که دنبالش هستید وجود ندارد!</p>
-                <Link to='/' className="btn mx-auto hover:text-gold text-white border !border-gold bg-gold hover:bg-transparent">صفحه اصلی</Link>
+                <Link to='/' className="btn mx-auto gold-btn">صفحه اصلی</Link>
             </div>
         </section>
     );

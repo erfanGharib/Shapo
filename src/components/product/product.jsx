@@ -16,7 +16,8 @@ const Product = ({
     imgSrc = imgDefaultProduct,
     price = 0,
     oldPrice = '',
-    exist = false
+    exist = false,
+    className
 }) => {
     const calcPercent = () => {
         if (price >= oldPrice) console.error('newPrice cannot be lower than oldPrice or equal to');
@@ -28,7 +29,7 @@ const Product = ({
 
     return (
         <div 
-            className="md:min-w-[23.5%] md:max-w-[23.5%] min-w-[48%] max-w-[48%] flex flex-col items-center"
+            className={`${className} flex flex-col items-center`}
             style={{scrollSnapAlign: 'center'}}
         >
             <div className='w-full relative group'>

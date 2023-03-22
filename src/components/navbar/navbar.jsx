@@ -26,9 +26,9 @@ const Navbar = () => {
     window.addEventListener('scroll', scrollFunction);
 
     return (
-        <nav className={`${navCssClass ? 'bg-white border-b' : ''} fixed w-full transition-colors py-4 z-30`}>
+        <nav className={`${navCssClass ? 'bg-white border-b' : ''} fixed w-full transition-colors py-4 top-0 z-30`}>
             <div className='w-5/6 mx-auto flex justify-between items-center flex-wrap'>
-                <div className='flex justify-start gap-x-3 w-1/3'>
+                <div className='flex justify-start gap-x-2 w-1/3'>
                     <Sidebar />
                     <Btn className='pr-0' icoSrc={icoBar} onClick={() => dispatch(setStatus())} />
                     <Btn icoSrc={icoShoppingBag} count={0} />
@@ -41,7 +41,7 @@ const Navbar = () => {
                     {/* <Btn icoSrc={icoHeart} count={0} /> */}
                 </div>
 
-                <div className="flex justify-end sm:justify-center items-center w-1/3">
+                <div className="flex justify-end md:justify-center items-center w-1/3">
                     <Logo />
                 </div>
 

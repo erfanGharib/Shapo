@@ -64,6 +64,9 @@ main > * {
 .general-btn:hover > i {
   @apply invert;
 }
+.gold-btn {
+  @apply !bg-gold hover:!bg-transparent hover:text-gold border-gold border;
+}
 .primary-btn:hover > i {
   @apply invert-0;
 }
@@ -90,4 +93,13 @@ main > * {
 }
 .productSlider::-webkit-scrollbar-thumb {
   background: rgb(235, 235, 235); 
+}
+button:disabled {
+  @apply opacity-50;
+}
+#pageCounter > .currentPage {
+  @apply bg-gold hover:bg-transparent hover:text-gold border-gold border;
+}
+#pageCounter > * {
+  @apply bg-gray-50 hover:bg-gray-100 transition-colors;
 }

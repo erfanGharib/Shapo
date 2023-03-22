@@ -8,6 +8,7 @@ import AboutUs from './pages/aboutUs';
 import Cart from './pages/cart';
 import ContactUs from './pages/contactUs';
 import Layout from './pages/layout';
+import Shop from './pages/shop';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="cart" element={<Cart />} />
