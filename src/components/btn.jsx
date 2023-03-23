@@ -15,7 +15,7 @@ const Btn = ({ count, icoSrc, className, icoSize, disabled, style, onClick, chil
             }
             {count === undefined ?
                 null :
-                <span className='rounded-full bg-gold p-1.5 pb-0.5 text-xs leading-3 text-black absolute right-0 -bottom-1'>
+                <span className='rounded-full bg-gold p-1.5 pb-0.5 text-xs leading-3 text-black absolute right-0.5 bottom-0'>
                     {count}
                 </span>
             }

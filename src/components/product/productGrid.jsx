@@ -5,17 +5,18 @@ import icoThreeDots from '../../assets/icons/three-dots.svg';
 import icoFourDots from '../../assets/icons/four-dots.svg';
 import Ico from "../ico";
 import { useState } from "react";
+import PageCounter from "../pageCounter";
 
-const ProductGrid = ({ products, title }) => {
+const ProductGrid = ({ products, title = true }) => {
     const [productGridCols, setProductGridCols] = useState(3);
     const is768px = window.screen.width <= 768;
     return (
         <div className="md:w-2/3 w-full mx-auto flex flex-col items-center">
-            {
-                title !== undefined ?
+            {/* {
+                title ?
                     <h2 className='text-3xl mb-7 flex items-center flex-col'>{title}</h2> :
                     null
-            }
+            } */}
             <div className='w-full mb-3 h-10 flex items-center justify-between'>
                 <span>
                     نشان دادن
@@ -47,12 +48,7 @@ const ProductGrid = ({ products, title }) => {
                 <Product />
             </div>
 
-            <div className='w-full my-3 h-20 flex justify-center items-center gap-x-3' id='pageCounter'>
-                <Btn>قبلی</Btn>
-                <Btn className='gold-btn'>1</Btn>
-                <Btn>2</Btn>
-                <Btn>بعدی</Btn>
-            </div>
+            <PageCounter pageCount={3} currentPage={1} />
         </div>
     );
 }

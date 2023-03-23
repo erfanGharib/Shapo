@@ -21,6 +21,10 @@ const Sidebar = () => {
             text: 'محصولات'
         },
         {
+            link: 'blog',
+            text: 'وبلاگ'
+        },
+        {
             link: 'about-us',
             text: 'درباره ما'
         },

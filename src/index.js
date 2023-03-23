@@ -5,6 +5,7 @@ import './assets/styles/index.css';
 import Home from './pages';
 import NoPage from './pages/404';
 import AboutUs from './pages/aboutUs';
+import Blog from './pages/blog';
 import Cart from './pages/cart';
 import ContactUs from './pages/contactUs';
 import Layout from './pages/layout';
@@ -21,6 +22,7 @@ root.render(
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="blog" element={<Blog />} />
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>

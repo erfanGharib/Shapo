@@ -1,8 +1,8 @@
-import Col from "./col";
-import Input from '../../input'
-import Btn from '../../btn'
-import icoLeftRightArrow from '../../../assets/icons/left-right-arrow.svg';
-import Toggle from "../../toggle";
+import Col from "../col";
+import Input from '../input'
+import Btn from '../btn'
+import icoLeftRightArrow from '../../assets/icons/left-right-arrow.svg';
+import Toggle from "../toggle";
 
 const Sidebar = () => {
     return (
