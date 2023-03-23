@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Ico from "./ico";
 import icoInstagram from '../assets/icons/social-media/instagram.svg';
 import icoGithub from '../assets/icons/social-media/github.svg';

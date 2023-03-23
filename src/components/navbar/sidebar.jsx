@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Ico from "../ico";
 import icoClose from '../../assets/icons/close.svg';
@@ -43,7 +42,6 @@ const Sidebar = () => {
     ]
 
     return (
-        // <div className={`${status ? '' : 'invisible'} z-20 flex flex-col md:flex-row mt-3 md:mt-0 absoluteTopRight h-screen w-full`}>
         <>
             <div
                 onClick={() => dispatch(setStatus())}
@@ -60,7 +58,7 @@ const Sidebar = () => {
                                 onClick={() => dispatch(setStatus())}
                                 to={link} 
                                 key={index} 
-                                className='!w-full !px-3 btn secondray-btn'
+                                className='!w-full !px-3 btn !text-base secondray-btn'
                             >
                                 {text}
                                 <Ico src={arrowRight} className='w-5 h-5 mr-auto' />
@@ -82,7 +80,6 @@ const Sidebar = () => {
                 <SocialMedia className='px-3' />
             </div>
         </>
-        // </div>
     );
 }
 export default Sidebar;

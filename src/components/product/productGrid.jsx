@@ -1,9 +1,7 @@
 import Btn from "../btn";
 import Product from "./product";
-import icoAngleDown from '../../assets/icons/angle-down.svg';
 import icoThreeDots from '../../assets/icons/three-dots.svg';
 import icoFourDots from '../../assets/icons/four-dots.svg';
-import Ico from "../ico";
 import { useState } from "react";
 import PageCounter from "../pageCounter";
 

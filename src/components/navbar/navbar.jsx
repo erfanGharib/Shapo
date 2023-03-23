@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import Btn from "../btn";
 import Sidebar from "./sidebar";
-import icoHeart from '../../assets/icons/heart.svg';
 import icoUser from '../../assets/icons/user.svg';
 import icoShoppingBag from '../../assets/icons/shopping-bag.svg';
 import { useState } from "react";

@@ -6,7 +6,7 @@ const Btn = ({ count, icoSrc, className, icoSize, disabled, style, onClick, chil
         <button
             style={{ ...style }}
             disabled={disabled}
-            className={`${className} min-w-[48px] px-3 h-12 text-black relative md:cursor-pointer cursor-default`}
+            className={`${className} min-w-[48px] px-3 h-10 text-black relative md:cursor-pointer cursor-default`}
             onClick={onClick}
         >
             {icoSrc === undefined ?

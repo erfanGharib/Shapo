@@ -1,4 +1,3 @@
-
 const Col = ({ children, title }) => {
     return (
         <div className='w-full flex flex-wrap gap-y-3 items-start'>

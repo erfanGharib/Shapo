@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Ico from './ico';
 
 const Input = ({ placeholder, icoSrc, className, onClick }) => {
@@ -11,7 +10,7 @@ const Input = ({ placeholder, icoSrc, className, onClick }) => {
             <input
                 type="search"
                 placeholder={placeholder}
-                className='w-full h-full outline-none px-5 text-sm py-3 bg-gray-200 bg-opacity-40 border-b border-gray-200'
+                className='w-full h-full '
                 id="searchBox"
             />
         </label>

@@ -8,7 +8,7 @@ const Post = ({
 }) => {
     return (
         <div className="flex flex-col items-start justify-start">
-            <div style={{aspectRatio: '3 / 1.8'}} className='w-full flex relative items-center group overflow-hidden md:cursor-pointer'>
+            <div style={{aspectRatio: '3 / 2'}} className='w-full flex relative items-center group overflow-hidden md:cursor-pointer'>
                 <img src={imgSrc} alt={title} className='w-full' />
                 <div className='absolute bg-white py-2 px-5 bottom-3 group-hover:translate-x-0 translate-x-full transform duration-300 transition-transform'>
                     مطالب بیشتر
