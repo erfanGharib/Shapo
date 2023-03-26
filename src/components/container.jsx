@@ -14,10 +14,10 @@ const Container = ({
     containerRef
 }) => {
     return (
-        <div ref={containerRef} className={`md:h-96 flex justify-center items-center z-20 gap-x-20 mx-auto w-5/6 flex-col ${rtl ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+        <div ref={containerRef} className={`group md:h-96 flex justify-center items-center z-20 gap-x-20 mx-auto w-5/6 flex-col ${rtl ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
             <div className='md:w-1/2 w-full flex justify-start items-center'>
                 {imgSrc !== undefined ? 
-                    <img src={imgSrc} alt={supTitle} /> :
+                    <img src={imgSrc} alt={supTitle} className='group-hover:scale-105 transition-transform duration-700' /> :
                     null
                 }
             </div>
