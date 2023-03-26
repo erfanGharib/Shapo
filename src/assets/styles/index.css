@@ -41,9 +41,6 @@ h2 {
 p {
   @apply text-black;
 }
-i {
-  @apply block w-6 h-6 bg-no-repeat bg-cover;
-}
 hr {
   @apply w-full border-gray-100;
 }
@@ -61,7 +58,7 @@ input, textarea {
   max-width: 1000px;
 } 
 .btn {
-  @apply py-2 px-5 md:cursor-pointer cursor-default text-sm duration-300 w-max flex justify-center items-center border border-transparent transition-colors;
+  @apply hover:text-inherit py-2 px-5 md:cursor-pointer cursor-default text-sm duration-300 w-max flex justify-center items-center border border-transparent transition-colors;
 }
 
 .absoluteTopRight {
@@ -78,10 +75,10 @@ input, textarea {
   @apply invert-0;
 }
 .primary-btn, .general-btn:hover {
-  @apply bg-black text-white border-black;
+  @apply bg-black !text-white border-black;
 }
 .general-btn, .primary-btn:hover {
-  @apply text-black bg-transparent border-black;
+  @apply !text-black bg-transparent border-black;
 }
 .secondray-btn:hover {
   @apply border-black;
@@ -109,4 +106,7 @@ button:disabled {
 }
 #pageCounter > * {
   @apply bg-gray-50 hover:bg-gray-100 transition-colors;
+}
+a, a > * {
+  @apply hover:!text-gold transition-colors;
 }

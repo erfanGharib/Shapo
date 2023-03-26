@@ -1,16 +1,16 @@
 import Ico from "./ico";
-import icoInstagram from '../assets/icons/social-media/instagram.svg';
-import icoGithub from '../assets/icons/social-media/github.svg';
+import { ReactComponent as IcoInstagram} from '../assets/icons/social-media/instagram.svg';
+import { ReactComponent as IcoGithub} from '../assets/icons/social-media/github.svg';
 
 const SocialMedia = ({ className }) => {
     const items = [
         {
             link: 'https://github.com/erfanGharib',
-            ico: icoGithub
+            ico: <IcoGithub />
         },
         {
             link: 'https://instagram.com/erfan.igh',
-            ico: icoInstagram
+            ico: <IcoInstagram />
         },
     ]
     return (
@@ -24,7 +24,9 @@ const SocialMedia = ({ className }) => {
                     target="_blank"
                     className="transition hover:opacity-60"
                 >
-                    <Ico src={ico} />
+                    <Ico>
+                        {ico}
+                    </Ico>
                 </a>
             )}
         </div>

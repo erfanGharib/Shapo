@@ -4,7 +4,7 @@ import Btn from "../components/btn";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/navbar";
 import store from "../store";
-import icoArrowTop from '../assets/icons/arrow-top.svg'
+import {ReactComponent as IcoArrowTop} from '../assets/icons/arrow-top.svg'
 import { useRef } from "react";
 
 const Layout = () => {
@@ -27,7 +27,7 @@ const Layout = () => {
             <Footer />
             <Btn
                 btnRef={backTopRef}
-                icoSrc={icoArrowTop}
+                ico={<IcoArrowTop/>}
                 className='bg-gold rounded-full hidden z-30 !fixed right-10 bottom-10'
                 onClick={() =>
                     window.scrollTo({

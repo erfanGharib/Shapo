@@ -6,7 +6,9 @@ const Informations = ({ items }) => {
             {items.map(({ title, ico, content }, index) =>
                 <div key={index} className='flex flex-col gap-3 flex-1 min-w-[200px] max-w-[250px]'>
                     <div className='gap-2 items-center flex text-gray-800'>
-                        <Ico src={ico} style={{ minWidth: '33px', height: '33px' }} />
+                        <Ico style={{ minWidth: '33px', height: '33px' }}>
+                            {ico}
+                        </Ico>
                         <h4 className='text-lg text-black'>{title}</h4>
                     </div>
                     <div className='text-sm text-gray-400 leading-6'>

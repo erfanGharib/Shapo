@@ -1,7 +1,7 @@
 import Col from "../col";
 import Input from '../input'
 import Btn from '../btn'
-import icoLeftRightArrow from '../../assets/icons/left-right-arrow.svg';
+import {ReactComponent as IcoLeftRightArrow} from '../../assets/icons/left-right-arrow.svg';
 import Toggle from "../toggle";
 
 const Sidebar = () => {
@@ -20,7 +20,7 @@ const Sidebar = () => {
             <Col title='محدوده قیمت'>
                 <div className='flex'>
                     <Input placeholder='از 0 تومان' />
-                    <Btn icoSrc={icoLeftRightArrow} />
+                    <Btn ico={<IcoLeftRightArrow/>} />
                     <Input placeholder='تا 0 تومان' />
                 </div>
             </Col>

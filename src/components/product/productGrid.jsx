@@ -1,7 +1,7 @@
 import Btn from "../btn";
 import Product from "./product";
-import icoThreeDots from '../../assets/icons/three-dots.svg';
-import icoFourDots from '../../assets/icons/four-dots.svg';
+import {ReactComponent as IcoThreeDots} from '../../assets/icons/three-dots.svg';
+import {ReactComponent as IcoFourDots} from '../../assets/icons/four-dots.svg';
 import { useState } from "react";
 import PageCounter from "../pageCounter";
 
@@ -25,12 +25,12 @@ const ProductGrid = ({ products, title = true }) => {
                     null :
                     <div>
                         <Btn
-                            icoSrc={icoFourDots}
+                            ico={<IcoFourDots/>}
                             className={productGridCols === 3 ? 'opacity-50' : ''}
                             onClick={() => setProductGridCols(4)}
                         />
                         <Btn
-                            icoSrc={icoThreeDots}
+                            ico={<IcoThreeDots/>}
                             className={productGridCols === 4 ? 'opacity-50' : ''}
                             onClick={() => setProductGridCols(3)}
                         />

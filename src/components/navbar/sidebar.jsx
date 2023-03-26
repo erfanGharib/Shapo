@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Ico from "../ico";
-import icoClose from '../../assets/icons/close.svg';
+import {ReactComponent as IcoClose} from '../../assets/icons/close.svg';
 import SocialMedia from "../socialMedia";
-import arrowRight from '../../assets/icons/arrow-left.svg'
+import {ReactComponent as IcoArrowLeft} from '../../assets/icons/arrow-left.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { setStatus } from '../../store/reducers/_sidebarStatus'
 import Btn from "../btn";
@@ -49,7 +49,7 @@ const Sidebar = () => {
             ></div>
 
             <div className={`${status ? 'translate-x-0' : 'translate-x-full'} z-40 px-10 py-6 md:w-96 w-full absoluteTopRight bg-white transform transition-transform duration-300 h-screen flex flex-col gap-y-10`}>
-                <Btn icoSrc={icoClose} onClick={() => dispatch(setStatus())} className='w-max' />
+                <Btn ico={<IcoClose/>} onClick={() => dispatch(setStatus())} className='w-max' />
 
                 <div className='flex flex-col gap-y-2'>
                     {
@@ -58,10 +58,12 @@ const Sidebar = () => {
                                 onClick={() => dispatch(setStatus())}
                                 to={link} 
                                 key={index} 
-                                className='!w-full !px-3 btn !text-base secondray-btn'
+                                className='!w-full !px-3 btn !text-base hover:!text-current secondray-btn'
                             >
                                 {text}
-                                <Ico src={arrowRight} className='w-5 h-5 mr-auto' />
+                                <Ico className='mr-auto !w-5 !h-5'>
+                                    <IcoArrowLeft/>
+                                </Ico>
                             </Link>
                         )
                     }

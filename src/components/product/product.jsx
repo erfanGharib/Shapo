@@ -1,14 +1,14 @@
 import imgDefaultProduct from '../../assets/images/products/default.svg'
 import TomanSign from '../tomanSign';
-import icoPlus from '../../assets/icons/plus.svg';
-import icoHeart from '../../assets/icons/heart.svg';
-import icoShoppingBag from '../../assets/icons/shopping-bag.svg';
+import {ReactComponent as IcoPlus} from '../../assets/icons/plus.svg';
+import {ReactComponent as IcoHeart} from '../../assets/icons/heart.svg';
+import {ReactComponent as IcoShoppingBag} from '../../assets/icons/shopping-bag.svg';
 import Btn from '../btn';
 
 const overlayBtns = [
-    icoShoppingBag,
-    icoHeart,
-    icoPlus,
+    <IcoShoppingBag/>,
+    <IcoHeart/>,
+    <IcoPlus/>,
 ]
 
 const Product = ({
@@ -50,7 +50,7 @@ const Product = ({
                     {overlayBtns.map((ico, index) => 
                         <Btn
                             key={index}
-                            icoSrc={ico}
+                            ico={ico}
                             style={{transition: '400ms ' + index + '00ms'}}
                             className='bg-white circle opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-100'
                             icoSize='20px'

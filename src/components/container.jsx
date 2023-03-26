@@ -1,4 +1,4 @@
-import angleRight from '../assets/icons/arrow-left.svg'
+import { ReactComponent as AngleRight } from '../assets/icons/arrow-left.svg'
 import Ico from './ico';
 import TomanSign from './tomanSign';
 
@@ -30,7 +30,9 @@ const Container = ({
                     <button className={`btn ${primary ? 'primary-btn' : 'general-btn'}`}>
                         {buttonText}
                         {tomanSign ? <TomanSign /> : null}
-                        <Ico src={angleRight} className={`mr-1 filter  ${primary ? 'invert' : ''}`} />
+                        <Ico className={`mr-1 filter  ${primary ? 'invert' : ''}`}>
+                            <AngleRight />
+                        </Ico>
                     </button>
                 </div>
             </div>

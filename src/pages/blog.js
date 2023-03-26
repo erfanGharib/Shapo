@@ -11,7 +11,7 @@ const Blog = () => {
         <>
             <PageInfo title='وبلاگ' path='وبلاگ' />
             <div className='flex justify-between items-center w-full gap-7 mx-auto my-14 flex-col'>
-                <PostGrid posts={data} itemsToShow={itemsToShow} IS_HOME_PAGE={false} />
+                <PostGrid IS_HOME_PAGE={false} />
                 {
                     data.length !== itemsToShow ? 
                     <Btn 
