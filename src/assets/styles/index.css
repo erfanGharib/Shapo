@@ -61,7 +61,7 @@ input, textarea {
   max-width: 1000px;
 } 
 .btn {
-  @apply py-2 px-5 text-sm duration-300 w-max flex justify-center items-center border border-transparent transition-colors;
+  @apply py-2 px-5 md:cursor-pointer cursor-default text-sm duration-300 w-max flex justify-center items-center border border-transparent transition-colors;
 }
 
 .absoluteTopRight {

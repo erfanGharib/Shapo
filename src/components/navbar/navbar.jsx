@@ -9,6 +9,7 @@ import icoSearch from '../../assets/icons/search.svg';
 import icoBar from '../../assets/icons/bar.svg';
 import { setStatus } from "../../store/reducers/_sidebarStatus";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [navCssClass, setNavCssClass] = useState(false);
@@ -29,7 +30,9 @@ const Navbar = () => {
                 <div className='flex justify-start gap-x-2 w-1/3'>
                     <Sidebar />
                     <Btn className='pr-0' icoSrc={icoBar} onClick={() => dispatch(setStatus())} />
-                    <Btn icoSrc={icoShoppingBag} count={0} />
+                    <Link to='/cart'>
+                        <Btn icoSrc={icoShoppingBag} count={0} />
+                    </Link>
                     <Btn icoSrc={icoUser} />
                     <Btn
                         icoSrc={icoSearch}
