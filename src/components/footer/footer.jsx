@@ -69,21 +69,19 @@ const Footer = () => {
                     {
                         lists.map(({ title, items }) => {
                             return (
-                                <div>
+                                <div key={title}>
                                     <p className="font-medium text-black">{title}</p>
                                     <ul className="space-y-4 text-sm mt-6">
-                                        {
-                                            items.map(({ link, text }) => 
-                                                <li>
-                                                    <Link 
-                                                        href={link} 
-                                                        className="text-gray-400 transition hover:opacity-75"
-                                                    >
-                                                        {text}
-                                                    </Link>
-                                                </li>
-                                            )
-                                        }
+                                        {items.map(({ link, text }, index) =>
+                                            <li key={index}>
+                                                <Link
+                                                    href={link}
+                                                    className="text-gray-400 transition hover:opacity-75"
+                                                >
+                                                    {text}
+                                                </Link>
+                                            </li>
+                                        )}
                                     </ul>
                                 </div>
                             )

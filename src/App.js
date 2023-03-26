@@ -10,14 +10,16 @@ import Cart from './pages/cart';
 import ContactUs from './pages/contactUs';
 import Layout from './pages/layout';
 import Shop from './pages/shop';
-import reportWebVitals from './reportWebVitals';
 import ProductPage from './pages/productPage';
-import App from './App';
+import store from './store';
+import { Provider } from 'react-redux';
+import Router from './Router';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+    return (
+        <Provider store={store}>
+            <Router />
+        </Provider>
+    );
+}
+export default App;
