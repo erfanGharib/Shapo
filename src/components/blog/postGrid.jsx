@@ -5,7 +5,7 @@ import Post from "../blog/post";
 const PostGrid = ({ IS_HOME_PAGE = true }) => {
     const { data: posts, itemsToShow } = useSelector(state => state.$_posts);
     return (
-        <div className='w-5/6 mx-auto flex flex-col items-center'>
+        <div className='flex flex-col items-center'>
             {   
                 IS_HOME_PAGE ? 
                 <Link to='/blog'>
