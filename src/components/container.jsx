@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import { ReactComponent as AngleRight } from '../assets/icons/arrow-left.svg'
 import Ico from './ico';
-import TomanSign from './tomanSign';
+import Price from './price';
 
 const Container = ({
     title,
@@ -11,10 +12,13 @@ const Container = ({
     buttonText = 'خرید کنید',
     imgSrc = undefined,
     tomanSign = true,
-    containerRef
+    containerRef,
 }) => {
     return (
-        <div ref={containerRef} className={`group md:h-96 flex justify-center items-center z-20 gap-x-20 mx-auto w-5/6 flex-col ${rtl ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+        <div 
+            ref={containerRef} 
+            className={`group md:h-96 flex justify-center items-center z-20 gap-x-20 mx-auto w-5/6 flex-col ${rtl ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+        >
             <div className='md:w-1/2 w-full flex justify-start items-center'>
                 {imgSrc !== undefined ? 
                     <img src={imgSrc} alt={supTitle} className='group-hover:scale-105 transition-transform duration-700' /> :
@@ -27,13 +31,14 @@ const Container = ({
                 <p  className='!duration-700 mb-7 mt-5'>{desc}</p>
 
                 <div className='!duration-1000'>
-                    <button className={`btn ${primary ? 'primary-btn' : 'general-btn'}`}>
-                        {buttonText}
-                        {tomanSign ? <TomanSign /> : null}
-                        <Ico className={`mr-1 filter  ${primary ? 'invert' : ''}`}>
-                            <AngleRight />
-                        </Ico>
-                    </button>
+                    <Link to={`product/${title}`}>
+                        <button className={`btn ${primary ? 'primary-btn' : 'general-btn'}`}>
+                            {tomanSign ? <Price price={buttonText} /> : buttonText}
+                            <Ico className={`mr-1 filter  ${primary ? 'invert' : ''}`}>
+                                <AngleRight />
+                            </Ico>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

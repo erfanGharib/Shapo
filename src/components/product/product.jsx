@@ -1,9 +1,9 @@
 import imgDefaultProduct from '../../assets/images/products/default.svg'
-import TomanSign from '../tomanSign';
 import {ReactComponent as IcoPlus} from '../../assets/icons/plus.svg';
 import {ReactComponent as IcoHeart} from '../../assets/icons/heart.svg';
 import {ReactComponent as IcoShoppingBag} from '../../assets/icons/shopping-bag.svg';
 import Btn from '../btn';
+import Price from '../price';
 
 const overlayBtns = [
     <IcoShoppingBag/>,
@@ -15,7 +15,7 @@ const Product = ({
     title = 'نام محصول',
     imgSrc = imgDefaultProduct,
     price = 0,
-    oldPrice = '',
+    oldPrice = null,
     exist = false,
     className
 }) => {
@@ -23,9 +23,7 @@ const Product = ({
         if (price >= oldPrice) console.error('newPrice cannot be lower than oldPrice or equal to');
         return 100 - (price * 100 / oldPrice);
     }
-    const split = (num) => {
-        return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
+    console.log(oldPrice);
 
     return (
         <div 
@@ -60,19 +58,7 @@ const Product = ({
             </div>
 
             <h3 className='mt-2'>{title}</h3>
-            <span className='flex flex-col justify-center items-center'>
-                {oldPrice ?
-                    <s className='text-gray-400'>
-                        {split(oldPrice)}
-                        <TomanSign />
-                    </s> :
-                    null
-                }
-                <span className='text-gray-500'>
-                    {split(price)}
-                    <TomanSign />
-                </span>
-            </span>
+            <Price price={price} oldPrice={oldPrice} className='text-gray-400' />
         </div>
     );
 }
