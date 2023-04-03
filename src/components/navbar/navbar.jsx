@@ -1,5 +1,5 @@
 import Btn from "../btn";
-import Sidebar from "./sidebar";
+import Sidebar from "../sidebar";
 import {ReactComponent as IcoUser} from '../../assets/icons/user.svg';
 import {ReactComponent as IcoShoppingBag} from '../../assets/icons/shopping-bag.svg';
 import { useState } from "react";
@@ -9,7 +9,6 @@ import {ReactComponent as IcoSearch} from '../../assets/icons/search.svg';
 import {ReactComponent as IcoBar} from '../../assets/icons/bar.svg';
 import { setStatus } from "../../store/reducers/_sidebarStatus";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [navCssClass, setNavCssClass] = useState(false);
@@ -28,11 +27,9 @@ const Navbar = () => {
         <nav className={`${navCssClass ? 'bg-white border-b' : ''} fixed w-full transition-colors py-4 top-0 z-30`}>
             <div className='w-5/6 mx-auto flex justify-between items-center flex-wrap'>
                 <div className='flex justify-start gap-x-2 w-1/3'>
-                    <Sidebar />
-                    <Btn className='pr-0' ico={<IcoBar/>} onClick={() => dispatch(setStatus())} />
-                    <Link to='/cart'>
-                        <Btn ico={<IcoShoppingBag/>} count={0} />
-                    </Link>
+                    <Sidebar/>
+                    <Btn className='pr-0' ico={<IcoBar/>} onClick={() => dispatch(setStatus(true))} />
+                    <Btn ico={<IcoShoppingBag/>} count={0} onClick={() => dispatch(setStatus(false))} />
                     <Btn ico={<IcoUser/>} />
                     <Btn 
                         ico={<IcoSearch/>}

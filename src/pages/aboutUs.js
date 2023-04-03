@@ -1,39 +1,39 @@
-import Informations from "../components/informations";
+import Ico from "../components/ico";
 import PageInfo from "../components/pageInfo";
+import GridItem from "../components/aboutUs/gridItem";
+import Informations from "../components/informations";
 import img1 from '../assets/images/aboutUs/1-780x770.jpg';
 import img2 from '../assets/images/aboutUs/2-380x380.jpg';
 import img3 from '../assets/images/aboutUs/3-380x380.jpg';
 import img4 from '../assets/images/aboutUs/4-380x380.jpg';
 import img5 from '../assets/images/aboutUs/5-780x380.jpg';
-import icoPlay from '../assets/icons/play.svg';
+import {ReactComponent as IcoPlay} from '../assets/icons/play.svg';
+import {ReactComponent as IcoArrow} from '../assets/icons/arrow.svg';
+import {ReactComponent as IcoWatch} from '../assets/icons/watch.svg';
 import imgVideoBanner from '../assets/images/aboutUs/video-banner.jpg';
-import GridItem from "../components/aboutUs/gridItem";
-import Ico from "../components/ico";
-import icoArrow from '../assets/icons/arrow.svg';
-import icoZarinpal from '../assets/icons/zarinpal.svg';
-import icoWatch from '../assets/icons/watch.svg';
-import icoShoppingBag from '../assets/icons/shopping-bag.svg';
+import {ReactComponent as IcoZarinpal} from '../assets/icons/zarinpal.svg';
+import {ReactComponent as IcoShoppingBag} from '../assets/icons/shopping-bag.svg';
 
 const AboutUs = () => {
     const services = [
         {
             title: 'روش های پرداخت',
-            ico: icoZarinpal,
+            ico: <IcoZarinpal/>,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
         {
             title: 'خرید اینترنتی',
-            ico: icoShoppingBag,
+            ico: <IcoShoppingBag/>,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
         {
             title: 'ارسال رایگان',
-            ico: icoArrow,
+            ico: <IcoArrow/>,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
         {
             title: 'مرجوع کالا',
-            ico: icoWatch,
+            ico: <IcoWatch/>,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
     ]
@@ -52,20 +52,22 @@ const AboutUs = () => {
         },
     ];
     return (
-        <div className='w-full'>
+        <>
             <PageInfo title='درباره ما' path='درباره ما' />
-            <div className='w-full flex items-center gap-y-14 flex-col my-14'>
-                <div className='w-5/6'>
+            <div className='mainPart !gap-y-14'>
+                <div className='w-full'>
                     <GridItem imgSrc={imgVideoBanner} className='!aspect-video'>
                         <div className='overlay flex justify-center items-center bg-black z-10 group-hover:bg-opacity-50 transition-colors'>
-                            <Ico src={icoPlay} className='cursor-pointer filter drop-shadow-sm w-14 h-14' />
+                            <Ico className='cursor-pointer filter drop-shadow-sm w-14 h-14'>
+                                <IcoPlay/>
+                            </Ico>
                         </div>
                     </GridItem>
                 </div>
 
                 <Informations items={services} />
 
-                <div className='w-5/6 flex flex-col md:flex-row gap-x-10 gap-y-5 items-center'>
+                <div className='w-full flex flex-col md:flex-row gap-x-10 gap-y-5 items-center'>
                     <div className='w-full md:w-3/5'>
                         <h3 className='font-bold text-xl mb-2'>عملکرد در بهترین حالت ممکن</h3>
                         <p className='leading-7'>
@@ -88,7 +90,7 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <div className='w-5/6 flex gap-3 flex-col'>
+                <div className='w-full flex gap-3 flex-col'>
                     <div className='flex gap-3'>
                         <div className='w-2/3 flex gap-3 flex-col'>
                             <GridItem imgSrc={img2} />
@@ -103,7 +105,7 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <div className='w-5/6 grid md:grid-cols-2 grid-cols-1 gap-y-5'>
+                <div className='w-full grid md:grid-cols-2 grid-cols-1 gap-y-5'>
                     <div>
                         <h3 className='text-2xl font-bold mb-2 text-gray-900'>شاهرود</h3>
                         <p className='max-w-xs'>
@@ -122,7 +124,7 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 export default AboutUs; 

@@ -63,7 +63,7 @@ const Footer = () => {
         },
     ]
     return (
-        <footer aria-label="Site Footer" className="w-full border-gray-100 border-t">
+        <footer aria-label="Site Footer" className="w-full border-gray-100 border-t mt-14">
             <div className="max-w-1366 w-5/6 pt-16 pb-10 mx-auto">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     {

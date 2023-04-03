@@ -1,11 +1,11 @@
-import { Provider } from "react-redux";
-import { Outlet } from "react-router-dom"
+import store from "../store";
+import { useRef } from "react";
 import Btn from "../components/btn";
+import { Provider } from "react-redux";
+import { Outlet } from "react-router-dom";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/navbar";
-import store from "../store";
 import {ReactComponent as IcoArrowTop} from '../assets/icons/arrow-top.svg'
-import { useRef } from "react";
 
 const Layout = () => {
     const backTopRef = useRef();

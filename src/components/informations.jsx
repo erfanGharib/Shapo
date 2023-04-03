@@ -2,7 +2,7 @@ import Ico from './ico';
 
 const Informations = ({ items }) => {
     return (
-        <div id='informations' className='w-5/6 flex justify-start flex-wrap gap-y-5 gap-x-12'>
+        <div id='informations' className='w-full flex justify-start flex-wrap gap-y-5 gap-x-12'>
             {items.map(({ title, ico, content }, index) =>
                 <div key={index} className='flex flex-col gap-3 flex-1 min-w-[200px] max-w-[250px]'>
                     <div className='gap-2 items-center flex text-gray-800'>

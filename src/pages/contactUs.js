@@ -1,17 +1,17 @@
 import Btn from "../components/btn";
-import Informations from "../components/informations";
 import Input from "../components/input";
 import PageInfo from "../components/pageInfo";
-import icoPin from '../assets/icons/pin.svg';
-import icoMail from '../assets/icons/mail.svg';
-import icoPhone from '../assets/icons/phone.svg';
-import icoWatch from '../assets/icons/watch.svg';
+import Informations from "../components/informations";
+import {ReactComponent as IcoPin} from '../assets/icons/pin.svg';
+import {ReactComponent as IcoMail} from '../assets/icons/mail.svg';
+import {ReactComponent as IcoPhone} from '../assets/icons/phone.svg';
+import {ReactComponent as IcoWatch} from '../assets/icons/watch.svg';
 
 const ContactUs = () => {
     const informations = [
         {
             title: 'زمان های کاری',
-            ico: icoWatch,
+            ico: <IcoWatch/>,
             content: [
                 'دوشنبه – جمعه : 8:30 – 18:00',
                 'شنبه – یکشنبه : 9:00 – 17:00',
@@ -19,7 +19,7 @@ const ContactUs = () => {
         },
         {
             title: 'تلفن همراه',
-            ico: icoPhone,
+            ico: <IcoPhone/>,
             content: [
                 '۰۹۳۹ ۰۰۰ ۳۴۰۶',
                 '۰۹۳۹ ۰۰۰ ۳۴۰۶',
@@ -27,7 +27,7 @@ const ContactUs = () => {
         },
         {
             title: 'ایمیل ما',
-            ico: icoMail,
+            ico: <IcoMail/>,
             content: [
                 'erfangharib5@gmail.com',
                 'erfan.gh.work@gmail.com',
@@ -35,7 +35,7 @@ const ContactUs = () => {
         },
         {
             title: 'موقعیت ما',
-            ico: icoPin,
+            ico: <IcoPin/>,
             content: [
                 'ایران، استان سمنان، شهرستان شاهرود',
                 'خیابان آزادگان، کوچه آزادگان دوم',
@@ -45,11 +45,10 @@ const ContactUs = () => {
     return (
         <div className='flex flex-col'>
             <PageInfo title='ارتباط با ما' path='ارتباط با ما' />
-            <div className='w-full mx-auto flex flex-col items-center my-14'>
+            <div className='mainPart'>
                 <Informations items={informations} />
-                <hr className='my-14 w-5/6' />
-
-                <div className='flex w-full md:w-2/3 flex-col h-96'>
+                <hr className='my-7 w-full' />
+                <div className='flex w-full md:w-2/3 flex-col'>
                     <h3 className='text-xl font-bold'>با ما در ارتباط باشید</h3>
                     <form className='flex flex-col my-5 w-full gap-3'>
                         <div className='w-full flex gap-3'>

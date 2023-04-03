@@ -5,7 +5,7 @@ const Shop = () => {
     return (
         <>
             <PageInfo title='فروشگاه' path='فروشگاه' />
-            <div className='flex justify-between w-5/6 gap-7 mx-auto my-14 md:flex-row flex-col'>
+            <div className='mainPart md:flex-row !items-start'>
                 <ProductGrid />
                 <Sidebar />
             </div>
