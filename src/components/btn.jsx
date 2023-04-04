@@ -7,12 +7,13 @@ const Btn = ({ btnRef, count, ico, className, icoSize, disabled, style, onClick,
             ref={btnRef}
             style={{ ...style }}
             disabled={disabled}
-            className={`${className} hover:text-gold min-w-[48px] px-3 h-12 text-black relative md:cursor-pointer cursor-default`}
+            className={`${className} flex items-center justify-center hover:text-gold min-w-[48px] h-[46px] text-black relative md:cursor-pointer cursor-default`}
             onClick={onClick}
         >
+            {children}
             {ico === undefined ?
                 null :
-                <Ico className='mx-auto'>
+                <Ico className='mr-1 w-5 h-5'>
                     {ico}
                 </Ico>
             }
@@ -22,7 +23,6 @@ const Btn = ({ btnRef, count, ico, className, icoSize, disabled, style, onClick,
                     {count}
                 </span>
             }
-            {children}
         </button>
     );
 }
