@@ -28,7 +28,7 @@ const Layout = () => {
             <Btn
                 btnRef={backTopRef}
                 ico={<IcoArrowTop/>}
-                className='bg-gold !h-14 rounded-full hidden z-30 !fixed right-10 bottom-10'
+                className='bg-gold rounded-full hidden z-30 !fixed right-10 bottom-10'
                 onClick={() =>
                     window.scrollTo({
                         top: 0,

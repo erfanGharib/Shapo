@@ -13,7 +13,7 @@ const Btn = ({ btnRef, count, ico, className, icoSize, disabled, style, onClick,
             {children}
             {ico === undefined ?
                 null :
-                <Ico className='mr-1 w-5 h-5'>
+                <Ico className='w-5 h-5'>
                     {ico}
                 </Ico>
             }
