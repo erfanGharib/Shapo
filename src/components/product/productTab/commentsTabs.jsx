@@ -3,11 +3,11 @@ import Btn from '../../btn';
 import Ico from '../../ico';
 import Input from '../../input'
 
-const CommentsTab = ({ productName = '' }) => {
+const CommentsTab = ({ productName = '', comments }) => {
     return (
-        <>
+        <div className='ml-auto w-full md:w-2/3'>
             <h5 className='text-2xl mt-5'>
-                اولین کسی باشید که به ”{productName}” نظر میدهید
+                اولین کسی باشید که به ”<strong>{productName}</strong>” نظر میدهید
             </h5>
             <div className='flex my-2'>
                 {[1, 2, 3, 4, 5].map(v =>
@@ -16,7 +16,7 @@ const CommentsTab = ({ productName = '' }) => {
                     </Ico>
                 )}
             </div>
-            <div className="py-5 w-full flex flex-wrap gap-3 items-center">
+            <div className="py-5 flex flex-wrap gap-3 items-center">
                 <textarea className='w-full' rows={5} placeholder='نظر شما'></textarea>
                 <div className='flex w-full gap-3'>
                     <Input placeholder='ایمیل' className='w-1/2' />
@@ -24,7 +24,7 @@ const CommentsTab = ({ productName = '' }) => {
                 </div>
                 <Btn className='btn primary-btn'>ارسال</Btn>
             </div>
-        </>
+        </div>
     );
 }
 export default CommentsTab; 

@@ -1,17 +1,18 @@
 import AddToCart from "../components/cart/addToCart/addToCart";
+import QtyInput from "../components/cart/addToCart/qtyInput";
 import PageInfo from "../components/pageInfo";
 import Price from '../components/price'
 import ProductTabs from "../components/product/productTab/productTabs";
 
 const ProductPage = props => {
-    const { id, name, price, oldPrice, desc, inventory, imgSrc, cat, tag } = props.data;
+    const { id, name, price, oldPrice, desc, inventory, imgUrl, cat, tag, tabs } = props.data;
     return (
         <div className='w-full'>
             <PageInfo title={name} path={name} />
             <div className='border-b' id="product">
                 <div className='mainPart md:flex-row mb-14'>
                     <div className='md:w-1/2 w-full aspect-square flex justify-center p-10 bg-[#efeff1]'>
-                        <img src={imgSrc} alt={name} className='w-full m-auto' />
+                        <img src={imgUrl} alt={name} className='w-full m-auto' />
                     </div>
 
                     <div className='md:w-1/2 w-full aspect-square'>
@@ -22,7 +23,12 @@ const ProductPage = props => {
                             className='text-gold text-2xl mt-3 mb-1'
                         />
                         <p>{desc}</p>
-                        <AddToCart/>
+                        
+                        <div className='w-max flex gap-x-3 my-8'>
+                            <QtyInput />
+                            <AddToCart/>
+                        </div>
+                        
                         <div>
                             <p>
                                 <span>دسته بندی:  </span>
@@ -40,7 +46,7 @@ const ProductPage = props => {
                 </div>
             </div>
 
-            <ProductTabs/>
+            <ProductTabs data={tabs} productName={name} />
         </div>
     );
 }

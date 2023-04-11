@@ -4,19 +4,20 @@ import CommentsTab from "./commentsTabs";
 import DescTab from "./descTab";
 import SpecificationsTab from "./specificationsTab";
 
-const ProductTabs = props => {
+const ProductTabs = ({ data = '', productName }) => {
+    const { fullDesc, comments, specifications } = data;
     const productInfoTabs = [
         {
             title: 'توضیحات',
-            component: <DescTab/>
+            component: <DescTab fullDesc={fullDesc} />,
         },
         {
             title: 'مشخصات محصول',
-            component: <SpecificationsTab/>
+            component: <SpecificationsTab specifications={specifications} />
         },
         {
             title: 'نظرات',
-            component: <CommentsTab/>
+            component: <CommentsTab comments={comments} productName={productName} />
         },
     ];
     const [currentTab, setCurrentTab] = useState(0);
@@ -24,18 +25,15 @@ const ProductTabs = props => {
         <div className='mainPart !gap-0'>
             <div className="ml-auto w-full mt-14 border-b border-gray-200">
                 <ul className="flex items-center gap-x-5 flex-wrap text-sm font-medium" id="productInfoTab" role="tablist">
-                    {productInfoTabs.map((tab, index, { length }) => (
-                        <React.Fragment key={tab.title}>
-                            <li  role="presentation">
-                                <Btn
-                                    className={`mx-0 !min-w-[20px] ${index === currentTab ? 'text-gold border-b-2 border-gold relative top-px' : ''}`}
-                                    onClick={() => setCurrentTab(index)}
-                                >
-                                    {tab.title}
-                                </Btn>
-                            </li>
-                            {/* {index !== length - 1 ? <span>/</span> : null} */}
-                        </React.Fragment>
+                    {productInfoTabs.map((tab, index) => (
+                        <li key={tab.title} role="presentation">
+                            <Btn
+                                className={`mx-0 !min-w-[20px] px-2 ${index === currentTab ? 'text-gold border-b-2 border-gold relative top-px' : ''}`}
+                                onClick={() => setCurrentTab(index)}
+                            >
+                                {tab.title}
+                            </Btn>
+                        </li>
                     ))}
                 </ul>
             </div>
