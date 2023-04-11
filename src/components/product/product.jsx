@@ -23,7 +23,6 @@ const Product = ({
         if (price >= oldPrice) console.error('newPrice cannot be lower than oldPrice or equal to');
         return 100 - (price * 100 / oldPrice);
     }
-    console.log(oldPrice);
 
     return (
         <div 

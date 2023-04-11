@@ -1,5 +1,5 @@
 import store from "../store";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Btn from "../components/btn";
 import { Provider } from "react-redux";
 import { Outlet } from "react-router-dom";
@@ -9,7 +9,6 @@ import {ReactComponent as IcoArrowTop} from '../assets/icons/arrow-top.svg'
 
 const Layout = () => {
     const backTopRef = useRef();
-
     const scrollFunction = () => {
         if (document.documentElement.scrollTop >= 70) {
             backTopRef.current.classList.remove('hidden')

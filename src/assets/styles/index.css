@@ -76,9 +76,8 @@ input[type=number] {
 .absoluteTopRight {
   @apply absolute top-0 right-0;
 }
-
-.general-btn:hover > i {
-  @apply invert;
+.sliderContainer > div:last-child {
+  @apply md:w-1/2 w-[70%] !ml-auto;
 }
 .danger-btn {
   @apply hover:bg-red-600 bg-transparent hover:!text-white text-red-600 border-red-600 border;
@@ -86,17 +85,20 @@ input[type=number] {
 .gold-btn {
   @apply !bg-gold hover:!bg-transparent hover:text-gold border-gold border text-white;
 }
-.primary-btn:hover > i {
-  @apply invert-0;
+/* .primary-btn {
+  @apply !text-white;
 }
-.primary-btn, .general-btn:hover {
-  @apply bg-black !text-white border-black;
+.general-btn:hover > i {
+  @apply invert;
+} */
+.primary-btn {
+  @apply hover:!text-black !text-white bg-black hover:bg-transparent border-black;
 }
-.general-btn, .primary-btn:hover {
-  @apply !text-black bg-transparent border-black;
+.general-btn {
+  @apply hover:!text-white !text-black border-black hover:bg-black;
 }
-.secondray-btn:hover {
-  @apply border-black;
+.secondray-btn {
+  @apply hover:border-black;
 }
 .circle {
   @apply rounded-full px-3 py-3 inline-block;

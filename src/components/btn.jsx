@@ -7,7 +7,7 @@ const Btn = ({ btnRef, count, ico, className, icoSize, disabled, style, onClick,
             ref={btnRef}
             style={{ ...style }}
             disabled={disabled}
-            className={`${className} flex items-center justify-center hover:text-gold min-w-[48px] h-[46px] text-black relative md:cursor-pointer cursor-default`}
+            className={`${className} flex items-center justify-center min-w-[48px] h-[46px] relative md:cursor-pointer cursor-default`}
             onClick={onClick}
         >
             {children}

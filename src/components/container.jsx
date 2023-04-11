@@ -13,11 +13,12 @@ const Container = ({
     imgSrc = undefined,
     tomanSign = true,
     containerRef,
+    className = ''
 }) => {
     return (
         <div 
             ref={containerRef} 
-            className={`group md:h-96 flex justify-center items-center z-20 gap-x-20 mx-auto w-5/6 flex-col ${rtl ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+            className={`${className} group md:h-96 flex justify-center items-center z-20 gap-x-20 mx-auto w-5/6 flex-col ${rtl ? 'md:flex-row-reverse' : 'md:flex-row'}`}
         >
             <div className='md:w-1/2 w-full flex justify-start items-center'>
                 {imgSrc !== undefined ? 
@@ -34,7 +35,7 @@ const Container = ({
                     <Link to={`product/${title}`}>
                         <button className={`btn ${primary ? 'primary-btn' : 'general-btn'}`}>
                             {tomanSign ? <Price price={buttonText} /> : buttonText}
-                            <Ico className={`mr-1 filter  ${primary ? 'invert' : ''}`}>
+                            <Ico className='mr-1'>
                                 <AngleRight />
                             </Ico>
                         </button>

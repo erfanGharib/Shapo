@@ -4,22 +4,26 @@ export const $_productSliderStatus = createSlice({
     name: '_productSliderStatus',
     initialState: {
         status: 0,
-        limit: 0,
-        translation: 25.5,
+        config: {
+            limit: 0,
+            translation: 25.5,
+            cols: 4
+        }
     },
     reducers: {
         goRight: state => {
-            if(state.status !== -((state.limit - 4) * state.translation)) 
-                state.status -= state.translation;
+            if(state.status !== -((state.config.limit - state.config.cols) * state.config.translation)) 
+                state.status -= state.config.translation;
         },
         goLeft: state => {            
             if(state.status !== 0) 
-                state.status += state.translation;
+                state.status += state.config.translation;
         },
-        setLimit: (state, { payload }) => {
-            state.limit = payload;
-        }
+        setConfig: (state, { payload }) => {
+            state.config = payload;
+            console.log(state.config, payload);
+        },
     }
 });
 
-export const { goRight, goLeft, setLimit } = $_productSliderStatus.actions;
+export const { goRight, goLeft, setConfig } = $_productSliderStatus.actions;

@@ -36,8 +36,8 @@ const Slider = ({ containerRef, sliderRef }) => {
                             className='h-full min-w-full items-center relative flex -z-10 bg-cover transition-all duration-500 bg-[35%] md:bg-center'
                         >
                             <div 
-                                style={{backgroundImage: 'linear-gradient(-90deg, white 30%, #ffffff11)'}}
-                                className='w-full h-full absoluteTopRight block md:hidden opacity-80 z-10 '
+                                style={{backgroundImage: 'linear-gradient(-90deg, white, #ffffff88)'}}
+                                className='w-full h-full absoluteTopRight block md:hidden z-10'
                             ></div>
                             <Container
                                 containerRef={containerRef[index]}
@@ -45,6 +45,7 @@ const Slider = ({ containerRef, sliderRef }) => {
                                 supTitle={supTitle}
                                 desc={desc}
                                 primary={true}
+                                className='sliderContainer'
                                 tomanSign={false}
                             />
                         </div>

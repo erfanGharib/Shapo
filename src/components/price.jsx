@@ -1,7 +1,7 @@
 const split = (num) => {
     return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
-const Price = ({ oldPrice, price, className }) => (
+const Price = ({ oldPrice, price, className = '' }) => (
     <div className={`${className} gap-x-[1px] flex items-center`}>
         {oldPrice !== undefined && oldPrice !== null ?
             <s>
