@@ -13,7 +13,9 @@ import Shop from './pages/shop';
 import reportWebVitals from './reportWebVitals';
 import ProductPage from './pages/productPage';
 import App from './App';
+import 'notyf/notyf.min.css';
 
+const IS_WIDTH_768px = window.screen.width <= 768;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
@@ -21,3 +23,5 @@ root.render(<App />);
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export default IS_WIDTH_768px;

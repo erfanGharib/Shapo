@@ -62,7 +62,7 @@ const ContactUs = () => {
                             rows="5"
                         ></textarea>
 
-                        <Btn className='btn primary-btn'>ارسال</Btn>
+                        <Btn className='btn primary-btn w-max'>ارسال</Btn>
                     </form>
                 </div>
             </div>

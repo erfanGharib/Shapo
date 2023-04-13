@@ -9,13 +9,15 @@ import {ReactComponent as IcoArrowTop} from '../assets/icons/arrow-top.svg'
 
 const Layout = () => {
     const backTopRef = useRef();
-    const scrollFunction = () => {
-        if (document.documentElement.scrollTop >= 70) {
-            backTopRef.current.classList.remove('hidden')
+    useEffect(() => {
+        const scrollFunction = () => {
+            if (document.documentElement.scrollTop >= 70) {
+                backTopRef.current.classList.remove('hidden')
+            }
+            else backTopRef.current.classList.add('hidden')
         }
-        else backTopRef.current.classList.add('hidden')
-    }
-    window.addEventListener('scroll', scrollFunction);
+        window.addEventListener('scroll', scrollFunction);
+    }, [])
 
     return (
         <Provider store={store}>

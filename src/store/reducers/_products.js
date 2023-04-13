@@ -111,12 +111,12 @@ export const $_products = createSlice({
             },
         ]
     },
-    reducers: {
-        goRight: state => {
-            if(state.status !== -((state.limit - 4) * state.translation)) 
-                state.status -= state.translation;
-        },
-    }
+    // reducers: {
+    //     goRight: state => {
+    //         if(state.status !== -((state.limit - 4) * state.translation)) 
+    //             state.status -= state.translation;
+    //     },
+    // }
 });
 
-export const { goRight } = $_products.actions;
+// export const { goRight } = $_products.actions;

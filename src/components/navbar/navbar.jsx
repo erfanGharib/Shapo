@@ -8,12 +8,13 @@ import Input from "../input";
 import {ReactComponent as IcoSearch} from '../../assets/icons/search.svg';
 import {ReactComponent as IcoBar} from '../../assets/icons/bar.svg';
 import { setStatus } from "../../store/reducers/_sidebarStatus";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
     const [navCssClass, setNavCssClass] = useState(false);
     const [searchBoxStatus, setSearchBoxStatus] = useState(false);
     const dispatch = useDispatch();
+    const { data: cartData } = useSelector(state => state.$_cart);
 
     const scrollFunction = () => {
         if (document.documentElement.scrollTop >= 10) {
@@ -29,14 +30,13 @@ const Navbar = () => {
                 <div className='flex justify-start gap-x-2 w-1/3'>
                     <Sidebar/>
                     <Btn className='pr-0' ico={<IcoBar/>} onClick={() => dispatch(setStatus(true))} />
-                    <Btn ico={<IcoShoppingBag/>} count={0} onClick={() => dispatch(setStatus(false))} />
+                    <Btn ico={<IcoShoppingBag/>} count={cartData.length} onClick={() => dispatch(setStatus(false))} />
                     <Btn ico={<IcoUser/>} />
                     <Btn 
                         ico={<IcoSearch/>}
                         onClick={() => setSearchBoxStatus(!searchBoxStatus)}
                         className={`${searchBoxStatus ? 'border-b bg-gray-200 rounded-none' : ''} border-gray-100 bg-opacity-40 md:hidden`}
                     />
-                    {/* <Btn icoSrc={icoHeart} count={0} /> */}
                 </div>
 
                 <div className="flex justify-end md:justify-center items-center w-1/3">

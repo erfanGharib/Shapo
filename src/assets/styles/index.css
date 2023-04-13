@@ -72,18 +72,26 @@ input[type=number] {
 .btn {
   @apply hover:text-inherit py-2 px-5 md:cursor-pointer cursor-default text-sm duration-300  flex justify-center items-center !border border-transparent transition-colors;
 }
-
+.notyf__wrapper {
+  @apply !pr-0;
+}
+.notyf__icon {
+  @apply relative left-3;
+}
 .absoluteTopRight {
   @apply absolute top-0 right-0;
 }
 .sliderContainer > div:last-child {
-  @apply md:w-1/2 w-[70%] !ml-auto;
+  @apply md:w-1/2 w-[80%] !ml-auto;
 }
 .danger-btn {
   @apply hover:bg-red-600 bg-transparent hover:!text-white text-red-600 border-red-600 border;
 }
 .gold-btn {
   @apply !bg-gold hover:!bg-transparent hover:text-gold border-gold border text-white;
+}
+nav > div > div > button {
+  @apply hover:text-gold;
 }
 /* .primary-btn {
   @apply !text-white;

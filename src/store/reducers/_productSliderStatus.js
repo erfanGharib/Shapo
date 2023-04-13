@@ -21,7 +21,6 @@ export const $_productSliderStatus = createSlice({
         },
         setConfig: (state, { payload }) => {
             state.config = payload;
-            console.log(state.config, payload);
         },
     }
 });

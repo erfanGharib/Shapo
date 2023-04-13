@@ -9,7 +9,7 @@ const QtyInput = ({ currentQty = 1 }) => {
     }
 
     return (
-        <div className='border relative'>
+        <div className='border relative flex'>
             <Btn onClick={() => changeQty('minus')}>–</Btn>
             <input
                 type='number'
