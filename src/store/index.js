@@ -8,9 +8,9 @@ import { $_cart } from './reducers/_cart';
 
 const store = configureStore({
     reducer: {
-        $_sliderStatus: $_sliderStatus.reducer,
-        $_sidebarStatus: $_sidebarStatus.reducer,
         $_productSliderStatus: $_productSliderStatus.reducer,
+        $_sidebarStatus: $_sidebarStatus.reducer,
+        $_sliderStatus: $_sliderStatus.reducer,
         $_products: $_products.reducer,
         $_posts: $_posts.reducer,
         $_cart: $_cart.reducer,

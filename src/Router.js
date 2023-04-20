@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './assets/styles/index.css';
 import Home from './pages';
 import NoPage from './pages/404';
@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 
 const Router = () => {
     const { data } = useSelector(state => state.$_products);
+
     return (
         <BrowserRouter>
             <Routes>

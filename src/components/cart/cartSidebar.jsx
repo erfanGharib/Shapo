@@ -3,8 +3,8 @@ import Btn from '../btn'
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../store/reducers/_cart";
 import { ReactComponent as IcoClose } from '../../assets/icons/close.svg';
-import { useRef } from "react";
 import Price from "../price";
+import { setStatus } from "../../store/reducers/_sidebarStatus";
 
 const CartSidebar = () => {
     const { data: cartData } = useSelector(state => state.$_cart);
@@ -49,9 +49,11 @@ const CartSidebar = () => {
                     </div>
 
                     <div className='flex flex-col gap-y-2'>
-                        <Btn className='w-full btn general-btn'>
-                            نمایش سبد خرید
-                        </Btn>
+                        <Link to='/cart'>
+                            <Btn onClick={() => dispatch(setStatus())} className='w-full btn general-btn'>
+                                نمایش سبد خرید
+                            </Btn>
+                        </Link>
                         <Btn className='w-full btn primary-btn'>
                             تسویه حساب
                         </Btn>

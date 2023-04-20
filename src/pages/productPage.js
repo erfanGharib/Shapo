@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import AddToCart from "../components/cart/addToCart/addToCart";
 import QtyInput from "../components/cart/addToCart/qtyInput";
 import PageInfo from "../components/pageInfo";

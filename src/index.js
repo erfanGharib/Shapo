@@ -1,18 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './assets/styles/index.css';
-import Home from './pages';
-import NoPage from './pages/404';
-import AboutUs from './pages/aboutUs';
-import Blog from './pages/blog';
-import Cart from './pages/cart';
-import ContactUs from './pages/contactUs';
-import Layout from './pages/layout';
-import Shop from './pages/shop';
 import reportWebVitals from './reportWebVitals';
-import ProductPage from './pages/productPage';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
 import App from './App';
+import './assets/styles/index.css';
 import 'notyf/notyf.min.css';
 
 const IS_WIDTH_768px = window.screen.width <= 768;

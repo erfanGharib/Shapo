@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+  .ltr- {
+    direction: ltr !important;
+  }
+
 @font-face {
   font-family: kalameh;
   src: url(../fonts/KalamehWeb-Black.woff2);

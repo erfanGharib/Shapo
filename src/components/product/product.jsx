@@ -1,16 +1,16 @@
 import imgDefaultProduct from '../../assets/images/products/default.svg'
 import { ReactComponent as IcoPlus } from '../../assets/icons/plus.svg';
-import { ReactComponent as IcoHeart } from '../../assets/icons/heart.svg';
 import { ReactComponent as IcoShoppingBag } from '../../assets/icons/shopping-bag.svg';
 import Btn from '../btn';
 import Price from '../price';
 import { useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../../store/reducers/_cart';
 import imgNancyChair from '../../assets/images/featuredProducts/nancy-chair.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Product = ({ data = {
     id: 1,
-    name: 'صندلی نانسی',
+    title: 'صندلی نانسی',
     price: 7_000_000,
     oldPrice: null,
     inventory: 7,
@@ -42,7 +42,6 @@ const Product = ({ data = {
         ]
     }
 }, className = '' }) => {
-    const dispatch = useDispatch();
     const {
         id = null,
         title = 'نام محصول',
@@ -51,16 +50,19 @@ const Product = ({ data = {
         oldPrice = null,
         inventory = 0,
     } = data;
+    const pageLink = `product/${title}`;
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const overlayBtns = [
         {
             ico: <IcoShoppingBag />,
-            onClick: () => dispatch(removeFromCart(id))
+            onClick: () => navigate(pageLink)
         },
         {
             ico: <IcoPlus />,
             onClick: () => dispatch(addToCart(data))
         }
-        // <IcoHeart/>,
     ]
     const calcPercent = () => {
         if (price >= oldPrice) console.error('newPrice cannot be lower than oldPrice or equal to');
@@ -68,27 +70,29 @@ const Product = ({ data = {
     }
 
     return (
-        <div
-            className={`${className} flex flex-col items-center`}
-            style={{ scrollSnapAlign: 'center' }}
-        >
+        <div className={`${className} flex flex-col items-center`}>
             <div className='w-full relative group'>
-                <div className='aspect-square p-5 flex justify-center items-center bg-[#efeff1]'>
-                    <img src={imgUrl} alt={title} className='w-full' />
-                </div>
-                <div className='overlay py-3.5 px-3 flex '>
-                    {oldPrice ?
-                        <span className='bg-orange-800 h-max text-white text-sm mr-auto leading-none circle'>
-                            {calcPercent()}%
-                        </span> :
-                        null
-                    }
-                    {inventory >= 0 ?
-                        null :
-                        <span className='bg-black text-white px-3 h-max py-1 text-sm'>ناموجود</span>
-                    }
-                </div>
-                <div className='overlay gap-x-2 z-10 group-hover:bg-opacity-30 flex justify-center items-center transform duration-300 transition-color'>
+                <Link to={pageLink}>
+                    <div className='aspect-square p-5 flex justify-center items-center bg-[#efeff1]'>
+                        <img src={imgUrl} alt={title} className='w-full' />
+                    </div>
+                    <div className='overlay py-3.5 px-3 flex '>
+                        {oldPrice ?
+                            <span className='bg-orange-800 h-max text-white text-sm mr-auto leading-none circle'>
+                                {calcPercent()}%
+                            </span> :
+                            null
+                        }
+                        {inventory >= 0 ?
+                            null :
+                            <span className='bg-black text-white px-3 h-max py-1 text-sm'>ناموجود</span>
+                        }
+                    </div>
+                    <div className='overlay group-hover:bg-opacity-30 duration-300 transition-color'>
+                    </div>
+                </Link>
+
+                <div className='overlay z-10 gap-x-2 flex justify-center items-center'>
                     {overlayBtns.map(({ ico, onClick }, index) =>
                         <Btn
                             onClick={onClick}
@@ -102,8 +106,10 @@ const Product = ({ data = {
                 </div>
             </div>
 
-            <h3 className='mt-2'>{title}</h3>
-            <Price price={price} oldPrice={oldPrice} className='text-gray-400' />
+            <Link to={pageLink}>
+                <h3 className='mt-2'>{title}</h3>
+            </Link>
+            <Price price={price} oldPrice={oldPrice} className='text-gray-400 flex-row-reverse' />
         </div>
     );
 }
