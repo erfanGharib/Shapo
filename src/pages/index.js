@@ -5,8 +5,10 @@ import imgNancyChair from '../assets/images/featuredProducts/nancy-chair.png';
 import imgArtDecoHome from '../assets/images/featuredProducts/art-deco-home.png';
 import imgTableWoodPine from '../assets/images/featuredProducts/table-wood-pine.png';
 import PostGrid from "../components/blog/postGrid";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+    const { data } = useSelector(state => state.$_products);
     return (
         <main className="w-full flex items-start flex-col">
             <Header />
@@ -33,7 +35,7 @@ const Home = () => {
                 imgSrc={imgArtDecoHome}
                 rtl={false}
             />
-            <ProductSlider title='پر فروش ترین ها' />
+            <ProductSlider products={data} title='پر فروش ترین ها' />
             
             <div className='w-5/6 mx-auto'>
                 <PostGrid />

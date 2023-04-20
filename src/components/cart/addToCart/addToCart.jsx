@@ -3,15 +3,16 @@ import { addToCart } from "../../../store/reducers/_cart";
 import Btn from "../../btn";
 import 'notyf/notyf.min.css';
 
-const AddToCart = ({ product }) => {
+const AddToCart = ({ className = 'gold-btn', product, disabled, children = 'افزودن به سبد خرید' }) => {
     const dispatch = useDispatch();
 
     return (
         <Btn 
+            disabled={disabled}
             onClick={() => dispatch(addToCart(product))}
-            className='btn gold-btn'
+            className={`${className} btn`}
         >
-            افزودن به سبد خرید
+            {children}
         </Btn>
     );
 }

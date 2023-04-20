@@ -44,11 +44,12 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
                             transform: `translatex(${status}%)`
                         }}
                     >
-                        <Product className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3' />
-                        <Product className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3' />
-                        <Product className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3' />
-                        <Product className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3' />
-                        <Product className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3' />
+                        {products.map(product => 
+                            <Product
+                                data={product} 
+                                className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3'
+                            />
+                        )}
                     </div>
                 </div>
                 <Btn ico={<IcoAngleLeft/>} onClick={() => dispatch(goLeft())} className={`md:-left-3 left-0 ${btnCssClasses}`} />

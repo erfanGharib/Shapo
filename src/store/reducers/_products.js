@@ -80,7 +80,7 @@ export const $_products = createSlice({
                 name: 'گلدان چوبی',
                 price: 100_000,
                 oldPrice: null,
-                inventory: 8,
+                inventory: 0,
                 desc: 'این گلدان یک گلدان عالی است',
                 imgUrl: imgArtDecoHome,
                 cat: 'دکوراسیون',

@@ -8,49 +8,16 @@ import { addToCart, removeFromCart } from '../../store/reducers/_cart';
 import imgNancyChair from '../../assets/images/featuredProducts/nancy-chair.png';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Product = ({ data = {
-    id: 1,
-    title: 'صندلی نانسی',
-    price: 7_000_000,
-    oldPrice: null,
-    inventory: 7,
-    desc: 'این صندلی یک صندلی عالی است',
-    imgUrl: imgNancyChair,
-    cat: 'مبلمان',
-    tag: 'صندلی',
-    tabs: {
-        fullDesc: [
-            {
-                title: 'توضیحات',
-                items: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم'
-            },
-            {
-                title: 'ویژگی ها',
-                items: [
-                    'آستین بالشتک داخلی مناسب لپ تاپ 15 اینچی است',
-                    'پنل پشتی کاملاً پددار شده، دسته ی تحت وب',
-                    'آستین تبلت با روکش تریکو داخلی',
-                    'دارای یک محفظه اصلی بزرگ و زیپدار',
-                    'پارچه بوم نخی درجه یک'
-                ]
-            }
-        ],
-        comments: [],
-        specifications: [
-            ['وزن', '1.2 کیلوگرم'],
-            ['ابعاد', '12 x 2 x 1.5 سانتی متر'],
-        ]
-    }
-}, className = '' }) => {
+const Product = ({ data, className = '' }) => {
     const {
         id = null,
-        title = 'نام محصول',
+        name = 'نام محصول',
         imgUrl = imgDefaultProduct,
         price = 0,
         oldPrice = null,
         inventory = 0,
     } = data;
-    const pageLink = `product/${title}`;
+    const pageLink = `product/${name}`;
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -74,7 +41,7 @@ const Product = ({ data = {
             <div className='w-full relative group'>
                 <Link to={pageLink}>
                     <div className='aspect-square p-5 flex justify-center items-center bg-[#efeff1]'>
-                        <img src={imgUrl} alt={title} className='w-full' />
+                        <img src={imgUrl} alt={name} className='w-full' />
                     </div>
                     <div className='overlay py-3.5 px-3 flex '>
                         {oldPrice ?
@@ -83,7 +50,7 @@ const Product = ({ data = {
                             </span> :
                             null
                         }
-                        {inventory >= 0 ?
+                        {inventory > 0 ?
                             null :
                             <span className='bg-black text-white px-3 h-max py-1 text-sm'>ناموجود</span>
                         }
@@ -107,7 +74,7 @@ const Product = ({ data = {
             </div>
 
             <Link to={pageLink}>
-                <h3 className='mt-2'>{title}</h3>
+                <h3 className='mt-2'>{name}</h3>
             </Link>
             <Price price={price} oldPrice={oldPrice} className='text-gray-400 flex-row-reverse' />
         </div>

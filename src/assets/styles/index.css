@@ -92,10 +92,13 @@ input[type=number] {
   @apply hover:bg-red-600 bg-transparent hover:!text-white text-red-600 border-red-600 border;
 }
 .gold-btn {
-  @apply !bg-gold hover:!bg-transparent hover:text-gold border-gold border text-white;
+  @apply bg-gold hover:!bg-transparent hover:text-gold border-gold border text-white;
 }
 nav > div > div > button {
   @apply hover:text-gold;
+}
+input, button {
+  @apply disabled:cursor-not-allowed;
 }
 /* .primary-btn {
   @apply !text-white;
