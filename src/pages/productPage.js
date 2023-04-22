@@ -5,6 +5,7 @@ import PageInfo from "../components/pageInfo";
 import Price from '../components/price'
 import ProductTabs from "../components/product/productTab/productTabs";
 
+
 const ProductPage = props => {
     const { id, name, price, oldPrice, desc, inventory, imgUrl, cat, tag, tabs } = props.data;
 

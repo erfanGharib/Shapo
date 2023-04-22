@@ -4,6 +4,7 @@ import SliderStatus from './sliderStatus';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentSlide } from '../../store/reducers/_sliderStatus';
 
+let RUN_INTERVAL = true;
 const Header = () => {
     const dispatch = useDispatch();
     const containerRef = [
@@ -24,15 +25,19 @@ const Header = () => {
     }
 
     useEffect(() => {
-        setInterval(() => {
-            dispatch(setCurrentSlide());
-        }, 5000);
-    }, []);
+        if(RUN_INTERVAL) {
+            setInterval(() => {
+                dispatch(setCurrentSlide());
+            }, 5000);
+        }
 
+        RUN_INTERVAL = false;
+    }, []);
+    
     useEffect(() => {
         toggleStyles();
         sliderRef.current.style.transform = `translatex(${status}00%)`;
-    });
+    },[status]);
 
     return (
         <div className='bg-gray-50 w-full h-[85vh] -mt-20 md:mb-32 mb-24 overflow-hidden relative z-0'>
