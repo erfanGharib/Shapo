@@ -27,16 +27,15 @@ export const $_cart = createSlice({
     },
     reducers: {
         addToCart: (state, { payload }) => {
-            try {
-                const dataCpy = [...state.data];
+            const dataCpy = [...state.data];
+            if(!dataCpy.some(v => v.id === payload.id)) {
                 dataCpy.push(payload);
                 state.data = dataCpy;
 
                 notyf.success(`محصول به سبد خرید اضافه شد`);
             }
-            catch (err) {
-                notyf.error('اضافه کردن محصول به سبد خرید با مشکل مواجه شد لطفا دوباره تلاش بفرمایید');
-                throw err;
+            else {
+                notyf.error('محصول قبلا به سبد خرید اضافه شده است');
             }
         },
         removeFromCart: (state, { payload }) => {
