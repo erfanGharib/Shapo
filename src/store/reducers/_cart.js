@@ -8,14 +8,14 @@ const notyf = new Notyf({
     },
     types: [
         {
-          type: 'success',
-          background: 'rgb(34 197 94)',
-          duration: 2500,
+            type: 'success',
+            background: 'rgb(21 128 61)',
+            duration: 2500,
         },
         {
-          type: 'error',
-          background: 'rgb(220 38 38)',
-          duration: 4000,
+            type: 'error',
+            background: 'rgb(220 38 38)',
+            duration: 4000,
         }
     ]
 })
@@ -34,24 +34,43 @@ export const $_cart = createSlice({
 
                 notyf.success(`محصول به سبد خرید اضافه شد`);
             }
-            catch(err) {
+            catch (err) {
                 notyf.error('اضافه کردن محصول به سبد خرید با مشکل مواجه شد لطفا دوباره تلاش بفرمایید');
                 throw err;
             }
         },
         removeFromCart: (state, { payload }) => {
-            const dataCpy = [...state.data];
+            const dataCpy = [...JSON.parse(JSON.stringify(state.data))];
 
             if (payload === 'all') state.data = [];
             else if (payload >= 0) {
-                dataCpy.splice(payload - 1, 1);
+                dataCpy.filter((value, index, arr) => {
+                    if (value.id === payload) {
+                        arr.splice(index, 1);
+                        return true;
+                    }
+                    return false;
+                })
+
                 state.data = dataCpy;
             }
+        },
+        setQty: (state, { payload }) => {
+            const dataCpy = [...state.data];
 
-            console.log(dataCpy);
-            console.log(state.data);
+            if (payload.id >= 0 && payload.qty >= 0) {
+                dataCpy.filter((value, index, arr) => {
+                    if (value.id === payload.id) {
+                        value.qty = payload.qty;
+                        return true;
+                    }
+                    return false;
+                })
+
+                state.data = dataCpy;
+            }
         },
     }
 });
 
-export const { addToCart, removeFromCart } = $_cart.actions;
+export const { addToCart, removeFromCart, setQty } = $_cart.actions;

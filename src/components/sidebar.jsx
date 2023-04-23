@@ -17,7 +17,7 @@ const Sidebar = () => {
             ></div>
 
             <div className={`${status ? 'translate-x-0' : 'translate-x-full'} z-40 px-10 py-6 md:w-96 w-full absoluteTopRight bg-white transform transition-transform duration-300 h-screen flex flex-col gap-y-10`}>
-                <Btn ico={<IcoClose/>} onClick={() => dispatch(setStatus())} className='hover:text-gold w-max' />
+                <Btn ico={<IcoClose/>} onClick={() => dispatch(setStatus())} className='hover:text-gold w-max -mb-3' />
                 
                 {IS_MAIN_SIDEBAR ? <MainSidebar/> : <CartSidebar/>}
             </div>

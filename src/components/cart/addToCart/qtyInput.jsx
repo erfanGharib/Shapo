@@ -1,11 +1,17 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setQty } from "../../../store/reducers/_cart";
 import Btn from "../../btn";
 
-const QtyInput = ({ currentQty = 1, disabled }) => {
-    const [qty, setQty] = useState(currentQty);
+const QtyInput = ({ currentQty = 1, disabled, productId }) => {
+    // const [qty, setQty] = useState(currentQty);
+    
+    // const { data: cartData } = useSelector(state => state.$_cart);
+    const dispatch = useDispatch();
+
     const changeQty = mode => {
-        if (mode === 'plus' && qty < 20) setQty(qty + 1);
-        else if (mode === 'minus' && qty > 1) setQty(qty - 1);
+        if (mode === 'plus' && currentQty < 20) dispatch(setQty({ id: productId, qty: currentQty + 1}));
+        else if (mode === 'minus' && currentQty > 1) dispatch(setQty({ id: productId, qty: currentQty - 1}));
     }
 
     return (
@@ -14,7 +20,7 @@ const QtyInput = ({ currentQty = 1, disabled }) => {
             <input
                 type='number'
                 className='p-0 bg-transparent border-none w-10 text-center'
-                value={qty}
+                value={currentQty}
                 readOnly
                 max='20'
                 min='1'

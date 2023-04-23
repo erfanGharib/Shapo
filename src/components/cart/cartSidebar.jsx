@@ -5,16 +5,11 @@ import { removeFromCart } from "../../store/reducers/_cart";
 import { ReactComponent as IcoClose } from '../../assets/icons/close.svg';
 import Price from "../price";
 import { setStatus } from "../../store/reducers/_sidebarStatus";
+import { calcTotalPrice } from "../../App";
 
 const CartSidebar = () => {
     const { data: cartData } = useSelector(state => state.$_cart);
     const dispatch = useDispatch();
-
-    const calcTotalPrice = () => {
-        let totalPrice = 0;
-        cartData.forEach(({ price }) => totalPrice += price);
-        return totalPrice;
-    }
 
     return (
         <>
@@ -22,22 +17,22 @@ const CartSidebar = () => {
                 <>
                     <div className='flex flex-col gap-y-3'>
                         {
-                            cartData.map(({ imgUrl, name, price, qty, id }) => (
-                                <div className='flex gap-x-5 items-center w-full border-b pb-3'>                                    
+                            cartData.map(({ imgUrl, name, price, qty, id }, index) => (
+                                <div key={index} className='flex gap-x-5 items-center w-full border-b pb-3'>                                    
                                     <div className='w-24 aspect-square p-4 flex justify-center items-center bg-[#efeff1]'>
                                         <img src={imgUrl} alt={name} className='w-full' />
                                     </div>
 
                                     <div className='flex justify-center flex-col'>
                                         <span className='text-lg'>{name}</span>
-                                        <span>{qty}</span>
+                                        <span className='text-sm'>تعداد: {qty}</span>
                                         <Price className='text-gray-400' price={price} />
                                     </div>
 
                                     <Btn
-                                        ico={<IcoClose />}
+                                        ico={<IcoClose className='w-5 h-5 opacity-50' />}
                                         onClick={() => dispatch(removeFromCart(id))}
-                                        className='!min-w-[20px] mr-auto'
+                                        className='!min-w-[20px] mr-auto mb-auto'
                                     />
                                 </div>
                             ))
@@ -45,7 +40,7 @@ const CartSidebar = () => {
                     </div>
                     <div className='flex justify-between'>
                         <h3>مجموع قیمت:</h3>
-                        <Price className='text-green-600' price={calcTotalPrice()} />
+                        <Price className='text-green-700' price={calcTotalPrice(cartData)} />
                     </div>
 
                     <div className='flex flex-col gap-y-2'>

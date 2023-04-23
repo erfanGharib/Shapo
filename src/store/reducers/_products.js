@@ -9,6 +9,7 @@ export const $_products = createSlice({
         data: [
             {
                 id: 1,
+                qty: 1,
                 name: 'صندلی نانسی',
                 price: 7_000_000,
                 oldPrice: null,
@@ -43,6 +44,7 @@ export const $_products = createSlice({
             },
             {
                 id: 2,
+                qty: 1,
                 name: 'میز چوب کاج',
                 price: 1_500_000,
                 oldPrice: null,
@@ -77,6 +79,7 @@ export const $_products = createSlice({
             },
             {
                 id: 3,
+                qty: 1,
                 name: 'گلدان چوبی',
                 price: 100_000,
                 oldPrice: null,

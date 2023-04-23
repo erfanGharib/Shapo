@@ -15,7 +15,6 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
 
     useEffect(() => {
         if(IS_WIDTH_768px) {
-            console.log('ss');
             dispatch(setConfig({
                 limit: productCount,
                 translation: 52,
@@ -44,8 +43,9 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
                             transform: `translatex(${status}%)`
                         }}
                     >
-                        {products.map(product => 
+                        {products.map((product, index) => 
                             <Product
+                                key={index}
                                 data={product} 
                                 className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3'
                             />

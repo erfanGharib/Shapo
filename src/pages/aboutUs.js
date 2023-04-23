@@ -7,33 +7,33 @@ import img2 from '../assets/images/aboutUs/2-380x380.jpg';
 import img3 from '../assets/images/aboutUs/3-380x380.jpg';
 import img4 from '../assets/images/aboutUs/4-380x380.jpg';
 import img5 from '../assets/images/aboutUs/5-780x380.jpg';
-import {ReactComponent as IcoPlay} from '../assets/icons/play.svg';
-import {ReactComponent as IcoArrow} from '../assets/icons/arrow.svg';
-import {ReactComponent as IcoWatch} from '../assets/icons/watch.svg';
+import { ReactComponent as IcoPlay } from '../assets/icons/play.svg';
+import { ReactComponent as IcoArrow } from '../assets/icons/arrow.svg';
+import { ReactComponent as IcoWatch } from '../assets/icons/watch.svg';
 import imgVideoBanner from '../assets/images/aboutUs/video-banner.jpg';
-import {ReactComponent as IcoZarinpal} from '../assets/icons/zarinpal.svg';
-import {ReactComponent as IcoShoppingBag} from '../assets/icons/shopping-bag.svg';
+import { ReactComponent as IcoZarinpal } from '../assets/icons/zarinpal.svg';
+import { ReactComponent as IcoShoppingBag } from '../assets/icons/shopping-bag.svg';
 
 const AboutUs = () => {
     const services = [
         {
             title: 'روش های پرداخت',
-            ico: <IcoZarinpal/>,
+            ico: <IcoZarinpal />,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
         {
             title: 'خرید اینترنتی',
-            ico: <IcoShoppingBag/>,
+            ico: <IcoShoppingBag />,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
         {
             title: 'ارسال رایگان',
-            ico: <IcoArrow/>,
+            ico: <IcoArrow />,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
         {
             title: 'مرجوع کالا',
-            ico: <IcoWatch/>,
+            ico: <IcoWatch />,
             content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.'
         },
     ]
@@ -58,9 +58,7 @@ const AboutUs = () => {
                 <div className='w-full'>
                     <GridItem imgSrc={imgVideoBanner} className='!aspect-video'>
                         <div className='overlay flex justify-center items-center bg-black z-10 group-hover:bg-opacity-50 transition-colors'>
-                            <Ico className='cursor-pointer filter drop-shadow-sm w-14 h-14'>
-                                <IcoPlay/>
-                            </Ico>
+                            <IcoPlay className='cursor-pointer filter drop-shadow-lg w-14 h-14' />
                         </div>
                     </GridItem>
                 </div>

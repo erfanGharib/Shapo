@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PageInfo from '../components/pageInfo';
 import Price from '../components/price';
@@ -6,23 +5,23 @@ import Btn from '../components/btn';
 import Input from '../components/input';
 import { ReactComponent as IcoClose } from '../assets/icons/close.svg';
 import { ReactComponent as IcoArrowLeft } from '../assets/icons/arrow-left.svg';
-import Ico from '../components/ico';
 import { Link } from 'react-router-dom';
-import imgDefaultProduct from '../assets/images/products/default.svg'
+import { removeFromCart, setQty } from '../store/reducers/_cart';
+import { useRef } from 'react';
+import { calcTotalPrice } from '../App';
+import QtyInput from '../components/cart/addToCart/qtyInput';
 
 const Cart = () => {
     const { data: cartData } = useSelector(state => state.$_cart);
     const dispatch = useDispatch();
-    const totalPrice = useRef(0);
-
-    cartData.forEach(({ price }) => totalPrice.current += price);
+    console.log(cartData);
 
     return (
         <>
             <PageInfo title='سبد خرید' path='سبد خرید' />
             <div className='mainPart !gap-7 flex-col md:!flex-row !items-start'>
                 <div className='w-full md:w-2/3'>
-                    <div class="relative overflow-x-auto w-full">
+                    <div className="relative overflow-x-auto w-full">
                         <table className="text-right w-full">
                             <thead className="text-sm text-gray-400 bg-gray-200 border-b bg-opacity-80">
                                 <tr className='font-normal'>
@@ -41,29 +40,31 @@ const Cart = () => {
                                 </tr>
                             </thead>
                             <tbody className='text-sm text-gray-700 bg-gray-50'>
-                                {/* {
-                                    cartData.map(({ imgSrc, name, price, qty }) => ( */}
-                                <tr class="bg-gray-50 border-b">
-                                    <th scope="row" class="gap-3 w-max flex px-5 py-4 items-center font-medium text-gray-900">
-                                        <img src={imgDefaultProduct} alt='' className='border w-14' />
-                                        Apple MacBook Pro 17"
-                                    </th>
-                                    <td class="px-5 py-4">
-                                        Silver
-                                    </td>
-                                    <td class="px-5 py-4">
-                                        Laptop
-                                    </td>
-                                    <td class="px-5 py-4">
-                                        <div className='w-full flex justify-between items-center'>
-                                            <Price price={2999} />
-                                            <Btn ico={<IcoClose className='w-5 h-5 mt-1' />} />
-                                        </div>
-                                    </td>
-                                </tr>
-                                {/* // ))
-                                // } */}
-
+                                {cartData.map(({ imgUrl, name, price, qty, id }, index) => (
+                                    <tr key={index} className="bg-gray-50 border-b">
+                                        <th scope="row" className="gap-3 w-max flex p-4 items-center font-medium text-gray-900">
+                                            <div className='w-16 p-1 aspect-square border flex justify-center items-center bg-[#efeff1]'>
+                                                <img src={imgUrl} alt={name} className='w-full' />
+                                            </div>
+                                            {name}
+                                        </th>
+                                        <td className="p-4">
+                                            <Price price={price}/>
+                                        </td>
+                                        <td className="p-4">
+                                            <QtyInput currentQty={qty} productId={id} />
+                                        </td>
+                                        <td className="p-4">
+                                            <div className='w-full flex justify-between items-center'>
+                                                <Price className='min-w-[110px]' price={price * qty} />
+                                                <Btn
+                                                    onClick={() => dispatch(removeFromCart(id))} 
+                                                    ico={<IcoClose className='w-5 h-5' />}
+                                                />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -81,7 +82,7 @@ const Cart = () => {
                         <span className='text-xl'>جمع کل سبد خرید</span>
                         <div className='flex justify-between items-center'>
                             <h3>مجموع قیمت:</h3>
-                            <h3>{'totalPrice.current'}</h3>
+                            <h3><Price price={calcTotalPrice(cartData)} /></h3>
                         </div>
                         <Btn className='btn gold-btn w-full'>اقدام به پرداخت</Btn>
                         <Link to='/shop' className='w-full'>
@@ -91,7 +92,6 @@ const Cart = () => {
                             >ادامه خرید</Btn>
                         </Link>
                     </div>
-
                 </div>
             </div>
         </>

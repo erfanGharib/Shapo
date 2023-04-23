@@ -16,6 +16,7 @@ const Product = ({ data, className = '' }) => {
         price = 0,
         oldPrice = null,
         inventory = 0,
+        qty = 1
     } = data;
     const pageLink = `product/${name}`;
     const navigate = useNavigate();
