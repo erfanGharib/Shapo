@@ -89,7 +89,10 @@ export const $_posts = createSlice({
         showMoreItem: state => {
             state.itemsToShow += 3;
         },
+        showLessItem: state => {
+            state.itemsToShow = 3;
+        },
     }
 });
 
-export const { setPosts, showMoreItem } = $_posts.actions;
+export const { setPosts, showMoreItem, showLessItem } = $_posts.actions;
