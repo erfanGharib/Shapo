@@ -11,7 +11,7 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
     const dispatch = useDispatch();
     const { status, config } = useSelector(state => state.$_productSliderStatus);
     const btnCssClasses = 'block md:relative !min-w-[30px] absolute -translate-y-5 transform'
-    const productCount = 5;
+    const productCount = products.length;
 
     useEffect(() => {
         if(IS_WIDTH_768px) {

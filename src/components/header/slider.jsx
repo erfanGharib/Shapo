@@ -9,19 +9,19 @@ const Slider = ({ containerRef, sliderRef }) => {
             imgSrc: imgSlider1,
             supTitle: 'مجموعه صندلی های 1401',
             title: 'به فروشگاه شاپو خوش آمدید',
-            desc: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است'
+            desc: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است',
         },
         {
             imgSrc: imgSlider2,
             supTitle: 'مجموعه صندلی های 1401',
             title: 'به فروشگاه شاپو خوش آمدید',
-            desc: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است'
+            desc: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است',
         },
         {
             imgSrc: imgSlider3,
             supTitle: 'مجموعه صندلی های 1401',
             title: 'به فروشگاه شاپو خوش آمدید',
-            desc: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است'
+            desc: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است',
         },
     ];
 
@@ -29,7 +29,7 @@ const Slider = ({ containerRef, sliderRef }) => {
         <>
             <div className='flex items-center h-full w-full relative'>
                 <div className='flex justify-start h-full transition-transform duration-700' ref={sliderRef}>
-                    {slides.map(({ imgSrc, supTitle, title, desc }, index) =>
+                    {slides.map(({ imgSrc, supTitle, title, desc, url }, index) =>
                         <div
                             key={index}
                             style={{ backgroundImage: `url(${imgSrc})` }}
@@ -44,6 +44,7 @@ const Slider = ({ containerRef, sliderRef }) => {
                                 title={title}
                                 supTitle={supTitle}
                                 desc={desc}
+                                url={'/shop'}
                                 primary={true}
                                 className='sliderContainer'
                                 tomanSign={false}

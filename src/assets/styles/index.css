@@ -77,7 +77,7 @@ input[type=number] {
   @apply hover:text-inherit py-2 px-5 md:cursor-pointer cursor-default text-sm duration-300  flex justify-center items-center !border border-transparent transition-colors;
 }
 .notyf__wrapper {
-  @apply !pr-0;
+  @apply !pr-0 w-[250px];
 }
 .notyf__icon {
   @apply relative left-3;

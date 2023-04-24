@@ -13,7 +13,8 @@ const Container = ({
     imgSrc = undefined,
     tomanSign = true,
     containerRef,
-    className = ''
+    className = '',
+    url = `product/${title}`
 }) => {
     return (
         <div 
@@ -32,7 +33,7 @@ const Container = ({
                 <p  className='!duration-700 mb-7 mt-5'>{desc}</p>
 
                 <div className='!duration-1000'>
-                    <Link to={`product/${title}`}>
+                    <Link to={url}>
                         <button className={`btn ${primary ? 'primary-btn' : 'general-btn'}`}>
                             {tomanSign ? <Price price={buttonText} /> : buttonText}
                             <Ico className='mr-1'>

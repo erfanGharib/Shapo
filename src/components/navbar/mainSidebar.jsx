@@ -40,7 +40,7 @@ const MainSidebar = () => {
 
     return (
         <>
-            <div className='flex flex-col gap-y-2'>
+            <div className='w-full flex flex-col gap-y-2'>
                 {
                     links.map(({ link, text }, index) =>
                         <Link

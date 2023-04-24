@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../../store/reducers/_cart';
 import imgNancyChair from '../../assets/images/featuredProducts/nancy-chair.png';
 import { Link, useNavigate } from 'react-router-dom';
+import ProductLabels from './productLabels';
 
 const Product = ({ data, className = '' }) => {
     const {
@@ -31,31 +32,16 @@ const Product = ({ data, className = '' }) => {
             ico: <IcoPlus />,
             onClick: () => dispatch(addToCart(data))
         }
-    ]
-    const calcPercent = () => {
-        if (price >= oldPrice) console.error('newPrice cannot be lower than oldPrice or equal to');
-        return 100 - (price * 100 / oldPrice);
-    }
+    ];
 
     return (
         <div className={`${className} flex flex-col items-center`}>
             <div className='w-full relative group'>
                 <Link to={pageLink}>
-                    <div className='aspect-square p-5 flex justify-center items-center bg-[#efeff1]'>
+                    <div className='aspect-square bg-[#efeff1]'>
                         <img src={imgUrl} alt={name} className='w-full' />
                     </div>
-                    <div className='overlay py-3.5 px-3 flex '>
-                        {oldPrice ?
-                            <span className='bg-orange-800 h-max text-white text-sm mr-auto leading-none circle'>
-                                {calcPercent()}%
-                            </span> :
-                            null
-                        }
-                        {inventory > 0 ?
-                            null :
-                            <span className='bg-black text-white px-3 h-max py-1 text-sm'>ناموجود</span>
-                        }
-                    </div>
+                    <ProductLabels price={price} oldPrice={oldPrice} inventory={inventory} />
                     <div className='overlay group-hover:bg-opacity-30 duration-300 transition-color'>
                     </div>
                 </Link>

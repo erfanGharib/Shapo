@@ -16,7 +16,7 @@ const Sidebar = () => {
                 className={`${status ? '!opacity-70' : 'opacity-0 invisible'} z-30 w-full h-screen transition-opacity duration-300 bg-black absoluteTopRight`}
             ></div>
 
-            <div className={`${status ? 'translate-x-0' : 'translate-x-full'} z-40 px-10 py-6 md:w-96 w-full absoluteTopRight bg-white transform transition-transform duration-300 h-screen flex flex-col gap-y-10`}>
+            <div className={`${status ? 'translate-x-0' : 'translate-x-full'} items-start z-40 px-10 py-6 md:w-96 w-full absoluteTopRight bg-white transform transition-transform duration-300 h-screen flex flex-col gap-y-10`}>
                 <Btn ico={<IcoClose/>} onClick={() => dispatch(setStatus())} className='hover:text-gold w-max -mb-3' />
                 
                 {IS_MAIN_SIDEBAR ? <MainSidebar/> : <CartSidebar/>}

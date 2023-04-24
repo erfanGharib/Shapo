@@ -3,22 +3,39 @@ import AddToCart from "../components/cart/addToCart/addToCart";
 import QtyInput from "../components/cart/addToCart/qtyInput";
 import PageInfo from "../components/pageInfo";
 import Price from '../components/price'
+import ProductLabels from "../components/product/productLabels";
 import ProductTabs from "../components/product/productTab/productTabs";
 
 
 const ProductPage = props => {
     const { id, name, price, oldPrice, desc, inventory, imgUrl, cat, tag, tabs } = props.data;
+    console.log(navigator.bluetooth);
+    const shareProduct = () => {
+        const dataToShare = {
+            title: name,
+            text: 'سلام! به این محصول جذاب و دیدنی یک نگاه بنداز!',
+            url: window.location.href
+        }
 
+        if(window.navigator.canShare && window.navigator.canShare(dataToShare)) {
+            window.navigator.share(dataToShare);
+        }
+        else {
+            // alert('')
+        }
+    }
     return (
         <div className='w-full'>
             <PageInfo title={name} path={name} />
             <div className='border-b' id="product">
                 <div className='mainPart md:flex-row mb-14'>
-                    <div className='md:w-1/2 w-full aspect-square flex justify-center relative p-10 bg-[#efeff1]'>
-                        {inventory > 0 ?
-                            null :
-                            <span className='bg-black absolute text-white px-3 right-0 mr-10 h-max py-1'>ناموجود</span>
-                        }
+                    <div className='md:w-1/2 w-full h-full aspect-square flex justify-center relative bg-[#efeff1]'>
+                        <ProductLabels 
+                            price={price} 
+                            oldPrice={oldPrice} 
+                            inventory={inventory} 
+                            textSize={'text-lg'} 
+                        />
                         <img src={imgUrl} alt={name} className='w-full m-auto' />
                     </div>
 
@@ -27,12 +44,12 @@ const ProductPage = props => {
                         <Price
                             price={price}
                             oldPrice={oldPrice}
-                            className='text-gold text-2xl mt-3 mb-1'
+                            className='text-gold text-2xl mt-3 flex mb-1'
                         />
                         <p>{desc}</p>
 
-                        <div className='w-max flex gap-x-3 my-8'>
-                            <QtyInput disabled={inventory <= 0} />
+                        <div className='w-max flex gap-x-3 my-7'>
+                            {inventory <= 0 ? null : <QtyInput />}
 
                             {inventory > 0 ?
                                 <AddToCart /> :
@@ -55,8 +72,8 @@ const ProductPage = props => {
                                 <span className='text-gray-400'>{tag}</span>
                             </p>
                         </div>
-                        <div className='mt-10'>
-                            <span>این محصول را به اشتراک بگزارید:  </span>
+                        <div onClick={shareProduct} className='mt-10'>
+                            <span>این محصول را به اشتراک بگزارید</span>
                         </div>
                     </div>
                 </div>
