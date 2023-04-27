@@ -1,32 +1,40 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setQty } from "../../../store/reducers/_cart";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateQty } from "../../../store/reducers/_cart";
+// import { setQty } from "../../../store/reducers/_qty";
 import Btn from "../../btn";
 
-const QtyInput = ({ currentQty = 1, disabled, productId }) => {
-    // const [qty, setQty] = useState(currentQty);
-    
-    // const { data: cartData } = useSelector(state => state.$_cart);
+const QtyInput = ({ setQty, currentQty = 1, productId, UPDATE_PRODUCT = true }) => {
+    // const { qty } = useSelector(state => state.$_qty);
+    const qty = useRef(currentQty);
     const dispatch = useDispatch();
 
-    const changeQty = mode => {
-        if (mode === 'plus' && currentQty < 20) dispatch(setQty({ id: productId, qty: currentQty + 1}));
-        else if (mode === 'minus' && currentQty > 1) dispatch(setQty({ id: productId, qty: currentQty - 1}));
+    const changeQty = mark => {
+        if(qty.current < 20 && mark === '+') {
+            qty.current ++;
+        }
+        else if(qty.current > 1 && mark === '-') {
+            qty.current --;
+        }
+
+        if (UPDATE_PRODUCT) {
+            dispatch(updateQty({ id: productId, qty: qty.current }));
+        }
+        else {
+            setQty(qty.current);
+        }
     }
 
     return (
         <div className='border relative flex'>
-            <Btn onClick={() => changeQty('minus')} disabled={disabled}>–</Btn>
+            <Btn onClick={() => changeQty('-')}>–</Btn>
             <input
                 type='number'
                 className='p-0 bg-transparent border-none w-10 text-center'
-                value={currentQty}
+                value={qty.current}
                 readOnly
-                max='20'
-                min='1'
-                disabled={disabled}
             />
-            <Btn onClick={() => changeQty('plus')} disabled={disabled}>+</Btn>
+            <Btn onClick={() => changeQty('+')}>+</Btn>
         </div>
     );
 }

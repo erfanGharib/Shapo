@@ -5,6 +5,7 @@ import { $_sliderStatus } from './reducers/_sliderStatus';
 import { $_products } from './reducers/_products';
 import { $_posts } from './reducers/_posts';
 import { $_cart } from './reducers/_cart';
+import { $_qty } from './reducers/_qty';
 
 const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
         $_products: $_products.reducer,
         $_posts: $_posts.reducer,
         $_cart: $_cart.reducer,
+        $_qty: $_qty.reducer,
     },
 });
 export default store;

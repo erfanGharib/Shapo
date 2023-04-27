@@ -11,16 +11,14 @@ const CommentsTab = ({ productName = '', comments }) => {
             </h5>
             <div className='flex my-2'>
                 {[1, 2, 3, 4, 5].map(v =>
-                    <Ico className='w-4 h-4 text-yellow-400'>
-                        <IcoStar />
-                    </Ico>
+                    <IcoStar key={v} className='w-4 h-4 text-yellow-400' />
                 )}
             </div>
-            <div className="py-5 flex flex-wrap gap-3 items-center">
-                <textarea className='w-full' rows={5} placeholder='نظر شما'></textarea>
-                <div className='flex w-full gap-3'>
-                    <Input placeholder='ایمیل' className='w-1/2' />
-                    <Input placeholder='نام' className='w-1/2' />
+            <div className="py-5 flex flex-wrap items-center">
+                <textarea className='w-full mb-3' rows={5} placeholder='نظر شما'></textarea>
+                <div className='flex w-full space-3'>
+                    <Input placeholder='ایمیل' className='w-1/2 mb-3 ml-3' />
+                    <Input placeholder='نام' className='w-1/2 mb-3' />
                 </div>
                 <Btn className='btn primary-btn'>ارسال</Btn>
             </div>

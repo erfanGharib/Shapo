@@ -5,7 +5,7 @@ import Router from './Router';
 
 export const calcTotalPrice = (cartData) => {
     let totalPrice = 0;
-    cartData.forEach(({ price }) => totalPrice += price);
+    cartData.forEach(({ price, qty }) => totalPrice += price * qty);
     return totalPrice;
 }
 

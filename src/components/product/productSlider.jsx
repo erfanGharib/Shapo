@@ -17,7 +17,7 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
         if(IS_WIDTH_768px) {
             dispatch(setConfig({
                 limit: productCount,
-                translation: 52,
+                translation: 50,
                 cols: 2,
             }));
         }
@@ -37,7 +37,7 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
                 <Btn ico={<IcoAngleRight/>} onClick={() => dispatch(goRight())} className={`md:-right-3 right-0 ${btnCssClasses}`} />
                 <div className='min-w-full overflow-hidden'>
                     <div
-                        className='mt-7 productSlider pb-5 flex -z-10 overflow-x-visible transition-transform duration-300'
+                        className='mt-7 productSlider -mr-5 pb-5 flex -z-10 overflow-x-visible transition-transform duration-300'
                         style={{ 
                             direction: 'ltr',
                             transform: `translatex(${status}%)`
@@ -47,7 +47,7 @@ const ProductSlider = ({ products, title = 'product slider' }) => {
                             <Product
                                 key={index}
                                 data={product} 
-                                className='md:min-w-[25.5%] md:max-w-[25.5%] min-w-[52%] max-w-[52%] md:pr-5 pr-3'
+                                className='md:min-w-[25%] min-w-[50%] md:pr-5 pr-3'
                             />
                         )}
                     </div>

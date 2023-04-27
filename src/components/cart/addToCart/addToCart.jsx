@@ -1,16 +1,15 @@
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/reducers/_cart";
 import Btn from "../../btn";
-import 'notyf/notyf.min.css';
+import {addToCart} from '../../../store/reducers/_cart' 
 
-const AddToCart = ({ className = 'gold-btn', product, disabled, children = 'افزودن به سبد خرید' }) => {
+const AddToCart = ({ className = '', product, disabled, children = 'افزودن به سبد خرید' }) => {
     const dispatch = useDispatch();
-
+    console.log(product);
     return (
         <Btn 
             disabled={disabled}
             onClick={() => dispatch(addToCart(product))}
-            className={`${className} btn`}
+            className={`${className} gold-btn btn`}
         >
             {children}
         </Btn>

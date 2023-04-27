@@ -50,8 +50,8 @@ const ContactUs = () => {
                 <hr className='my-7 w-full' />
                 <div className='flex w-full md:w-2/3 flex-col'>
                     <h3 className='text-xl font-bold'>با ما در ارتباط باشید</h3>
-                    <form className='flex flex-col my-5 w-full gap-3'>
-                        <div className='w-full flex gap-3'>
+                    <form className='flex flex-col my-5 w-full space-3'>
+                        <div className='w-full flex space-3'>
                             <Input placeholder='نام' className='w-full md:w-1/2' />
                             <Input placeholder='ایمیل' className='w-full md:w-1/2' />
                         </div>

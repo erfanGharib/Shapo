@@ -28,6 +28,8 @@ export const $_cart = createSlice({
     reducers: {
         addToCart: (state, { payload }) => {
             const dataCpy = [...state.data];
+            console.log(payload);
+            
             if(!dataCpy.some(v => v.id === payload.id)) {
                 dataCpy.push(payload);
                 state.data = dataCpy;
@@ -54,10 +56,11 @@ export const $_cart = createSlice({
                 state.data = dataCpy;
             }
         },
-        setQty: (state, { payload }) => {
+        updateQty: (state, { payload }) => {
             const dataCpy = [...state.data];
+            console.log(payload);
 
-            if (payload.id >= 0 && payload.qty >= 0) {
+            if (payload.id > 0 && payload.qty > 0) {
                 dataCpy.filter((value, index, arr) => {
                     if (value.id === payload.id) {
                         value.qty = payload.qty;
@@ -72,4 +75,4 @@ export const $_cart = createSlice({
     }
 });
 
-export const { addToCart, removeFromCart, setQty } = $_cart.actions;
+export const { addToCart, removeFromCart, updateQty } = $_cart.actions;

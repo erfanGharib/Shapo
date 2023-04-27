@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AddToCart from "../components/cart/addToCart/addToCart";
 import QtyInput from "../components/cart/addToCart/qtyInput";
 import PageInfo from "../components/pageInfo";
@@ -8,8 +8,10 @@ import ProductTabs from "../components/product/productTab/productTabs";
 
 
 const ProductPage = props => {
-    const { id, name, price, oldPrice, desc, inventory, imgUrl, cat, tag, tabs } = props.data;
-    console.log(navigator.bluetooth);
+    const data = {...props.data};
+    const { name, price, oldPrice, desc, inventory, imgUrl, cat, tag, tabs } = data;
+    
+    const [qty, setQty] = useState(1);
     const shareProduct = () => {
         const dataToShare = {
             title: name,
@@ -24,6 +26,9 @@ const ProductPage = props => {
             // alert('')
         }
     }
+
+    data.qty = qty;
+
     return (
         <div className='w-full'>
             <PageInfo title={name} path={name} />
@@ -39,7 +44,7 @@ const ProductPage = props => {
                         <img src={imgUrl} alt={name} className='w-full m-auto' />
                     </div>
 
-                    <div className='md:w-1/2 w-full aspect-square'>
+                    <div className='md:w-1/2 w-full md:mr-7 mt-7 aspect-square'>
                         <h1 className='text-2xl font-bold'>{name}</h1>
                         <Price
                             price={price}
@@ -48,11 +53,14 @@ const ProductPage = props => {
                         />
                         <p>{desc}</p>
 
-                        <div className='w-max flex gap-x-3 my-7'>
-                            {inventory <= 0 ? null : <QtyInput />}
+                        <div className='w-max flex my-7'>
+                            {inventory <= 0 ? null : <QtyInput setQty={setQty} UPDATE_PRODUCT={false} />}
 
                             {inventory > 0 ?
-                                <AddToCart /> :
+                                <AddToCart 
+                                    product={data} 
+                                    className='mr-3' 
+                                /> :
                                 <AddToCart
                                     disabled
                                     className='!bg-red-600 border-red-600 text-white hover:text-white'
@@ -79,7 +87,7 @@ const ProductPage = props => {
                 </div>
             </div>
 
-            <ProductTabs data={tabs} productName={name} />
+            <ProductTabs tabs={tabs} productName={name} productImg={imgUrl} />
         </div>
     );
 }

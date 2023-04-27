@@ -54,7 +54,7 @@ const AboutUs = () => {
     return (
         <>
             <PageInfo title='درباره ما' path='درباره ما' />
-            <div className='mainPart !gap-y-14'>
+            <div className='mainPart !space-y-14'>
                 <div className='w-full'>
                     <GridItem imgSrc={imgVideoBanner} className='!aspect-video'>
                         <div className='overlay flex justify-center items-center bg-black z-10 group-hover:bg-opacity-50 transition-colors'>
@@ -65,7 +65,7 @@ const AboutUs = () => {
 
                 <Informations items={services} />
 
-                <div className='w-full flex flex-col md:flex-row gap-x-10 gap-y-5 items-center'>
+                <div className='w-full flex flex-col md:flex-row space-x-10 space-y-5 items-center'>
                     <div className='w-full md:w-3/5'>
                         <h3 className='font-bold text-xl mb-2'>عملکرد در بهترین حالت ممکن</h3>
                         <p className='leading-7'>
@@ -88,22 +88,22 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <div className='w-full flex gap-3 flex-col'>
-                    <div className='flex gap-3'>
-                        <div className='w-2/3 flex gap-3 flex-col'>
+                <div className='w-full flex space-3 flex-col'>
+                    <div className='flex space-3'>
+                        <div className='w-2/3 flex space-3 flex-col'>
                             <GridItem imgSrc={img2} />
                             <GridItem imgSrc={img3} />
                         </div>
                         <GridItem imgSrc={img1} className='w-1/3' />
                     </div>
 
-                    <div className='w-full flex gap-3'>
+                    <div className='w-full flex space-3'>
                         <GridItem imgSrc={img5} className='w-1/3 !aspect-video' />
                         <GridItem imgSrc={img4} className='w-2/3' />
                     </div>
                 </div>
 
-                <div className='w-full grid md:grid-cols-2 grid-cols-1 gap-y-5'>
+                <div className='w-full grid md:grid-cols-2 grid-cols-1 space-y-5'>
                     <div>
                         <h3 className='text-2xl font-bold mb-2 text-gray-900'>شاهرود</h3>
                         <p className='max-w-xs'>

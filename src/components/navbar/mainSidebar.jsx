@@ -40,14 +40,14 @@ const MainSidebar = () => {
 
     return (
         <>
-            <div className='w-full flex flex-col gap-y-2'>
+            <div className='w-full flex flex-col'>
                 {
                     links.map(({ link, text }, index) =>
                         <Link
                             onClick={() => dispatch(setStatus())}
                             to={link}
                             key={index}
-                            className='!w-full !px-3 btn !text-base hover:!text-current secondray-btn'
+                            className='!w-full !px-3 btn mb-2 !text-base hover:!text-current secondray-btn'
                         >
                             {text}
                             <Ico className='mr-auto !w-5 !h-5'>

@@ -36,7 +36,7 @@ const Product = ({ data, className = '' }) => {
 
     return (
         <div className={`${className} flex flex-col items-center`}>
-            <div className='w-full relative group'>
+            <div className='w-full relative group h-full'>
                 <Link to={pageLink}>
                     <div className='aspect-square bg-[#efeff1]'>
                         <img src={imgUrl} alt={name} className='w-full' />
@@ -46,15 +46,14 @@ const Product = ({ data, className = '' }) => {
                     </div>
                 </Link>
 
-                <div className='overlay z-10 gap-x-2 flex justify-center items-center'>
+                <div className='overlay z-10 flex justify-center items-center'>
                     {overlayBtns.map(({ ico, onClick }, index) =>
                         <Btn
                             onClick={onClick}
                             key={index}
                             ico={ico}
                             style={{ transition: '400ms ' + index + '00ms' }}
-                            className='hover:text-gold bg-white circle opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-100'
-                            icoSize='20px'
+                            className='mx-1 hover:text-gold bg-white circle opacity-0 translate-y-full group-hover:translate-y-0 group-hover:opacity-100'
                         />
                     )}
                 </div>

@@ -14,7 +14,7 @@ const SocialMedia = ({ className }) => {
         },
     ]
     return (
-        <div className={`flex gap-5 items-center ${className}`}>
+        <div className={`flex items-center ${className}`}>
             <span>با ما در شبکه های اجتماعی</span>
             {items.map(({ link, ico }, index) =>
                 <a
@@ -22,7 +22,7 @@ const SocialMedia = ({ className }) => {
                     href={link}
                     rel="noreferrer"
                     target="_blank"
-                    className="transition hover:opacity-60"
+                    className="transition hover:opacity-60 mr-5"
                 >
                     <Ico>
                         {ico}

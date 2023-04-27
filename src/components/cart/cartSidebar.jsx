@@ -10,23 +10,24 @@ import { calcTotalPrice } from "../../App";
 const CartSidebar = () => {
     const { data: cartData } = useSelector(state => state.$_cart);
     const dispatch = useDispatch();
+    console.log(cartData);
 
     return (
         <>
             {cartData.length !== 0 ?
                 <>
-                    <div className='flex flex-col gap-y-3'>
+                    <div className='flex w-full flex-col'>
                         {
-                            cartData.map(({ imgUrl, name, price, qty, id }, index) => (
-                                <div key={index} className='flex gap-x-5 items-center w-full border-b pb-3'>                                    
-                                    <div className='w-24 aspect-square p-4 flex justify-center items-center bg-[#efeff1]'>
+                            cartData.map(({ imgUrl = '', name = '', price = '', qty = 1, id = '' }, index) => (
+                                <div key={index} className='mb-3 flex items-center w-full border-b pb-3'>                                    
+                                    <div className='w-24 aspect-square ml-5 p-4 flex justify-center items-center bg-[#efeff1]'>
                                         <img src={imgUrl} alt={name} className='w-full' />
                                     </div>
 
                                     <div className='flex justify-center flex-col'>
                                         <span className='text-lg'>{name}</span>
                                         <span className='text-sm'>تعداد: {qty}</span>
-                                        <Price className='text-gray-400' price={price} />
+                                        <Price className='text-gray-400' price={price*qty} />
                                     </div>
 
                                     <Btn
@@ -38,12 +39,12 @@ const CartSidebar = () => {
                             ))
                         }
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between w-full'>
                         <h3>مجموع قیمت:</h3>
                         <Price className='text-green-700' price={calcTotalPrice(cartData)} />
                     </div>
 
-                    <div className='flex flex-col gap-y-2'>
+                    <div className='flex w-full flex-col space-y-2'>
                         <Link to='/cart'>
                             <Btn onClick={() => dispatch(setStatus())} className='w-full btn general-btn'>
                                 نمایش سبد خرید

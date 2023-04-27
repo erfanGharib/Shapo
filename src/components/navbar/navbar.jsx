@@ -27,7 +27,7 @@ const Navbar = () => {
     return (
         <nav className={`${navCssClass ? 'bg-white border-b' : ''} ${searchBoxStatus ? 'h-20' : 'md:h-20 h-[140px]'} fixed w-full transition-all py-4 top-0 z-30`}>
             <div className='w-5/6 mx-auto flex justify-between items-center flex-wrap'>
-                <div className='flex justify-start gap-x-2 w-1/3'>
+                <div className='flex justify-start w-1/3 groupnavbar group-[navbar>button,]:mx-1'>
                     <Sidebar/>
                     <Btn className='pr-0' ico={<IcoBar/>} onClick={() => dispatch(setStatus(true))} />
                     <Btn ico={<IcoShoppingBag/>} count={cartData.length} onClick={() => dispatch(setStatus(false))} />

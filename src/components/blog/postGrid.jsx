@@ -12,7 +12,7 @@ const PostGrid = ({ IS_HOME_PAGE = true }) => {
     });
 
     return (
-        <div className='flex flex-col items-center'>
+        <div id="postGrid" className='flex flex-col items-center md:-ml-5'>
             {   
                 IS_HOME_PAGE ? 
                 <Link to='/blog'>
@@ -20,7 +20,7 @@ const PostGrid = ({ IS_HOME_PAGE = true }) => {
                 </Link> : 
                 null
             }
-            <div className='md:grid-cols-3 grid-cols-1 flex-wrap gap-5 w-full grid'>
+            <div className='flex flex-wrap w-full'>
                 {posts.map((data, index) => {
                     if(index < itemsToShow) return <Post key={index} data={data} />
                     return null

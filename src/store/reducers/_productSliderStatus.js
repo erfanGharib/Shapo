@@ -6,7 +6,7 @@ export const $_productSliderStatus = createSlice({
         status: 0,
         config: {
             limit: 0,
-            translation: 25.5,
+            translation: 25,
             cols: 4
         }
     },

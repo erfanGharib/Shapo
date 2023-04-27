@@ -19,8 +19,8 @@ const Cart = () => {
     return (
         <>
             <PageInfo title='سبد خرید' path='سبد خرید' />
-            <div className='mainPart !gap-7 flex-col md:!flex-row !items-start'>
-                <div className='w-full md:w-2/3'>
+            <div className='mainPart flex-col md:!flex-row !items-start'>
+                <div className='w-full md:w-2/3 md:ml-5'>
                     <div className="relative overflow-x-auto w-full">
                         <table className="text-right w-full">
                             <thead className="text-sm text-gray-400 bg-gray-200 border-b bg-opacity-80">
@@ -42,19 +42,19 @@ const Cart = () => {
                             <tbody className='text-sm text-gray-700 bg-gray-50'>
                                 {cartData.map(({ imgUrl, name, price, qty, id }, index) => (
                                     <tr key={index} className="bg-gray-50 border-b">
-                                        <th scope="row" className="gap-3 w-max flex p-4 items-center font-medium text-gray-900">
-                                            <div className='w-16 p-1 aspect-square border flex justify-center items-center bg-[#efeff1]'>
+                                        <td scope="row" className="space-3 w-max flex items-center font-medium text-gray-900">
+                                            <div className='w-16 p-1 ml-3 aspect-square border flex justify-center items-center bg-[#efeff1]'>
                                                 <img src={imgUrl} alt={name} className='w-full' />
                                             </div>
                                             {name}
-                                        </th>
-                                        <td className="p-4">
+                                        </td>
+                                        <td>
                                             <Price price={price}/>
                                         </td>
-                                        <td className="p-4">
+                                        <td>
                                             <QtyInput currentQty={qty} productId={id} />
                                         </td>
-                                        <td className="p-4">
+                                        <td>
                                             <div className='w-full flex justify-between items-center'>
                                                 <Price className='min-w-[110px]' price={price * qty} />
                                                 <Btn
@@ -68,9 +68,15 @@ const Cart = () => {
                             </tbody>
                         </table>
                     </div>
-                    <div className='w-full gap-3 flex-wrap flex md:w-80 mt-5'>
-                        <Input className='!w-[51%]' placeholder='کد تخفیف' />
-                        <Btn className='btn general-btn w-[45%]'>اعمال کد تخفیف</Btn>
+                    <div className='w-full space-3 flex-wrap flex md:w-80 mt-5 md:mb-0 mb-5'>
+                        <Input
+                            disabled={cartData.length === 0} 
+                            className='!w-[51%]' placeholder='کد تخفیف' 
+                        />
+                        <Btn 
+                            className='btn general-btn w-[45%] mr-auto'
+                            disabled={cartData.length === 0}
+                        >اعمال کد تخفیف</Btn>
                     </div>
                 </div>
                 {/* <div className='w-full flex justify-between'>
@@ -78,13 +84,16 @@ const Cart = () => {
 
                 </div> */}
                 <div className='flex flex-col w-full md:w-1/3'>
-                    <div className='flex flex-col gap-3 border p-5'>
-                        <span className='text-xl'>جمع کل سبد خرید</span>
+                    <div className='flex flex-col border p-5'>
+                        <span className='text-xl mb-4'>جمع کل سبد خرید</span>
                         <div className='flex justify-between items-center'>
                             <h3>مجموع قیمت:</h3>
                             <h3><Price price={calcTotalPrice(cartData)} /></h3>
                         </div>
-                        <Btn className='btn gold-btn w-full'>اقدام به پرداخت</Btn>
+                        <Btn 
+                            className='btn gold-btn w-full my-2' 
+                            disabled={cartData.length === 0}
+                        >اقدام به پرداخت</Btn>
                         <Link to='/shop' className='w-full'>
                             <Btn
                                 className='primary-btn btn w-full'

@@ -4,7 +4,7 @@ const ProductLabels = ({ price, oldPrice, inventory, textSize = 'text-sm' }) => 
         return Math.floor(100 - (price * 100 / oldPrice));
     }
     return (
-        <div className={`${textSize} overlay py-3.5 px-3 flex justify-end w-full`} style={{direction: 'ltr'}}>
+        <div className={`${textSize} overlay py-3.5 px-3 flex justify-end`} style={{direction: 'ltr'}}>
             {oldPrice ?
                 <span className='bg-orange-800 h-9 items-center flex text-white text-inherit leading-none circle'>
                     {calcPercent()}%
