@@ -8,7 +8,7 @@ const Price = ({ oldPrice, price, className = '' }) => (
                 <s className='text-red-400'>
                     <span>{split(oldPrice)}</span>
                 </s>
-                <span className='text-gray-400 mx-3'>-</span>
+                <span className='text-gray-400 mx-2'>-</span>
             </> :
             null
         }

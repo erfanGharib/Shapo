@@ -7,7 +7,7 @@ const ProductLabels = ({ price, oldPrice, inventory, textSize = 'text-sm' }) => 
         <div className={`${textSize} overlay py-3.5 px-3 flex justify-end`} style={{direction: 'ltr'}}>
             {oldPrice ?
                 <span className='bg-orange-800 h-9 items-center flex text-white text-inherit leading-none circle'>
-                    {calcPercent()}%
+                    -{calcPercent()}%
                 </span> :
                 null
             }

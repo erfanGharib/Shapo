@@ -97,9 +97,6 @@ input[type=number] {
 nav > div > div > button {
   @apply hover:text-gold;
 }
-input, button {
-  @apply disabled:cursor-not-allowed;
-}
 /* .primary-btn {
   @apply !text-white;
 }
@@ -136,8 +133,8 @@ input, button {
 #pageCounter > .currentPage {
   @apply bg-gold hover:bg-transparent hover:text-gold border-gold border;
 }
-#pageCounter > * {
-  @apply bg-gray-50 hover:bg-gray-100 transition-colors;
+#pageCounter > *:not(.gold-btn) {
+  @apply bg-gray-50 hover:bg-gray-100 transition-colors ml-3 px-3;
 }
 a, a > * {
   @apply hover:!text-gold transition-colors;
@@ -147,4 +144,7 @@ a, a > * {
 }
 tr > * {
   @apply p-4;
+}
+#navbarLinks > button {
+  @apply ml-3;
 }

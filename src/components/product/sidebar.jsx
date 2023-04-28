@@ -6,7 +6,7 @@ import Toggle from "../toggle";
 
 const Sidebar = () => {
     return (
-        <div id='sidebar' className='md:w-1/3 w-full h-full space-y-7'>
+        <div id='sidebar' className='lg:w-1/3 w-full h-full space-y-7'>
             <Col><Input placeholder='جستجو در نتایج' /></Col>
 
             <Col title='دسته بندی'>
@@ -17,7 +17,7 @@ const Sidebar = () => {
                 </ul>
             </Col>
 
-            <Col title='محدوده قیمت'>
+            <Col title='محدوده قیمت' className='flex-col'>
                 <div className='flex'>
                     <Input placeholder='از 0 تومان' />
                     <Btn ico={<IcoLeftRightArrow/>} />

@@ -25,17 +25,17 @@ const Product = ({ data, className = '' }) => {
 
     const overlayBtns = [
         {
+            ico: <IcoPlus />,
+            onClick: () => dispatch(addToCart(data))
+        },
+        {
             ico: <IcoShoppingBag />,
             onClick: () => navigate(pageLink)
         },
-        {
-            ico: <IcoPlus />,
-            onClick: () => dispatch(addToCart(data))
-        }
     ];
 
     return (
-        <div className={`${className} flex flex-col items-center`}>
+        <div className={`${className} flex flex-col items-center`} style={{direction: 'rtl'}}>
             <div className='w-full relative group h-full'>
                 <Link to={pageLink}>
                     <div className='aspect-square bg-[#efeff1]'>
@@ -62,7 +62,7 @@ const Product = ({ data, className = '' }) => {
             <Link to={pageLink}>
                 <h3 className='mt-2'>{name}</h3>
             </Link>
-            <Price price={price} oldPrice={oldPrice} className='text-gray-400 flex-row-reverse' />
+            <Price price={price} oldPrice={oldPrice} className='text-gray-400' />
         </div>
     );
 }

@@ -5,7 +5,7 @@ import {ReactComponent as IcoAngleRight} from '../../assets/icons/angle-right.sv
 import {ReactComponent as IcoAngleLeft} from '../../assets/icons/angle-left.svg'
 import { goLeft, goRight, setConfig } from "../../store/reducers/_productSliderStatus";
 import { useEffect } from "react";
-import IS_WIDTH_768px from "../..";
+import { IS_WIDTH_768px } from "../..";
 
 const ProductSlider = ({ products, title = 'product slider' }) => {
     const dispatch = useDispatch();

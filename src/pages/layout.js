@@ -6,18 +6,12 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/navbar";
 import { ReactComponent as IcoArrowTop } from '../assets/icons/arrow-top.svg'
+import { backTop } from "..";
 
 const Layout = () => {
     const backTopRef = useRef();
     const location = useLocation();
 
-    const backTop = () => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-        })
-    }
     useEffect(() => {
         const scrollFunction = () => {
             if (document.documentElement.scrollTop >= 70) {
@@ -26,7 +20,7 @@ const Layout = () => {
             else backTopRef.current.classList.add('hidden')
         }
         window.addEventListener('scroll', scrollFunction);
-    }, [backTopRef])
+    }, [])
 
     useEffect(() => {
         backTop();

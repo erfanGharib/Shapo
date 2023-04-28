@@ -1,21 +1,38 @@
 import Btn from "../btn";
 import Product from "./product";
-import {ReactComponent as IcoThreeDots} from '../../assets/icons/three-dots.svg';
-import {ReactComponent as IcoFourDots} from '../../assets/icons/four-dots.svg';
+import { ReactComponent as IcoThreeDots } from '../../assets/icons/three-dots.svg';
+import { ReactComponent as IcoFourDots } from '../../assets/icons/four-dots.svg';
 import { useState } from "react";
 import PageCounter from "../pageCounter";
-import IS_WIDTH_768px from "../..";
+import { IS_WIDTH_768px } from "../..";
+import { useSelector } from "react-redux";
 
 const ProductGrid = ({ products = [] }) => {
     const [productGridCols, setProductGridCols] = useState(3);
+    const { currentPage } = useSelector(state => state.$_pageCounter);
+
+    /**
+     * PageCounter implemention:
+     * put target products index in @productsIndex
+     * example: 0, 1, ... , 8 || 9, 10, ... , 17
+
+     * map on @productsIndex and load elements
+     *** index < 9 * currentPage && products[value] !== undefined
+     * load products from 0 to 8 || 9 to 17
+     * and check it is undefined or no
+    */
+    const productsIndex = products.map((_, index) => 
+        index = index + (9 * (currentPage - 1))
+    );
+    
     return (
-        <div className="md:w-2/3 w-full mx-auto flex flex-col items-center">
+        <div className="lg:w-2/3 w-full mx-auto flex flex-col items-center lg:ml-7">
             <div className='w-full mb-3 h-10 flex items-center justify-between'>
                 <span>
                     <span className='ml-2'>نشان دادن</span>
                     <span>
-                        {products.length} 
-                        از 
+                        {products.length}
+                        از
                         {products.length <= 9 ? products.length : 9}
                     </span>
                 </span>
@@ -24,12 +41,12 @@ const ProductGrid = ({ products = [] }) => {
                     null :
                     <div className="flex">
                         <Btn
-                            ico={<IcoFourDots/>}
+                            ico={<IcoFourDots />}
                             className={productGridCols === 3 ? 'opacity-40' : ''}
                             onClick={() => setProductGridCols(4)}
                         />
                         <Btn
-                            ico={<IcoThreeDots/>}
+                            ico={<IcoThreeDots />}
                             className={productGridCols === 4 ? 'opacity-40' : ''}
                             onClick={() => setProductGridCols(3)}
                         />
@@ -37,13 +54,21 @@ const ProductGrid = ({ products = [] }) => {
                 }
             </div>
 
-            <div className={`${productGridCols === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'} grid-cols-2 grid gap-5 w-full`}>
-                {products.map((v, index) => 
-                    <Product data={v} key={index} />
-                )}
+            <div className='-mx-2.5'>
+                <div className={`${productGridCols === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'} grid-cols-2 grid w-full`}>
+                    {productsIndex.map((value, index) => 
+                        index < 9 * currentPage && products[value] !== undefined ? 
+                            <Product
+                                data={products[value]}
+                                key={index}
+                                className='mb-5 mx-2.5'
+                            /> : 
+                            null
+                    )}
+                </div>
             </div>
 
-            <PageCounter pageCount={3} currentPage={1} />
+            <PageCounter pageCount={Math.ceil(products.length / 9)} />
         </div>
     );
 }
