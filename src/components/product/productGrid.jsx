@@ -7,9 +7,10 @@ import PageCounter from "../pageCounter";
 import { IS_WIDTH_768px } from "../..";
 import { useSelector } from "react-redux";
 
-const ProductGrid = ({ products = [] }) => {
+const ProductGrid = () => {
     const [productGridCols, setProductGridCols] = useState(3);
     const { currentPage } = useSelector(state => state.$_pageCounter);
+    const { productsCpy } = useSelector(state => state.$_products);
 
     /**
      * PageCounter implemention:
@@ -21,7 +22,7 @@ const ProductGrid = ({ products = [] }) => {
      * load products from 0 to 8 || 9 to 17
      * and check it is undefined or no
     */
-    const productsIndex = products.map((_, index) => 
+    const productsIndex = productsCpy.map((_, index) => 
         index = index + (9 * (currentPage - 1))
     );
     
@@ -31,9 +32,9 @@ const ProductGrid = ({ products = [] }) => {
                 <span>
                     <span className='ml-2'>نشان دادن</span>
                     <span>
-                        {products.length}
-                        از
-                        {products.length <= 9 ? products.length : 9}
+                        {productsCpy.length - 9 * (currentPage - 1)}
+                        <span className='mx-2'>از</span>
+                        {productsCpy.length}
                     </span>
                 </span>
 
@@ -57,9 +58,9 @@ const ProductGrid = ({ products = [] }) => {
             <div className='-mx-2.5'>
                 <div className={`${productGridCols === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'} grid-cols-2 grid w-full`}>
                     {productsIndex.map((value, index) => 
-                        index < 9 * currentPage && products[value] !== undefined ? 
+                        index < 9 * currentPage && productsCpy[value] !== undefined ? 
                             <Product
-                                data={products[value]}
+                                data={productsCpy[value]}
                                 key={index}
                                 className='mb-5 mx-2.5'
                             /> : 
@@ -68,7 +69,7 @@ const ProductGrid = ({ products = [] }) => {
                 </div>
             </div>
 
-            <PageCounter pageCount={Math.ceil(products.length / 9)} />
+            <PageCounter pageCount={Math.ceil(productsCpy.length / 9)} />
         </div>
     );
 }

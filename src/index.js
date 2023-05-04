@@ -7,8 +7,6 @@ import 'notyf/notyf.min.css';
 
 export const IS_WIDTH_768px = window.screen.width <= 768;
 export const backTop = () => {
-    console.log('ok');
-
     window.scrollTo({
         top: 0,
         left: 0,

@@ -22,13 +22,13 @@ const ProductTabs = ({ tabs = '', productName, productImg }) => {
     ];
     const [currentTab, setCurrentTab] = useState(0);
     return (
-        <div className='mainPart !justify-start !space-0'>
+        <div className='mainPart !justify-start'>
             <div className="ml-auto w-full mt-14 border-b border-gray-200">
-                <ul className="flex items-center flex-wrap text-sm font-medium" id="productInfoTab" role="tablist">
+                <ul className="flex items-center flex-wrap md:text-base text-sm font-medium" id="productInfoTab" role="tablist">
                     {productInfoTabs.map((tab, index) => (
                         <li key={tab.title} role="presentation">
                             <Btn
-                                className={`ml-3 !min-w-[20px] px-2 ${index === currentTab ? 'text-gold border-b-2 border-gold relative top-px' : ''}`}
+                                className={`ml-3 md:ml-5 !min-w-[20px] px-2 ${index === currentTab ? 'text-gold border-b-2 border-gold relative top-px' : ''}`}
                                 onClick={() => setCurrentTab(index)}
                             >
                                 {tab.title}

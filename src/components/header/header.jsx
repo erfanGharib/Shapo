@@ -40,7 +40,7 @@ const Header = () => {
     },[status]);
 
     return (
-        <div className='bg-gray-50 w-full h-[85vh] -mt-20 md:mb-32 mb-24 overflow-hidden relative z-0'>
+        <div className='bg-gray-50 w-full max-h-[1000px] h-[85vh] -mt-20 md:mb-32 mb-24 overflow-hidden relative z-0'>
             <MainSlider
                 containerRef={containerRef}
                 sliderRef={sliderRef}

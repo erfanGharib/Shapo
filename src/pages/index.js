@@ -8,7 +8,7 @@ import PostGrid from "../components/blog/postGrid";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-    const { data } = useSelector(state => state.$_products);
+    const { products } = useSelector(state => state.$_products);
     return (
         <main className="w-full flex items-start flex-col">
             <Header />
@@ -35,7 +35,7 @@ const Home = () => {
                 imgSrc={imgArtDecoHome}
                 rtl={false}
             />
-            <ProductSlider products={data} title='پر فروش ترین ها' />
+            <ProductSlider products={products} title='پر فروش ترین ها' />
             
             <div className='w-5/6 mx-auto'>
                 <PostGrid />

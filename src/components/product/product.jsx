@@ -19,7 +19,7 @@ const Product = ({ data, className = '' }) => {
         inventory = 0,
         qty = 1
     } = data;
-    const pageLink = `product/${name}`;
+    const pageLink = `../product/${name}`;
     const navigate = useNavigate();
     const dispatch = useDispatch();
 

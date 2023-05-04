@@ -13,7 +13,7 @@ import ProductPage from './pages/productPage';
 import { useSelector } from 'react-redux';
 
 const Router = () => {
-    const { data } = useSelector(state => state.$_products);
+    const { products } = useSelector(state => state.$_products);
 
     return (
         <BrowserRouter>
@@ -26,11 +26,11 @@ const Router = () => {
                     <Route path="blog" element={<Blog />} />
                     <Route path="about-us" element={<AboutUs />} />
                     <Route path="contact-us" element={<ContactUs />} />
-                    {data.map((data) =>
+                    {products.map(product =>
                         <Route 
-                            key={data['id']}
-                            path={`product/${data['name']}`}
-                            element={<ProductPage data={data} />} 
+                            key={product.id}
+                            path={`product/${product.name}`}
+                            element={<ProductPage data={product} />} 
                         />
                     )}
                 </Route>

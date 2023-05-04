@@ -20,7 +20,7 @@ const Layout = () => {
             else backTopRef.current.classList.add('hidden')
         }
         window.addEventListener('scroll', scrollFunction);
-    }, [])
+    }, [backTopRef])
 
     useEffect(() => {
         backTop();

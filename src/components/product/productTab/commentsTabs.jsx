@@ -16,7 +16,7 @@ const CommentsTab = ({ productName = '', comments }) => {
             </div>
             <div className="py-5 flex flex-wrap items-center">
                 <textarea className='w-full mb-3' rows={5} placeholder='نظر شما'></textarea>
-                <div className='flex w-full space-3'>
+                <div className='flex w-full'>
                     <Input placeholder='ایمیل' className='w-1/2 mb-3 ml-3' />
                     <Input placeholder='نام' className='w-1/2 mb-3' />
                 </div>

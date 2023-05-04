@@ -30,7 +30,7 @@ const Container = ({
             <span className='block md:w-20 h-5'></span>
             <div className={`md:mt-0 mt-5 md:w-1/2 w-full flex flex-col justify-center ${primary ? 'animateChilds' : ''}`}>
                 <h4 className={`!duration-300 w-20 mb-1 ${primary ? 'text-gold' : 'text-gray-400'}`}>{supTitle}</h4>
-                <h2 className={`!duration-500 leading-tight ${primary ? 'text-[40px] md:text-[55px]' : 'text-3xl'}`}>{title}</h2>
+                <h2 className={`!duration-500 leading-tight max-w-[400px] ${primary ? 'text-[40px] md:text-[55px]' : 'text-3xl'}`}>{title}</h2>
                 <p  className='!duration-700 mb-7 mt-5'>{desc}</p>
 
                 <div className='!duration-1000'>
