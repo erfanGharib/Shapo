@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { productData } from '../../data/productData';
-// import { checkFilterCondition } from '../../data/productFilters';
+import axios from 'axios';
 
 export const $_products = createSlice({
     name: '_products',
