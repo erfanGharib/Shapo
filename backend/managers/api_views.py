@@ -424,7 +424,7 @@ class OrderUpdateAPI(generics.RetrieveUpdateAPIView):
     lookup_field = 'id'
 
 
-class OrderDestroyAPI(generics.DestroyAPIView):
+class OrderDestroyAPI(generics.RetrieveDestroyAPIView):
     """
         Destroy Order with Order ID
     """
@@ -435,7 +435,7 @@ class OrderDestroyAPI(generics.DestroyAPIView):
     lookup_field = 'id'
 
 
-class OrderItemCreateAPI(generics.CreateAPIView):
+class OrderItemAddAPI(generics.CreateAPIView):
     """
         Create Order Item
     """
@@ -482,7 +482,7 @@ class OrderItemUpdateAPI(generics.RetrieveUpdateAPIView):
     lookup_field = 'id'
 
 
-class OrderItemDestroyAPI(generics.DestroyAPIView):
+class OrderItemDestroyAPI(generics.RetrieveDestroyAPIView):
     """
         Destroy Order Item with Order Item ID
     """

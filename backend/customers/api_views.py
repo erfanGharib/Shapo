@@ -110,7 +110,7 @@ class OrderCreateUserAPI(generics.CreateAPIView):
 
 
 class OrderItemAddAPI(generics.CreateAPIView):
-    permission_classes = [permissions.IsAuthenticated, ]
+    # permission_classes = [permissions.IsAuthenticated, ]
     serializer_class = OrderItemSerializer
 
     def create(self, request, *args, **kwargs):
@@ -118,10 +118,12 @@ class OrderItemAddAPI(generics.CreateAPIView):
         if data.is_valid():
             data.save()
             data.instance.order.id = Order.objects.filter(customer_id=self.request.user.id).first().id
+            data.instance.product.id = self.request.query_params.get('product_id')
+            data.instance.quantity = self.request.query_params.get('quantity')
             data.save()
             return Response({'message': 'اضافه شد.'})
         else:
-            return Response(data.errors)
+            return Response({data.errors})
 
 
 class OrderItemListAPI(generics.ListAPIView):

@@ -20,11 +20,14 @@ class Products(models.Model):
         ('available', 'موجود'),
         ('unavailable', 'ناموجود')
     )
+
     title = models.CharField(max_length=255, blank=False, null=False, verbose_name="عنوان")
     description = models.TextField(null=False, blank=False, verbose_name="درباره")
     thumbnail = models.ImageField(null=False, blank=False, upload_to='product/%y/%m/%d', verbose_name="تصویر")
     price = models.IntegerField(blank=False, null=False, verbose_name="قیمت")
     status = models.CharField(choices=STATUS, max_length=20, blank=False, null=False, verbose_name="وضعیت")
+    specifications = models.TextField(null=False, blank=False, verbose_name='مشخصات فنی')
+    discount = models.IntegerField(default=None, verbose_name='تخفیف')
     number = models.IntegerField(null=False, blank=False, verbose_name="تعداد")
     category = models.ManyToManyField(ProductCategory, verbose_name="دسته بندی")
     created = models.DateTimeField(auto_now_add=True, verbose_name="زمان ساخت")
@@ -35,6 +38,14 @@ class Products(models.Model):
 
     def jdateUpdated(self):
         return django_jalali(self.updated)
+
+    def discounted(self):
+        if self.discount > 0:
+            discount = self.discount/100
+            final_discount = self.price * discount
+            return self.price - final_discount
+        else:
+            return self.price
 
     def __str__(self):
         return self.title
@@ -99,10 +110,14 @@ class Order(models.Model):
     def get_total(self):
         return sum(item.get_cost()for item in self.item.all())
 
+    def __str__(self):
+        return f'{self.customer.firstName} {self.customer.lastName}'
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='item')
     product = models.ForeignKey(Products, on_delete=models.CASCADE, verbose_name='محصول')
+    price = models.IntegerField(verbose_name='قیمت')
     quantity = models.IntegerField(default=1, verbose_name='تعداد')
 
     class Meta:
@@ -113,4 +128,4 @@ class OrderItem(models.Model):
         return self.id
 
     def get_cost(self):
-        return self.product.price * self.quantity
+        return self.price * self.quantity
