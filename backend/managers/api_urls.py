@@ -55,7 +55,7 @@ urlpatterns = [
     # order item
     path('orderitem/list/', api_views.OrderItemListAPI.as_view(), name='OrdersItemList'),
     path('orderitem/filter/<int:id>/', api_views.OrderItemFilterAPI.as_view(), name='OrderItemFilter'),
-    path('orderitem/create/', api_views.OrderItemCreateAPI.as_view(), name='OrderItemCreate'),
+    path('orderitem/add/', api_views.OrderItemAddAPI.as_view(), name='OrderItemAdd'),
     path('orderitem/update/<int:id>/', api_views.OrderItemUpdateAPI.as_view(), name='OrderItemUpdate'),
     path('orderitem/destroy/<int:id>/', api_views.OrderItemDestroyAPI.as_view(), name='OrderItemDestroy'),
     path('orderitem/<int:id>/', api_views.OrderItemViewAPI.as_view(), name='OrderItemView'),
