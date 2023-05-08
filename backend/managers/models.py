@@ -20,13 +20,13 @@ class Products(models.Model):
         ('available', 'موجود'),
         ('unavailable', 'ناموجود')
     )
-
     title = models.CharField(max_length=255, blank=False, null=False, verbose_name="عنوان")
     description = models.TextField(null=False, blank=False, verbose_name="درباره")
     thumbnail = models.ImageField(null=False, blank=False, upload_to='product/%y/%m/%d', verbose_name="تصویر")
     price = models.IntegerField(blank=False, null=False, verbose_name="قیمت")
     status = models.CharField(choices=STATUS, max_length=20, blank=False, null=False, verbose_name="وضعیت")
     specifications = models.TextField(null=False, blank=False, verbose_name='مشخصات فنی')
+    property = models.TextField(null=False, blank=False, verbose_name='ویژگی ها')
     discount = models.IntegerField(default=None, verbose_name='تخفیف')
     number = models.IntegerField(null=False, blank=False, verbose_name="تعداد")
     category = models.ManyToManyField(ProductCategory, verbose_name="دسته بندی")
