@@ -26,7 +26,6 @@ class Products(models.Model):
     price = models.IntegerField(blank=False, null=False, verbose_name="قیمت")
     status = models.CharField(choices=STATUS, max_length=20, blank=False, null=False, verbose_name="وضعیت")
     specifications = models.TextField(null=False, blank=False, verbose_name='مشخصات فنی')
-    property = models.TextField(null=False, blank=False, verbose_name='ویژگی ها')
     discount = models.IntegerField(default=None, verbose_name='تخفیف')
     number = models.IntegerField(null=False, blank=False, verbose_name="تعداد")
     category = models.ManyToManyField(ProductCategory, verbose_name="دسته بندی")
