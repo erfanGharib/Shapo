@@ -10,7 +10,6 @@ import { calcTotalPrice } from "../../App";
 const CartSidebar = () => {
     const { data: cartData } = useSelector(state => state.$_cart);
     const dispatch = useDispatch();
-    console.log(cartData);
 
     return (
         <>
@@ -20,7 +19,7 @@ const CartSidebar = () => {
                         {
                             cartData.map(({ imgUrl = '', name = '', price = '', qty = 1, id = '' }, index) => (
                                 <div key={index} className='mb-3 flex items-center w-full border-b pb-3'>                                    
-                                    <div className='w-24 aspect-square ml-5 p-4 flex justify-center items-center bg-[#efeff1]'>
+                                    <div className='w-24 aspect-square ml-5 flex justify-center items-center bg-[#efeff1]'>
                                         <img src={imgUrl} alt={name} className='w-full' />
                                     </div>
 

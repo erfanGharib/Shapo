@@ -1,4 +1,4 @@
-const Col = ({ children, title, className='' }) => {
+const Row = ({ children, title, className='' }) => {
     return (
         <div className={`${className} w-full flex flex-wrap space-y-3 items-start`}>
             {title !== undefined ? <h3 className='ml-3'>{title}</h3> : null}
@@ -8,4 +8,4 @@ const Col = ({ children, title, className='' }) => {
         </div>
     );
 }
-export default Col;
+export default Row;

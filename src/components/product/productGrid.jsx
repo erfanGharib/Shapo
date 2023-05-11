@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const ProductGrid = () => {
     const [productGridCols, setProductGridCols] = useState(3);
     const { currentPage } = useSelector(state => state.$_pageCounter);
-    const { productsCpy } = useSelector(state => state.$_products);
+    const { products, productsCpy } = useSelector(state => state.$_products);
 
     /**
      * PageCounter implemention:
@@ -34,7 +34,7 @@ const ProductGrid = () => {
                     <span>
                         {productsCpy.length - 9 * (currentPage - 1)}
                         <span className='mx-2'>از</span>
-                        {productsCpy.length}
+                        {products.length}
                     </span>
                 </span>
 

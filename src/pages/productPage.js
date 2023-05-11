@@ -63,7 +63,7 @@ const ProductPage = props => {
                                 /> :
                                 <AddToCart
                                     disabled
-                                    className='!bg-red-600 border-red-600 text-white hover:text-white'
+                                    className='!bg-red-600 !border-red-600 text-white hover:text-white'
                                 >
                                     محصول در انبار موجود نمیباشد
                                 </AddToCart>

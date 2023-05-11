@@ -1,59 +1,82 @@
-import Col from "../col";
+import Row from "./row";
 import Input from '../input'
 import Btn from '../btn'
-import {ReactComponent as IcoLeftRightArrow} from '../../assets/icons/left-right-arrow.svg';
+import { ReactComponent as IcoLeftRightArrow } from '../../assets/icons/left-right-arrow.svg';
 import Toggle from "../toggle";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters, setProductsCpy } from "../../store/reducers/_products";
-import { useState } from "react";
+import { useEffect } from "react";
 
 const Sidebar = () => {
-    const { products, productsCpy } = useSelector(state => state.$_products);
-    const filtersCpy = [];
-
-    // const existingProducts = productsCpy.filter(v => v.inventory >= 1);
-    // const offeredProducts = productsCpy.filter(v => v.oldPrice !== null);
+    const { filters, products, categories } = useSelector(state => state.$_products);
     const dispatch = useDispatch();
 
-    // const applyFilter = (type) => {
-    //     filtersCpy.push(type);
+    const applyFilter = (fname, value) => {
+        dispatch(setFilters({ ...filters, [fname]: value }))
+    }
 
-    //     setFilters(filtersCpy)
-    //     // filters.forEach(filter => {
-    //     //     filtersCpy.push(filter);
-    //     // })
-    //     if(x) dispatch(setProductsCpy(filtered));
-    //     else dispatch(setProductsCpy(products));
-    //     x = !x;
-    // }
+    useEffect(() => {
+        dispatch(setProductsCpy(
+            products.filter(v =>
+                (filters.exist      ? v.inventory > 0 : v) &&
+                (filters.cat        ? v.cat === filters.cat : v) &&
+                (filters.name       ? v.name.includes(filters.name) : v) &&
+                (filters.offered    ? v.oldPrice !== null : v) &&
+                (filters.priceRange.applyF ?
+                    (
+                        filters.priceRange.values[0] <= v.price && 
+                        filters.priceRange.values[1] >= v.price
+                    )
+                    : v
+                )
+            )
+        ));
+    }, [filters]);
 
     return (
         <div id='sidebar' className='lg:w-1/3 w-full h-full space-y-7'>
-            <Col><Input placeholder='جستجو در نتایج' /></Col>
+            <Row>
+                <Input
+                    onInput={({ target }) => applyFilter('name', target.value)}
+                    placeholder='جستجو در نتایج'
+                    type="search"
+                />
+            </Row>
 
-            <Col title='دسته بندی'>
+            <Row title='دسته بندی'>
                 <ul className='list-disc space-y-2 mr-5 w-full text-gray-400'>
-                    <li>اکسسوری</li>
-                    <li>دکوراسیون</li>
-                    <li>مبلمان</li>
+                    {categories.map((v, index) =>
+                        <li
+                            className={`${v === filters.cat ? 'text-gold' : ''} cursor-pointer`}
+                            onClick={() => applyFilter('cat', v)}
+                            key={index}
+                        >
+                            {v}
+                        </li>
+                    )}
                 </ul>
-            </Col>
+            </Row>
 
-            <Col title='محدوده قیمت' className='flex-col'>
+            <Row title='محدوده قیمت' className='flex-col'>
                 <div className='flex'>
-                    <Input placeholder='از 0 تومان' />
-                    <Btn ico={<IcoLeftRightArrow/>} />
-                    <Input placeholder='تا 0 تومان' />
+                    <Input 
+                        type='tel' 
+                        placeholder='از 0 تومان' 
+                        onInput={({ target }) => applyFilter('priceRange', target.value)} 
+                    />
+                    <Btn ico={<IcoLeftRightArrow />} />
+                    <Input type='tel' placeholder='تا 0 تومان' />
+                    <Btn className='general-btn btn !px-6 mr-3'>اعمال</Btn>
                 </div>
-            </Col>
+            </Row>
 
-            <Col title='فقط محصولات موجود'>
-                <Toggle onClick={() => dispatch(setFilters('inventory'))} />
-            </Col>
+            <Row title='فقط محصولات موجود'>
+                <Toggle onClick={() => applyFilter('exist', !filters.exist)} />
+            </Row>
 
-            <Col title='فقط محصولات های تخفیف دار'>
-                <Toggle onClick={() => dispatch(setFilters('oldPrice'))} />
-            </Col>
+            <Row title='فقط محصولات های تخفیف دار'>
+                <Toggle onClick={() => applyFilter('offered', !filters.offered)} />
+            </Row>
         </div>
     );
 }

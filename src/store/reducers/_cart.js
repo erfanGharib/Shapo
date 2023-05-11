@@ -28,13 +28,15 @@ export const $_cart = createSlice({
     reducers: {
         addToCart: (state, { payload }) => {
             const dataCpy = [...state.data];
-            console.log(payload);
             
-            if(!dataCpy.some(v => v.id === payload.id)) {
+            if(!dataCpy.some(v => v.id === payload.id) && payload.inventory > 0) {
                 dataCpy.push(payload);
                 state.data = dataCpy;
 
                 notyf.success(`محصول به سبد خرید اضافه شد`);
+            }
+            else if(!payload.inventory > 0) {
+                notyf.error('محصول ناموجود است');
             }
             else {
                 notyf.error('محصول قبلا به سبد خرید اضافه شده است');
@@ -58,7 +60,6 @@ export const $_cart = createSlice({
         },
         updateQty: (state, { payload }) => {
             const dataCpy = [...state.data];
-            console.log(payload);
 
             if (payload.id > 0 && payload.qty > 0) {
                 dataCpy.filter((value, index, arr) => {

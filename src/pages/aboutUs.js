@@ -80,7 +80,7 @@ const AboutUs = () => {
                                     <span className="text-sm">{percent}%</span>
                                 </div>
                                 <div className="w-full bg-gray-300 rounded-full h-[3px]">
-                                    <div className="bg-400 h-[3px] bg-gray-600 rounded-full" style={{ width: `${percent}%` }}>
+                                    <div className="bg-400 h-full bg-gray-600 rounded-full" style={{ width: `${percent}%` }}>
                                     </div>
                                 </div>
                             </div>
@@ -90,16 +90,16 @@ const AboutUs = () => {
 
                 <div className='w-full flex flex-col -ml-3'>
                     <div className='flex'>
-                        <div className='w-[32.7%] h-full flex flex-col'>
+                        <div className='w-[32.5%] h-full flex flex-col'>
                             <GridItem imgSrc={img2} />
                             <GridItem imgSrc={img3} />
                         </div>
-                        <GridItem imgSrc={img1} className='w-[67.3%] md:!mr-3 !mr-1.5' />
+                        <GridItem imgSrc={img1} className='w-[67.5%] md:!mr-3 !mr-1.5' />
                     </div>
 
                     <div className='w-full flex'>
-                        <GridItem imgSrc={img5} className='w-[67.3%]' />
-                        <GridItem imgSrc={img4} className='w-[32.7%] md:mr-3 mr-1.5' />
+                        <GridItem imgSrc={img5} className='w-[67.5%]' />
+                        <GridItem imgSrc={img4} className='w-[32.5%] md:mr-3 mr-1.5' />
                     </div>
                 </div>
 

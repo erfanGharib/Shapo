@@ -1,6 +1,6 @@
 const GridItem = ({ imgSrc, className = '', children }) => {
     return (
-        <div className={`w-full h-full relative group overflow-hidden md:mb-3 mb-1.5 ${className}`}>
+        <div className={`h-full relative group overflow-hidden md:mb-3 mb-1.5 ${className}`}>
             <img 
                 src={imgSrc} 
                 alt='' 
