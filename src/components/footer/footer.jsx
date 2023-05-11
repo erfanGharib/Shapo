@@ -81,25 +81,23 @@ const Footer = () => {
             <div className="max-w-1366 w-5/6 pt-16 pb-10 mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {
-                        lists.map(({ title, items }) => {
-                            return (
-                                <div key={title} className='md:ml-8 mb-10 md:mb-0'>
-                                    <p className="font-medium text-black">{title}</p>
-                                    <ul className="space-y-4 text-sm mt-6">
-                                        {items.map(({ link, text }, index) =>
-                                            <li key={index}>
-                                                <Link
-                                                    href={link}
-                                                    className="text-gray-400 transition hover:opacity-75"
-                                                >
-                                                    {text}
-                                                </Link>
-                                            </li>
-                                        )}
-                                    </ul>
-                                </div>
-                            )
-                        })
+                        lists.map(({ title, items }) =>
+                            <div key={title} className='md:ml-8 mb-10 lg:mb-0'>
+                                <p className="font-medium text-black">{title}</p>
+                                <ul className="space-y-4 text-sm mt-6">
+                                    {items.map(({ link, text }, index) =>
+                                        <li key={index}>
+                                            <Link
+                                                href={link}
+                                                className="text-gray-400 transition hover:opacity-75"
+                                            >
+                                                {text}
+                                            </Link>
+                                        </li>
+                                    )}
+                                </ul>
+                            </div>
+                        )
                     }
 
                     <div>
@@ -112,8 +110,8 @@ const Footer = () => {
                     <SocialMedia className='md:w-1/3 md:justify-start justify-center' />
                     <Logo />
                     <div className='flex md:justify-end md:w-1/3 justify-center'>
-                        {otherLinks.map(({ link, text }, index) => 
-                            <Link 
+                        {otherLinks.map(({ link, text }, index) =>
+                            <Link
                                 key={index}
                                 to={link}
                                 className='mx-6 md:mr-11 md:ml-0'

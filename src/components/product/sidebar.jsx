@@ -10,6 +10,7 @@ import { useEffect } from "react";
 const Sidebar = () => {
     const { filters, products, categories } = useSelector(state => state.$_products);
     const dispatch = useDispatch();
+    let priceRangeInputs = [0, 0];
 
     const applyFilter = (fname, value) => {
         dispatch(setFilters({ ...filters, [fname]: value }))
@@ -26,8 +27,7 @@ const Sidebar = () => {
                     (
                         filters.priceRange.values[0] <= v.price && 
                         filters.priceRange.values[1] >= v.price
-                    )
-                    : v
+                    ) : v
                 )
             )
         ));
@@ -62,11 +62,20 @@ const Sidebar = () => {
                     <Input 
                         type='tel' 
                         placeholder='از 0 تومان' 
-                        onInput={({ target }) => applyFilter('priceRange', target.value)} 
+                        onInput={({ target }) => priceRangeInputs[0] = target.value}
                     />
-                    <Btn ico={<IcoLeftRightArrow />} />
-                    <Input type='tel' placeholder='تا 0 تومان' />
-                    <Btn className='general-btn btn !px-6 mr-3'>اعمال</Btn>
+                    <Btn 
+                        ico={<IcoLeftRightArrow />} 
+                    />
+                    <Input 
+                        type='tel' 
+                        placeholder='تا 0 تومان'
+                        onInput={({ target }) => priceRangeInputs[1] = target.value} 
+                    />
+                    <Btn 
+                        className='general-btn btn !px-6 mr-3'
+                        onClick={() => applyFilter('priceRange', {applyF: true, values: priceRangeInputs})} 
+                    >اعمال</Btn>
                 </div>
             </Row>
 
