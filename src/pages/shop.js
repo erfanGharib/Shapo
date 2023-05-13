@@ -6,7 +6,7 @@ const Shop = () => {
     return (
         <>
             <PageInfo title='فروشگاه' path='فروشگاه' />
-            <div className='mainPart lg:flex-row !items-start'>
+            <div className='mainPart !flex-col-reverse lg:!flex-row !items-start'>
                 <ProductGrid />
                 <Sidebar />
             </div>

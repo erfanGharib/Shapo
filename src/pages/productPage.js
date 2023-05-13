@@ -44,7 +44,7 @@ const ProductPage = props => {
                         <img src={imgUrl} alt={name} className='w-full m-auto' />
                     </div>
 
-                    <div className='md:w-1/2 w-full md:mr-7 mt-7 aspect-square'>
+                    <div className='md:w-1/2 justify-start items-start w-full md:mr-7 mt-7 aspect-square'>
                         <h1 className='text-2xl font-bold'>{name}</h1>
                         <Price
                             price={price}

@@ -11,10 +11,7 @@ export const $_products = createSlice({
             cat: false,
             name: false,
             offered: false,
-            priceRange: {
-                applyF: false,
-                values: [0, 0]
-            },
+            priceRange: false,
         },
         categories: [
             'اکسسوری',

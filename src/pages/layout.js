@@ -23,7 +23,10 @@ const Layout = () => {
     }, [backTopRef])
 
     useEffect(() => {
-        backTop();
+        // on product filter url got changes
+        // goal: prevent running backTop() on this changes
+        if(!location.pathname.includes('shop')) 
+            backTop();
     }, [location])
 
     return (

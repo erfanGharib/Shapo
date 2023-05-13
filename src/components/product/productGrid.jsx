@@ -1,5 +1,5 @@
 import Btn from "../btn";
-import Product from "./product";
+import Product from "./productBox";
 import { ReactComponent as IcoThreeDots } from '../../assets/icons/three-dots.svg';
 import { ReactComponent as IcoFourDots } from '../../assets/icons/four-dots.svg';
 import { useState } from "react";

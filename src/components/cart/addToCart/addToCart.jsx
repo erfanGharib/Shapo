@@ -4,7 +4,7 @@ import {addToCart} from '../../../store/reducers/_cart'
 
 const AddToCart = ({ className = '', product, disabled, children = 'افزودن به سبد خرید' }) => {
     const dispatch = useDispatch();
-    console.log(product);
+    
     return (
         <Btn 
             disabled={disabled}

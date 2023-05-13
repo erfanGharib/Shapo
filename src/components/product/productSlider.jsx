@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Btn from "../btn";
-import Product from "./product";
+import Product from "./productBox";
 import {ReactComponent as IcoAngleRight} from '../../assets/icons/angle-right.svg'
 import {ReactComponent as IcoAngleLeft} from '../../assets/icons/angle-left.svg'
 import { goLeft, goRight, setConfig } from "../../store/reducers/_productSliderStatus";

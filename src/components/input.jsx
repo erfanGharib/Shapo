@@ -1,6 +1,6 @@
 import Ico from './ico';
 
-const Input = ({ id, type = "search", onInput, placeholder, ico, className, onClick, disabled, inputRef }) => {
+const Input = ({ id, type = "search", onInput, placeholder, ico, className, value, disabled, inputRef }) => {
     return (
         <label htmlFor='searchBox' className={`${className} w-full block relative`}>
             <Ico className='absolute top-2.5 left-3 md:block hidden'>
@@ -14,6 +14,7 @@ const Input = ({ id, type = "search", onInput, placeholder, ico, className, onCl
                 placeholder={placeholder}
                 className='w-full h-full'
                 id={id}
+                defaultValue={value}
             />
         </label>
     );

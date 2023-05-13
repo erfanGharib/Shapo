@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import Btn from '../btn'
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../../store/reducers/_cart";
-import { ReactComponent as IcoClose } from '../../assets/icons/close.svg';
 import Price from "../price";
 import { setStatus } from "../../store/reducers/_sidebarStatus";
 import { calcTotalPrice } from "../../App";
+import MiniProductBox from "../product/miniProductBox";
 
 const CartSidebar = () => {
     const { data: cartData } = useSelector(state => state.$_cart);
@@ -17,25 +16,9 @@ const CartSidebar = () => {
                 <>
                     <div className='flex w-full flex-col'>
                         {
-                            cartData.map(({ imgUrl = '', name = '', price = '', qty = 1, id = '' }, index) => (
-                                <div key={index} className='mb-3 flex items-center w-full border-b pb-3'>                                    
-                                    <div className='w-24 aspect-square ml-5 flex justify-center items-center bg-[#efeff1]'>
-                                        <img src={imgUrl} alt={name} className='w-full' />
-                                    </div>
-
-                                    <div className='flex justify-center flex-col'>
-                                        <span className='text-lg'>{name}</span>
-                                        <span className='text-sm'>تعداد: {qty}</span>
-                                        <Price className='text-gray-400' price={price*qty} />
-                                    </div>
-
-                                    <Btn
-                                        ico={<IcoClose className='w-5 h-5 opacity-50' />}
-                                        onClick={() => dispatch(removeFromCart(id))}
-                                        className='!min-w-[20px] mr-auto mb-auto'
-                                    />
-                                </div>
-                            ))
+                            cartData.map((data, index) => 
+                                <MiniProductBox key={index} {...data} />
+                            )
                         }
                     </div>
                     <div className='flex justify-between w-full'>

@@ -14,7 +14,7 @@ import img12 from '../assets/images/products/585x585 (12).jpg';
 export const productData = [
     {
         id: 1,
-        qty: 1,
+        // qty: undefined,
         name: 'گلدان چوبی',
         price: 100_000,
         oldPrice: null,
@@ -49,7 +49,7 @@ export const productData = [
     },
     {
         id: 2,
-        qty: 1,
+        // qty: undefined,
         name: 'میز چوب کاج',
         price: 1_500_000,
         oldPrice: null,
@@ -84,7 +84,7 @@ export const productData = [
     },
     {
         id: 3,
-        qty: 1,
+        // qty: undefined,
         name: 'کوزه سبز تیره',
         price:85_000,
         oldPrice: 90_000,
@@ -119,7 +119,7 @@ export const productData = [
     },
     {
         id: 4,
-        qty: 1,
+        // qty: undefined,
         name: 'لیوان نوشیدنی',
         price: 20_000,
         oldPrice: null,
@@ -154,7 +154,7 @@ export const productData = [
     },
     {
         id: 5,
-        qty: 1,
+        // qty: undefined,
         name: 'صندلی هلن',
         price: 900_000,
         oldPrice: 1_000_000,
@@ -189,7 +189,7 @@ export const productData = [
     },
     {
         id: 6,
-        qty: 1,
+        // qty: undefined,
         name: 'آباژور',
         price: 500_000,
         oldPrice: null,
@@ -224,7 +224,7 @@ export const productData = [
     },
     {
         id: 7,
-        qty: 1,
+        // qty: undefined,
         name: 'صندلی نانسی',
         price: 7_000_000,
         oldPrice: null,
@@ -259,7 +259,7 @@ export const productData = [
     },
     {
         id: 8,
-        qty: 1,
+        // qty: undefined,
         name: 'صندلی چوبی سفید',
         price: 300_000,
         oldPrice: null,
@@ -294,7 +294,7 @@ export const productData = [
     },
     {
         id: 9,
-        qty: 1,
+        // qty: undefined,
         name: 'کاکتوس مصنوعی',
         price: 20_000,
         oldPrice: null,
@@ -329,7 +329,7 @@ export const productData = [
     },
     {
         id: 10,
-        qty: 1,
+        // qty: undefined,
         name: 'لیوان چوبی',
         price: 730_000,
         oldPrice: null,
@@ -364,7 +364,7 @@ export const productData = [
     },
     {
         id: 11,
-        qty: 1,
+        // qty: undefined,
         name: 'استوانه چوبی',
         price: 200_000,
         oldPrice: null,
@@ -399,7 +399,7 @@ export const productData = [
     },
     {
         id: 12,
-        qty: 1,
+        // qty: undefined,
         name: 'قوری فلزی',
         price: 100_000,
         oldPrice: null,

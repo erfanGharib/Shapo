@@ -6,6 +6,8 @@ import './assets/styles/index.css';
 import 'notyf/notyf.min.css';
 
 export const IS_WIDTH_768px = window.screen.width <= 768;
+export const EQUAL_SIGN = "~";
+export const AND_SIGN = "+";
 export const backTop = () => {
     window.scrollTo({
         top: 0,

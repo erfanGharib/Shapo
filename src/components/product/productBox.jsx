@@ -62,6 +62,7 @@ const Product = ({ data, className = '' }) => {
             <Link to={pageLink}>
                 <h3 className='mt-2'>{name}</h3>
             </Link>
+            
             <Price price={price} oldPrice={oldPrice} className='text-gray-400' />
         </div>
     );

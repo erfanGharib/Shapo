@@ -13,7 +13,7 @@ const Sidebar = () => {
         <>
             <div
                 onClick={() => dispatch(setStatus())}
-                className={`${status ? '!opacity-70' : 'opacity-0 invisible'} z-30 w-full h-screen transition-opacity duration-300 bg-black absoluteTopRight`}
+                className={`${status ? '!opacity-70' : 'opacity-0 invisible'} z-30 w-full h-screen transition-all duration-300 bg-black absoluteTopRight`}
             ></div>
 
             <div className={`${status ? 'translate-x-0' : 'translate-x-full'} items-start z-40 px-10 py-6 md:w-96 w-full absoluteTopRight bg-white transform transition-transform duration-300 h-screen flex flex-col groupsidebar group-[sidebar>*,]:mb-8`}>

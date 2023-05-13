@@ -2,9 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-  .ltr- {
-    direction: ltr !important;
-  }
+.ltr {
+  direction: ltr !important;
+}
+.rtl {
+  direction: rtl !important;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100; 
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-500; 
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600; 
+} 
 
 @font-face {
   font-family: kalameh;
@@ -51,14 +68,19 @@ hr {
 main > * {
   @apply md:mb-14 mb-[85px]; 
 }
-input, textarea {
-  @apply outline-none px-5 text-sm py-3 bg-gray-200 bg-opacity-60 border-b border-gray-300;
+input[type="search"], input[type="text"], textarea {
+  @apply outline-none px-5 text-sm py-3 bg-gray-50 border-b border-gray-300 appearance-none;
 }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration,
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  -webkit-appearance:none;
   margin: 0;
 }
+
 th {
   @apply font-normal;
 }
@@ -97,12 +119,24 @@ input[type=number] {
 nav > div > div > button {
   @apply hover:text-gold;
 }
-/* .primary-btn {
-  @apply !text-white;
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  cursor: -webkit-grab;
+  @apply appearance-none cursor-grab active:cursor-grabbing pointer-events-none absolute w-full h-full bg-transparent;
 }
-.general-btn:hover > i {
-  @apply invert;
-} */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  @apply h-4 w-4 cursor-grab active:cursor-grabbing rounded-full shadow-[0_0_1px_#000] bg-white;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  @apply h-4 w-4 cursor-grab active:cursor-grabbing rounded-full shadow-[0_0_1px_#000] bg-white;
+}
+
 .primary-btn {
   @apply hover:!text-black !text-white bg-black hover:bg-transparent border-black;
 }
