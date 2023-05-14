@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import Price from './price';
 
-const DoubleRangeSlider = ({ className, max }) => {
-    const [values, setValues] = useState([0, max]);
-    let valueCpy = [...values];
+const DoubleRangeSlider = ({ className, max, onInput, values }) => {
+    let valueCpy = [...(!values ? [0, 3_000_000] : values)];
     const calcPrecent = (part, whole) => {
         return 100 * part / whole;
     }
@@ -11,27 +9,31 @@ const DoubleRangeSlider = ({ className, max }) => {
     return (
         <>
             <div className='flex justify-between items-center w-full'>
-                {values.map(v => 
-                    <Price price={v} />    
+                {valueCpy.map((v, index) => 
+                    <Price price={v} key={index} />    
                 )}
             </div>
             <div className={`w-full flex items-center relative mt-2 h-5`}>
                 {
-                    values.map((_, index) => 
+                    valueCpy.map((v, index) => 
                         <input 
                             min={0} 
                             max={max} 
-                            defaultValue={index === 0 ? 0 : max}
+                            value={v}
+                            key={index}
                             type='range' 
-                            onInput={({ target }) => { valueCpy[index] = target.value; setValues(valueCpy) }} 
+                            onInput={({ target }) => { 
+                                valueCpy[index] = Number(target.value);
+                                onInput('priceRange', valueCpy);
+                            }} 
                         />
                     )
                 }
                 <div 
-                    className={`${values[0]} h-1 relative -z-10 bg-gold w-full`} 
+                    className={`${valueCpy[0]} h-1 relative -z-10 bg-gold w-full`} 
                     style={{
-                        marginLeft: 100 - calcPrecent(values[1], max) + '%',
-                        marginRight: calcPrecent(values[0], max) + '%'
+                        marginLeft: 100 - calcPrecent(valueCpy[1], max) + '%',
+                        marginRight: calcPrecent(valueCpy[0], max) + '%'
                     }}
                 ></div>
                 <div className='h-1 absolute -z-20 bg-gray-200 w-full'></div>

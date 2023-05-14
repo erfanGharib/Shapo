@@ -1,19 +1,18 @@
-import Row from "./row";
-import Input from '../input'
-import Btn from '../btn'
 import { ReactComponent as IcoClose } from '../../assets/icons/close.svg';
-import Toggle from "../toggle";
-import { useDispatch, useSelector } from "react-redux";
 import { setFilters, setProductsCpy } from "../../store/reducers/_products";
-import { useEffect, useRef } from "react";
-import stringifyUrl from "../../utils/stringifyUrl";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import Row from "./row";
+import Btn from '../btn';
+import Toggle from "../toggle";
 import parseUrl from "../../utils/parseUrl";
-import {ReactComponent as IcoSearch} from '../../assets/icons/search.svg';
+import stringifyUrl from "../../utils/stringifyUrl";
 import DoubleRangeSlider from "../doubleRangeSlider";
 
 const Sidebar = () => {
     const { filters, products, categories } = useSelector(state => state.$_products);
+    const maxNum = 3_000_000;
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,8 +23,9 @@ const Sidebar = () => {
     
     useEffect(() => {
         dispatch(setFilters({ 
+            ...filters,
             ...parseUrl(location.search),
-            ...filters
+            priceRange: parseUrl(location.search)?.priceRange.split(',')
         }));
     }, []);
 
@@ -34,21 +34,21 @@ const Sidebar = () => {
             products.filter(v =>
                 (filters.cat        ? v.cat === filters.cat : v) &&
                 (filters.offered    ? v.oldPrice !== null : v) &&
-                (filters.exist      ? v.inventory > 0 : v) //&&
-                // (filters.priceRange.enabled ?
-                //     (
-                //         filters.priceRange.values[0] <= v.price && 
-                //         filters.priceRange.values[1] >= v.price
-                //     ) : v
-                // )
+                (filters.exist      ? v.inventory > 0 : v) &&
+                (filters.priceRange ?
+                    (
+                        filters.priceRange[0] <= v.price && 
+                        filters.priceRange[1] >= v.price
+                    ) : v
+                )
             )
         ));
-
+        
         navigate(stringifyUrl(filters));
     }, [filters]);
 
     return (
-        <div id='sidebar' className='lg:w-1/3 w-full h-full mb-5 pb-5 lg:border-none border-b'>
+        <div id='sidebar' className='lg:w-1/3 w-full h-full mb-5 lg:border-none'>
             <Row title='دسته بندی'>
                 <ul className='list-disc space-y-2 mr-5 w-full text-gray-400'>
                     {categories.map((v, index) =>
@@ -74,20 +74,20 @@ const Sidebar = () => {
             </Row>
 
             <Row title='محدوده قیمت' className='flex-col'>
-                <DoubleRangeSlider max={5_000_000} />
+                <DoubleRangeSlider values={filters.priceRange} onInput={applyFilter} max={maxNum} />
             </Row>
 
-            <Row title='فقط محصولات موجود' className='!pb-4'>
+            <Row title='فقط محصولات موجود' className='!pb-3'>
                 <Toggle 
                     checked={filters.exist} 
-                    onClick={() => applyFilter('exist', !filters.exist)} 
+                    onChange={() => applyFilter('exist', !filters.exist)} 
                 />
             </Row>
 
-            <Row title='فقط محصولات های تخفیف دار' className='border-none'>
+            <Row title='فقط محصولات های تخفیف دار' className='!pb-3 md:border-b-0'>
                 <Toggle 
                     checked={filters.offered} 
-                    onClick={() => applyFilter('offered', !filters.offered)} 
+                    onChange={() => applyFilter('offered', !filters.offered)} 
                 />
             </Row>
         </div>

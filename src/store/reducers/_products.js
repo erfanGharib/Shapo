@@ -7,11 +7,11 @@ export const $_products = createSlice({
         products: productData,
         productsCpy: productData,
         filters: {
-            exist: false,
-            cat: false,
-            name: false,
-            offered: false,
-            priceRange: false,
+            exist: null,
+            cat: null,
+            name: null,
+            offered: null,
+            priceRange: null,
         },
         categories: [
             'اکسسوری',

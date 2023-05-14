@@ -68,9 +68,8 @@ const ContactUs = () => {
                             <Btn className='btn primary-btn w-max'>ارسال</Btn>
                         </form>
                     </div>
-                    <GoogleMap />
+                    {/* <GoogleMap /> */}
                 </div>
-
             </div>
         </div>
     );

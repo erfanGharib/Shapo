@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const PageInfo = ({ title, path }) => {
     return (
-        <div id='pageInfo' className='w-full h-40 bg-gray-50 mb-14'>
+        <div id='pageInfo' className='w-full h-40 bg-gray-50 md:mb-14 mb-10'>
             <div className='w-5/6 h-full m-auto items-center flex-col justify-center sm:flex-row flex sm:justify-between text-gray-800'>
                 <h1 className='font-bold text-3xl text-black md:mb-0 mb-4'>{title}</h1>
                 <div>

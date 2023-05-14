@@ -12,7 +12,7 @@ const GoogleMap = () => {
   };
 
   return (
-    <div className='md:w-1/2 w-full h-[350px]'>
+    <div className='md:w-1/2 overflow-hidden w-full h-[350px]'>
       <GoogleMapReact
         bootstrapURLKeys={{ key: '' }}
         defaultCenter={defaultProps.center}

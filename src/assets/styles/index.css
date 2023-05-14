@@ -69,7 +69,7 @@ main > * {
   @apply md:mb-14 mb-[85px]; 
 }
 input[type="search"], input[type="text"], textarea {
-  @apply outline-none px-5 text-sm py-3 bg-gray-50 border-b border-gray-300 appearance-none;
+  @apply outline-none px-5 text-sm py-3 bg-gray-100 border-b border-gray-300 appearance-none;
 }
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
