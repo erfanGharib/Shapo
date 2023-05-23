@@ -25,7 +25,7 @@ const Sidebar = () => {
         dispatch(setFilters({ 
             ...filters,
             ...parseUrl(location.search),
-            priceRange: parseUrl(location.search)?.priceRange.split(',')
+            priceRange: parseUrl(location.search)?.priceRange?.split(',')
         }));
     }, []);
 

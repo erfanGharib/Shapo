@@ -16,6 +16,7 @@ const Product = ({ data, className = '' }) => {
         oldPrice = null,
         inventory = 0,
     } = data;
+
     const pageLink = `../product/${name}`;
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Product = ({ data, className = '' }) => {
         {
             enabled: !(inventory <= 0),
             ico: <IcoPlus />,
-            onClick: () => dispatch(addToCart(data))
+            onClick: () => dispatch(addToCart({ ...data, qty: 1}))
         },
     ];
 
