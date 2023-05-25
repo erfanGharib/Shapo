@@ -1,21 +1,33 @@
 # Shapo
 - Full responsive eCommerce Website
-- CSR rendering & connect with BackEnd using RestAPI
+- CSR rendering
 - Component based & flexible project
+- Production link: [https://shapo-bay.vercel.app/shop](https://shapo-bay.vercel.app/shop)
 
 ## Technologies
 - Reactjs
 - Redux
-- Axios
-- Restful API
+- Tailwindcss
 
 ## Pages
 - Home
 - Shop
-- Product page
-- Contact us
-- About us
+- Single Product
+- Contact-us
+- About-us
 - Blog
+
+## Options
+- Add, Edit and Delete product from cart
+- Search products by names
+- Pagination on shop page
+- Realtime product filtering in shop page
+- Change url based on filters and vice-versa 
+- Shop page filter params
+  - Categories 
+  - PriceRange
+  - Existence 
+  - Offered 
 
 ## Run Project
 ### `npm install`
@@ -26,4 +38,4 @@ Runs the app in the production mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Project Status
-Uncomplete
+Completed
