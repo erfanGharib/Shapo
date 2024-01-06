@@ -61,10 +61,10 @@ const MainSidebar = () => {
             <div className='flex flex-col px-3'>
                 <span>اطلاعات</span>
                 <p className='mt-4 text-gray-400'>
-                    ایران، استان سمنان، شهرستان شاهرود<br />
-                    خیابان آزادگان، کوچه آزادگان دوم<br />
+                    ایران سمنان گرمسار<br />
+                    خیابان تختی<br />
                     erfangharib5@gmail.com<br />
-                    ۰۹۳۹ ۰۰۰ ۳۴۰۶
+                    ۰۹۳۳ ۰۰۰ ۳۶۰۶
                 </p>
             </div>
 
