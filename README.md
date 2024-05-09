@@ -6,11 +6,12 @@ https://github.com/erfanGharib/Shapo/assets/79592676/b4a57c8d-4f74-4f15-a482-8ce
 - Full responsive eCommerce Website
 - CSR rendering
 - Component based & flexible project
-- Production link: [https://shapo-bay.vercel.app/shop](https://shapo-bay.vercel.app/shop)
+- Production link: [https://shapo-x5a6.vercel.app/](https://shapo-x5a6.vercel.app/)
 
 ## Technologies
 - Reactjs
-- Redux
+- Redux/Toolkit
+- Typescript
 - Tailwindcss
 
 ## Pages
@@ -37,9 +38,9 @@ https://github.com/erfanGharib/Shapo/assets/79592676/b4a57c8d-4f74-4f15-a482-8ce
 ### `npm install`
 Install all packages used in app
 
-### `npm start`
+### `npm run dev`
 Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:5173/](http://localhost:5173/) to view it in your browser.
 
 ## Project Status
 Completed
