@@ -6,9 +6,10 @@ https://github.com/erfanGharib/Shapo/assets/79592676/b4a57c8d-4f74-4f15-a482-8ce
 - Full responsive eCommerce Website
 - CSR rendering
 - Component based & flexible project
-- Production link: [https://shapo-x5a6.vercel.app/](https://shapo-x5a6.vercel.app/)
+- Demo link: [https://shapo-x5a6.vercel.app/](https://shapo-x5a6.vercel.app/)
 
 ## Technologies
+- Vite
 - Reactjs
 - Redux/Toolkit
 - Typescript
